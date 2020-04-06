@@ -1,0 +1,53 @@
+// В этом файле должны быть стили для БЭМ-блока colorBox, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.colorBox {
+
+  $block-name:                &; // #{$block-name}__element
+  color : $dark-shade-100;
+  height: 70px;
+  max-width: 269px;
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  padding: 10px 0;
+  // line-height: 29px;
+  
+  &__inner{
+    width: 70px;
+    height: 100%;
+    border-radius: 6px;
+    background: $dark-shade-100; 
+    margin-right: 40px;
+    &--darkShade75{
+      background-color: $dark-shade-75;
+    }
+    &--darkShade50{
+      background-color: $dark-shade-50;
+    }
+    &--darkShade25{
+      background-color: $dark-shade-25;
+    }
+    &--darkShade05{
+      background-color: $dark-shade-05;
+    }
+    &--purple{
+      background-color: $purple;
+    }
+    &--green{
+      background-color: $green;
+    }
+  }
+  &__text{
+    font-family: 'Quicksand';
+    span{
+      font-weight: bold;
+    }
+    
+    
+
+  }
+
+  
+}

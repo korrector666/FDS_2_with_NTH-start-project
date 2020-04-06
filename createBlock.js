@@ -12,7 +12,8 @@ const dir = projectConfig.dir;
 const mkdirp = require('mkdirp');
 
 const blockName = process.argv[2];
-const defaultExtensions = ['scss', 'img', 'bg-img']; // расширения по умолчанию
+// const defaultExtensions = ['scss', 'img', 'bg-img']; // расширения по умолчанию
+const defaultExtensions = ['scss', 'pug']; // расширения по умолчанию
 const extensions = uniqueArray(defaultExtensions.concat(process.argv.slice(3)));
 
 // Если есть имя блока

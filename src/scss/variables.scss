@@ -1,4 +1,7 @@
 // Базовые цвета https://colorscheme.ru/color-converter.html
+/* Dark 100% */
+@use "sass:color";
+
 
 $black:                       hsl(0, 0%, 0%);
 $gray-darkest:                hsl(0, 0%, 10%);
@@ -21,6 +24,20 @@ $color-vk:                    #4a76a8;
 $color-fb:                    #4267b2;
 $color-tw:                    #40a2f5;
 $color-gh:                    #24292e;
+
+//  My colors for project
+
+$dark-shade-100:rgba(31, 32, 65, 1); 
+$dark-shade-75 : rgba(31, 32, 65, 0.75); 
+$dark-shade-50 : rgba(31, 32, 65, 0.50);
+$dark-shade-25 : rgba(31, 32, 65, 0.25);
+$dark-shade-05 : rgba(31, 32, 65, 0.05);;
+// $dark-shade-50 : adjust($dark-shade-100, alpha:0.5);
+// $dark-shade-25 : adjust($dark-shade-100, alpha:0.25);
+// $dark-shade-05 : adjust($dark-shade-100, $alpha:0.05);
+
+$purple:		#BC9CFF;
+$green: 		#6FCF97;
 
 
 
@@ -54,7 +71,8 @@ $line-height:                 1.5;
 
 $typo-margin-vertical:        1em;
 
-$font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-family:                 -apple-system, BlinkMacSystemFont, 
+'Quicksand', 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 $font-family--monospace:     SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 // Georgia, Times New Roman, Times, serif
 

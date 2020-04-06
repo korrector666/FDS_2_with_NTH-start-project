@@ -1,0 +1,29 @@
+//- Все примеси в этом файле должны начинаться c имени блока (colorBox)
+
+mixin colorBox(_color, text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +colorBox('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' colorBox--' + modsList[i].trim();
+      }
+    }
+
+  .colorBox(class=allMods)&attributes(attributes)
+    if (_color != '') 
+      .colorBox__inner(class=' colorBox__inner--' + _color)
+    else
+      .colorBox__inner
+    
+    .colorBox__text
+        span #{text} <br>
+        |#1F2041

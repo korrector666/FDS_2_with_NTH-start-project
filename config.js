@@ -15,6 +15,7 @@ let config = {
   'addStyleBefore': [
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
+    'src/scss/font.scss',
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addStyleAfter': [
@@ -28,7 +29,7 @@ let config = {
   ],
   'addAssets': {
     'src/img/demo-*.{png,svg,jpg,jpeg}': 'img/',
-    // 'src/fonts/demo-empty-open-sans.woff2': 'fonts/',
+    'src/fonts/*.*': 'fonts/',
     // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'img/',
   },
