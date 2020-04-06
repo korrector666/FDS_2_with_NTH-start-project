@@ -1,0 +1,31 @@
+@import 'mixins/text-mixins.scss';
+h1, h2 , h3 {
+	margin-block-start: 0;
+	margin-block-end: 0;
+
+}
+h1 {
+	font-family: 'Quicksand' !important;
+	@include sizeH1;
+	}
+h2 {
+	font-family: 'Quicksand' !important;
+	@include sizeH2;
+}
+
+h3, body {
+	font-family: 'Montserrat' !important;
+}
+
+h3 {
+	@include sizeH3;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+body {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+	

@@ -10,11 +10,17 @@ block meta
 
 //- block nav
 //-   +main-nav('10')
-+section('colorAndTypes') 
-  block content
-    - each i in colorBoxSetup 
-    +colorBox(i)
-    
+block content
+      .section
+        .section__logo
+          img(src="img/logo.svg")
+        .section__inner
+          each i in colorBoxSetup 
+            +colorBox(i._color,i.text)
+        .section__inner
+          each i in demoTextSetup
+            +textDemo(i.text, i.size)
+          
 //-   h1 Заголовок
 //-   p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
 

@@ -1,0 +1,46 @@
+// В этом файле должны быть стили для БЭМ-блока textDemo, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.textDemo {
+
+  $block-name:                &; // #{$block-name}__element
+  margin-bottom: 25px;
+  display: flex;
+  padding: 12px 0;
+  padding-right: 56px;
+  justify-content: flex-start;
+  font-family: 'Montserrat';
+  
+
+  
+
+  &__left{
+    font-family: 'Montserrat';
+    width: 37px;
+    text-align: right;
+    color: $dark-shade-25;
+
+    &--sizeH1{
+      @include sizeH1;
+    }
+    &--sizeH2{
+      @include sizeH2;
+    }
+    &--sizeH3{
+      @include sizeH3;
+    }
+      
+  }
+
+  &__right{
+    width: 336px;
+    margin-left: 30px;
+    &--w310 {
+      width: 310px;
+    }
+    
+  }
+
+  
+}

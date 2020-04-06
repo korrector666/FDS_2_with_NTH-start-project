@@ -1,0 +1,40 @@
+//- Все примеси в этом файле должны начинаться c имени блока (textDemo)
+
+mixin textDemo(text, size, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   size    {string} - Тэг текста 
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +textDemo('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' textDemo--' + modsList[i].trim();
+      }
+    }
+
+  .textDemo(class=allMods)&attributes(attributes)
+    case size 
+      when 'H1'
+        .textDemo__left.textDemo__left--sizeH1 #{size}
+        .textDemo__right 
+          #{size} #{text}
+      when 'H2'
+        .textDemo__left.textDemo__left--sizeH2 #{size}
+        .textDemo__right 
+          #{size} #{text}
+      when 'H3'
+        .textDemo__left.textDemo__left--sizeH3 #{size}
+        .textDemo__right 
+          #{size} #{text}
+      default
+        .textDemo__left Body
+        .textDemo__right.textDemo__right--w310 #{text}
+
+    

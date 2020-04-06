@@ -3,7 +3,32 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .section {
-
   $block-name:                &; // #{$block-name}__element
+
+  @include container;
+  padding: 135px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: $dark-shade-05;
+  
+  &__logo{
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    border: 3px solid $dark-shade-25;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    img {
+      margin-top: 3px;
+    }
+
+   
+    
+}
   
 }
