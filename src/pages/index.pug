@@ -20,27 +20,35 @@ block content
             +textDemo(i.text, i.size)
       +section
         div
-          +_text_field('Text Field' , 'id1', 'Email', 'default')
-          +_text_field('Text Field' , 'id2', 'Email', 'HoverFocus')
-        div
-          button -
-          select(name = 'text' id='id3')
-            option#id31 
-              div  hello adfafk 'oakf;ajfiojafnadi;fll;adf'
-                p textasdasd
-                button + 
-                span
-                button -
-            option#id32 32
-            option#id33 33
-        div
-          p 3
-          
-//-   h1 Заголовок
-//-   p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+          +_text_field({
+            text: 'Text Field',
+            name:'id1',
+            placeholder:'Email',
+            state:'default'
+            })
+          +_text_field({
+            text: 'Text Field',
+            name:'id2',
+            placeholder:'Email',
+            state:'Hover \/ Focus',
+            value:'This is pretty awesome'
+            })
+          +_text_field({
+            text: 'Dropdown',
+            name:'id3',
+            placeholder:'Сколько гостей',
+            state:'default',
+            type: 'dropDown',
+          })
 
-//- block footer
-//-   p footer
+          +_text_field({
+            text: 'masked text field',
+            name:'id4',
+            state:'Default',
+            type:'maskDate'
+            })
 
-//- block append page-bottom
-//-   script(src='js/some.js')
+
+        div
+
+        div

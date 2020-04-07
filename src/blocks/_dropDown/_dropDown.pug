@@ -1,0 +1,24 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_dropDown)
+
+mixin _dropDown(options)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_dropDown('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _dropDown--' + modsList[i].trim();
+      }
+    }
+
+  ._dropDown(class=allMods)&attributes(attributes)
+    ._dropDown__inner
+      +_text_field(options.text ,options.name, options.placeholder,'DD', 'default', 'Сколько гостей')
+      block

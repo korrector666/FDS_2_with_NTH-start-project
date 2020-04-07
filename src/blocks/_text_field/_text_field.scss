@@ -5,11 +5,11 @@
 ._text_field {
 
   $block-name:                &; // #{$block-name}__element
-  $topOffset : -17px;
+  $topOffset : -19px;
 
   position: relative;
   margin-bottom: 40px;
-  
+
   &__info {
     position: absolute;
     top: $topOffset;
@@ -19,16 +19,44 @@
 
     &--state{
       right: 0;
+      top: $topOffset;
       text-align: right;
       font-weight: normal;
       color: $dark-shade-50;
-
     }
   }
 
-  input {
-    width: 316px;
-    height: 38px;
+  &__downArrow {
+    height: 44px;
+    width: 44px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    // border: 1px dashed purple;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 7px;
+      width: 7px;
+      border-left: 2px solid $dark-shade-50;
+      border-bottom: 2px solid $dark-shade-50;
+      top: 19px; 
+      left: 50%;
+      transform: translate(-50%, -50%) rotate( -45deg);
+
+
+    }
+
+
+  }
+    
+
+
+  &__input {
+    width: 320px;
+    height: 44px;
     padding: 13px 15px;
     background: $white;
     border: 1px solid $dark-shade-25;
@@ -39,8 +67,13 @@
     @include fontMose(14px, 300, 24px);
     
 
-    &::placeholder{
+    &:placeholder{
       color: $dark-shade-25;
+    }
+    &--dark{
+      &:placeholder{
+        color: $dark-shade-75;
+      }
     }
 
     &:hover, &:focus{

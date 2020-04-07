@@ -1,29 +1,47 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_text_field)
 
-mixin _text_field(text, name, placeholder, state = '', value = '',  mods)
+mixin _text_field(options)
+  //- mixin _text_field(text, name, placeholder, type='TF', state = '', value = '',  mods)
 
   //- Принимает:
   //-   text    {string} - текст
   //-   name    {string} - значение тега name
   //-   placeholder  {string}
   //-   state  {string} - текс второй метки справа
-
+  //-   type    {string} - тип инпута
+  //-   value    {string} - дефолтное значение
   //-   mods    {string} - список модификаторов
   //- Вызов:
         +_text_field('Текст', 'some-mod')
 
   -
     // список модификаторов
-    var allMods = '';
-    if(typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
+    let allMods = ''
+    if(typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',')
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _text_field--' + modsList[i].trim();
+        allMods = allMods + ' _text_field--' + modsList[i].trim()
       }
     }
 
+    let _type = 'TF'
+      _placeHolder ='ДД.ММ.ГГГГ' 
+      _pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}"
+
+
+    if (options.type !== undefined && options.type) 
+      _type = options.type
+
+    
   ._text_field(class=allMods)&attributes(attributes)
-    label._text_field__info #{text}
-    label._text_field__info._text_field__info--state #{state}  
-    input(name = name, placeholder= placeholder , value = value)
+    label._text_field__info #{options.text}
+    label._text_field__info._text_field__info--state #{options.state}  
+    case _type
+      when 'dropDown'
+        ._text_field__downArrow
+        input._text_field__input._text_field__input--dark75(name = options.name, placeholder= options.placeholder , value = options.value)
+      when 'maskDate'
+        input._text_field__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' )
+      default
+        input._text_field__input(name = options.name, placeholder= options.placeholder , value = options.value)
     block
