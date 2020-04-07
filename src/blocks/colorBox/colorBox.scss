@@ -22,6 +22,12 @@
     border-radius: 6px;
     background: $dark-shade-100; 
     margin-right: 40px;
+
+    @media (max-width: $screen-md) {
+      width: 40px;
+    }
+  
+    
     &--darkShade75{
       background-color: $dark-shade-75;
     }

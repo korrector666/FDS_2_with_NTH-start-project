@@ -41,6 +41,10 @@ const prettyHtml = require('gulp-pretty-html');
 const replace = require('gulp-replace');
 const ghpages = require('gh-pages');
 const path = require('path');
+// добавленый к оригинальной сборке KorRector
+const htmlmin = require('gulp-htmlmin');
+const cleanCSS = require('gulp-clean-css');
+ const autoprefixerGulp = require('gulp-autoprefixer');
 
 // Глобальные настройки этого запуска
 const buildLibrary = process.env.BUILD_LIBRARY == 'yes' ? true : false;
@@ -110,6 +114,7 @@ function compilePug() {
     .pipe(replace(/^( *)(<.+?>)(<script>)([\s\S]*)(<\/script>)/gm, '$1$2\n$1$3\n$4\n$1$5\n'))
     .pipe(replace(/^( *)(<.+?>)(<script\s+src.+>)(?:[\s\S]*)(<\/script>)/gm, '$1$2\n$1$3$4'))
     .pipe(through2.obj(getClassesToBlocksList))
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest(dir.build));
 }
 exports.compilePug = compilePug;
@@ -134,6 +139,7 @@ function compilePugFast() {
     .pipe(replace(/^( *)(<.+?>)(<script>)([\s\S]*)(<\/script>)/gm, '$1$2\n$1$3\n$4\n$1$5\n'))
     .pipe(replace(/^( *)(<.+?>)(<script\s+src.+>)(?:[\s\S]*)(<\/script>)/gm, '$1$2\n$1$3$4'))
     .pipe(through2.obj(getClassesToBlocksList))
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest(dir.build));
 }
 exports.compilePugFast = compilePugFast;
@@ -270,6 +276,8 @@ function compileSass() {
     .pipe(csso({
       restructure: false,
     }))
+    .pipe(autoprefixerGulp()) // added new K
+    .pipe(cleanCSS({compatibility: 'ie8'})) // added new K
     .pipe(dest(`${dir.build}/css`, { sourcemaps: '.' }))
     .pipe(browserSync.stream());
 }

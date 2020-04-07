@@ -45,9 +45,12 @@
     "gh-pages": "^2.1.1",
     "glob-exec": "^0.1.1",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-debug": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
@@ -62,6 +65,7 @@
     "gulp.spritesmith": "^6.11.0",
     "husky": "^4.2.3",
     "jstransformer-markdown-it": "^2.0.0",
+    "kind-of": ">=6.0.3",
     "lint-staged": "^10.0.9",
     "merge-stream": "^2.0.0",
     "mkdirp": "^1.0.3",
@@ -76,8 +80,7 @@
     "through2": "^3.0.1",
     "vinyl-buffer": "^1.0.1",
     "webpack": "^4.41.0",
-    "webpack-stream": "^5.2.1",
-    "kind-of": ">=6.0.3"
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "kind-of": ">=6.0.3",
