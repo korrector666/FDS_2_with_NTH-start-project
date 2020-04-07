@@ -1,0 +1,52 @@
+// В этом файле должны быть стили для БЭМ-блока _text_field, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+._text_field {
+
+  $block-name:                &; // #{$block-name}__element
+  $topOffset : -17px;
+
+  position: relative;
+  margin-bottom: 40px;
+  
+  &__info {
+    position: absolute;
+    top: $topOffset;
+    left: 0;
+    @include fontMose(12px, bold, 15px);
+    text-transform: uppercase;
+
+    &--state{
+      right: 0;
+      text-align: right;
+      font-weight: normal;
+      color: $dark-shade-50;
+
+    }
+  }
+
+  input {
+    width: 316px;
+    height: 38px;
+    padding: 13px 15px;
+    background: $white;
+    border: 1px solid $dark-shade-25;
+    color: $dark-shade-75;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    @include fontMose(14px, 300, 24px);
+    
+
+    &::placeholder{
+      color: $dark-shade-25;
+    }
+
+    &:hover, &:focus{
+      border-color: $dark-shade-50;
+    }
+
+  }
+  
+}

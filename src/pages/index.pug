@@ -11,15 +11,30 @@ block meta
 //- block nav
 //-   +main-nav('10')
 block content
-      .section
-        .section__logo
-          img(src="img/logo.svg")
+      +section()
         .section__inner
           each i in colorBoxSetup 
             +colorBox(i._color,i.text)
         .section__inner
           each i in demoTextSetup
             +textDemo(i.text, i.size)
+      +section
+        div
+          +_text_field('Text Field' , 'id1', 'Email', 'default')
+          +_text_field('Text Field' , 'id2', 'Email', 'HoverFocus')
+        div
+          button -
+          select(name = 'text' id='id3')
+            option#id31 
+              div  hello adfafk 'oakf;ajfiojafnadi;fll;adf'
+                p textasdasd
+                button + 
+                span
+                button -
+            option#id32 32
+            option#id33 33
+        div
+          p 3
           
 //-   h1 Заголовок
 //-   p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].

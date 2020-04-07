@@ -20,3 +20,10 @@
   font-size: 12px;
   line-height: 15px;
 }
+@mixin fontMose($fz : 14px, $fw: normal, $lh: $fz,  $fs : normal,  ){
+  font-family: 'Montserrat';
+  font-style: $fs;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+}

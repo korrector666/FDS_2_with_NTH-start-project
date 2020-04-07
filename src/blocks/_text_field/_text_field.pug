@@ -1,0 +1,29 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_text_field)
+
+mixin _text_field(text, name, placeholder, state = '', value = '',  mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   name    {string} - значение тега name
+  //-   placeholder  {string}
+  //-   state  {string} - текс второй метки справа
+
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_text_field('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _text_field--' + modsList[i].trim();
+      }
+    }
+
+  ._text_field(class=allMods)&attributes(attributes)
+    label._text_field__info #{text}
+    label._text_field__info._text_field__info--state #{state}  
+    input(name = name, placeholder= placeholder , value = value)
+    block
