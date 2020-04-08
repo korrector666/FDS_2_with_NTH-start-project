@@ -27,3 +27,10 @@
   font-size: $fz;
   line-height: $lh;
 }
+
+@mixin font1($upper: true){
+   @include fontMose(12px, 700, 15px);
+   @if ($upper == true) {
+    text-transform: uppercase;
+   }    
+};

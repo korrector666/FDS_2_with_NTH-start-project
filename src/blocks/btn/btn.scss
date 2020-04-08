@@ -8,5 +8,14 @@
   border:none;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
+  margin: 20px 0 8px;
+  color: $purple;
+
+  @include font1;
+
+  &--cancel {
+    color: $dark-shade-50;
+  }
 
 }
