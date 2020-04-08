@@ -5,81 +5,161 @@
 ._text_field {
 
   $block-name:                &; // #{$block-name}__element
-  $topOffset : -19px;
+  $topOffset : 20px;
+  $showDrop: false;
+  $selectedBorder: $dark-shade-50;
 
+  width: 320px;
+  height: 64px;
   position: relative;
+  // min-height: 64px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  overflow: hidden;
   margin-bottom: 40px;
 
+  &:hover, &:focus{
+    #{$block-name}__input{
+      border-color: $selectedBorder;
+    }
+  }
+  &--showDrop {
+    overflow: visible;
+    $showDrop: true;
+  }
+  // конец Text field
+  //  начало описания
   &__info {
     position: absolute;
-    top: $topOffset;
+    top: 0;
     left: 0;
     @include fontMose(12px, bold, 15px);
     text-transform: uppercase;
 
     &--state{
       right: 0;
-      top: $topOffset;
+      top: 0;
       text-align: right;
       font-weight: normal;
       color: $dark-shade-50;
     }
   }
-
+  // конец
+  //  начало описания
   &__downArrow {
     height: 44px;
     width: 44px;
     position: absolute;
-    top: 0;
+    top: $topOffset;
     right: 0;
     cursor: pointer;
-    // border: 1px dashed purple;
 
     &:before {
       content: "";
       position: absolute;
       height: 7px;
       width: 7px;
-      border-left: 2px solid $dark-shade-50;
-      border-bottom: 2px solid $dark-shade-50;
-      top: 19px; 
+      border-left: 2px solid $selectedBorder;
+      border-bottom: 2px solid $selectedBorder;
+      top: $topOffset; 
       left: 50%;
       transform: translate(-50%, -50%) rotate( -45deg);
-
-
     }
-
-
   }
-    
-
-
+  // конец
+  //  начало описания инпута
   &__input {
     width: 320px;
     height: 44px;
     padding: 13px 15px;
-    background: $white;
-    border: 1px solid $dark-shade-25;
+    margin-top: $topOffset;
     color: $dark-shade-75;
     box-sizing: border-box;
-    border-radius: 4px;
-
     @include fontMose(14px, 300, 24px);
-    
+    @include input-standart;    
 
-    &:placeholder{
-      color: $dark-shade-25;
+    &:placeholder{ 
+      color: $dark-shade-25; 
     }
+
     &--dark{
       &:placeholder{
-        color: $dark-shade-75;
+        color: $dark-shade-75
       }
     }
 
-    &:hover, &:focus{
-      border-color: $dark-shade-50;
+    &--cutBorderBottom {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      border-color: $selectedBorder
     }
 
   }
+  // конец описания инпута
+  // начало Overlay
+  &__overlay{
+    z-index: 50;
+    width: inherit;
+    @include input-standart;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+    padding: 7px;
+    padding-left: 15px;
+    border-color: $selectedBorder;
+
+    @at-root &Items {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 7px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        @include fontMose(12px, 700, 15px);
+        text-transform: uppercase;
+      }
+    }
+
+    @at-root &Item {
+      width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+  }
+  // начало конец Overlay
+  // кнопка 
+  &__Btn {
+    $btnSize : 30px;
+    width: $btnSize;
+    height: $btnSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    @include input-standart;
+    border-radius: 100%;
+    @include fontMose(18px, 300, 22px);
+    color: $dark-shade-75;
+    cursor: pointer;
+    
+
+    &--disabled{
+      opacity: 0.38;
+    }
+    
+  }
+  //  конец кнопка
+  &__value{
+    @include fontMose(12px, 700, 15px);
+    text-transform: uppercase;
+  }
+
   
 }

@@ -4,15 +4,27 @@ mixin _text_field(options)
   //- mixin _text_field(text, name, placeholder, type='TF', state = '', value = '',  mods)
 
   //- Принимает:
+        {
   //-   text    {string} - текст
   //-   name    {string} - значение тега name
   //-   placeholder  {string}
   //-   state  {string} - текс второй метки справа
   //-   type    {string} - тип инпута
   //-   value    {string} - дефолтное значение
+        dropList {
+          {item : 'value 1', name: 'text of list 1' },
+          {'item' : 'value 2', name: 'text of list 2' }
+          
+        }
+        dropBoxBtn {bool }
+        mask : '99.99.9999'
   //-   mods    {string} - список модификаторов
+        }
   //- Вызов:
-        +_text_field('Текст', 'some-mod')
+        +_text_field({
+          text: 'Текст',
+          name: 'name'
+          })
 
   -
     // список модификаторов
@@ -25,23 +37,46 @@ mixin _text_field(options)
     }
 
     let _type = 'TF'
-      _placeHolder ='ДД.ММ.ГГГГ' 
-      _pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}"
+      _placeHolder ='ДД.ММ.ГГГГ'
+      _dropList = []
+
+    if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
+       _dropList = options.dropDown;
+    }
+  
 
 
     if (options.type !== undefined && options.type) 
       _type = options.type
-
+    
     
   ._text_field(class=allMods)&attributes(attributes)
+    
+
     label._text_field__info #{options.text}
     label._text_field__info._text_field__info--state #{options.state}  
+    div
     case _type
       when 'dropDown'
         ._text_field__downArrow
-        input._text_field__input._text_field__input--dark75(name = options.name, placeholder= options.placeholder , value = options.value)
+        input._text_field__input._text_field__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)
+        ._text_field__overlay
+          if (_dropList.length !== 0)
+            for i in _dropList
+              ._text_field__overlayItems
+                span #{i.name} 
+                ._text_field__overlayItem
+                  ._text_field__Btn(data-minus) -
+                  ._text_field__value #{i.item}
+                  ._text_field__Btn(data-plus) +
+            if options.dropBoxBtn 
+              button.btn Очистить
+              button.btn Применить
+
       when 'maskDate'
-        input._text_field__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' )
+        input._text_field__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' max = '2050-12-31' )
       default
         input._text_field__input(name = options.name, placeholder= options.placeholder , value = options.value)
+
     block
+

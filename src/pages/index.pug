@@ -38,9 +38,8 @@ block content
             name:'id3',
             placeholder:'Сколько гостей',
             state:'default',
-            type: 'dropDown',
+            type: 'dropDown'
           })
-
           +_text_field({
             text: 'masked text field',
             name:'id4',
@@ -48,6 +47,26 @@ block content
             type:'maskDate'
             })
 
+          +_text_field({
+            text: 'Dropdown',
+            name:'id4',
+            placeholder:'Сколько гостей',
+            state:'default',
+            type: 'dropDown',            
+            dropBoxBtn:'true',
+            dropDown:[{
+                name: 'взрослые',
+                item: '1'
+                },{
+                name: 'дети',
+                item: '2'
+                },{
+                name: 'младенцы',
+                item: '3'
+              }]
+          })
+
+        
 
         div
 

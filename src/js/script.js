@@ -4,4 +4,4 @@
 //   console.log('DOM героически построен!');
 // });
 
-var $ = require("jquery");
+// var $ = require("jquery");
