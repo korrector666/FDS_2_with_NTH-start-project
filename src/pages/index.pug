@@ -26,6 +26,7 @@ block content
             placeholder:'Email',
             state:'default'
             })
+
           +_text_field({
             text: 'Text Field',
             name:'id2',
@@ -33,57 +34,43 @@ block content
             state:'Hover \/ Focus',
             value:'This is pretty awesome'
             })
+
           +_text_field({
             text: 'Dropdown',
-            name:'id3',
+            name:'id5',
             placeholder:'Сколько гостей',
             state:'default',
-            type: 'dropDown'
-          })
+            dropBoxBtn:'true',
+            dropDown:[{
+                name: 'взрослые',
+                },{
+                name: 'дети',
+                },{
+                name: 'младенцы',
+              }]
+          })('readonly')
+
           +_text_field({
             text: 'masked text field',
-            name:'id4',
+            name:'id5',
             state:'Default',
             type:'maskDate'
             })
 
           +_text_field({
             text: 'Dropdown',
-            name:'id4',
-            placeholder:'Сколько гостей',
+            name:'id6',
             state:'default',
-            type: 'dropDown',            
-            dropBoxBtn:'true',
             dropDown:[{
-                name: 'взрослые',
-                item: '1'
-                },{
-                name: 'дети',
+                name: 'спальни',
                 item: '2'
                 },{
-                name: 'младенцы',
-                item: '3'
-              }]
-          })
-
-          +_text_field({
-            text: 'Dropdown',
-            name:'id4',
-            placeholder:'Сколько гостей',
-            state:'default',
-            type: 'dropDown',            
-            dropBoxBtn:'true',
-            dropDown:[{
-                name: 'взрослые',
-                item: '0'
+                name: 'кровати',
+                item: '2'
                 },{
-                name: 'дети',
-                item: '0'
-                },{
-                name: 'младенцы',
-                item: '0'
+                name: 'ванные комнаты',
               }]
-          })     
+          })('readonly')     
 
         div
 

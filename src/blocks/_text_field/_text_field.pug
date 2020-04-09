@@ -17,6 +17,7 @@ mixin _text_field(options)
           
         }
         dropBoxBtn {bool }
+
         mask : '99.99.9999'
   //-   mods    {string} - список модификаторов
         }
@@ -42,6 +43,7 @@ mixin _text_field(options)
 
     if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
        _dropList = options.dropDown;
+       _type = 'dropDown'
     }
   
 
@@ -50,7 +52,7 @@ mixin _text_field(options)
       _type = options.type
     
     
-  ._text_field(class=allMods)&attributes(attributes)
+  ._text_field(class=allMods)
     
 
     label._text_field__info #{options.text}
@@ -59,7 +61,7 @@ mixin _text_field(options)
     case _type
       when 'dropDown'
         ._text_field__downArrow
-        input._text_field__input._text_field__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)
+        input._text_field__input._text_field__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)&attributes(attributes)
         ._text_field__overlay
           if (_dropList.length !== 0)
             for i in _dropList

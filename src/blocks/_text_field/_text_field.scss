@@ -9,15 +9,7 @@
   $showDrop: false;
   $selectedBorder: $dark-shade-50;
 
-  width: 320px;
-  height: 64px;
-  position: relative;
-  // min-height: 64px;
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  overflow: hidden;
-  margin-bottom: 40px;
+  @include input-default
 
   &:hover, &:focus{
     #{$block-name}__input{

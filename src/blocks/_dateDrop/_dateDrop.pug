@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_dateDrop)
+
+mixin _dateDrop(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_dateDrop('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _dateDrop--' + modsList[i].trim();
+      }
+    }
+
+  ._dateDrop(class=allMods)&attributes(attributes)
+    ._dateDrop__inner
+      block
