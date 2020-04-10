@@ -28,9 +28,12 @@
     img {
       margin-top: 3px;
     }
+  }
+  
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+  }
 
-   
-    
-}
   
 }

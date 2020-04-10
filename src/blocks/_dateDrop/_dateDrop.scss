@@ -3,6 +3,27 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 ._dateDrop {
+  $topOffset : 20px;
+  $showDrop: false;
 
   $block-name:                &; // #{$block-name}__element
+  @include text-field-default(150px);
+  @include _info;
+
+  @include arrow-button($topOffset); 
+
+  &--showDrop {
+    overflow: visible;
+    $showDrop: true;
+  }
+
+  &--mid-size{
+    width: 266px !important;
+  }
+
+  &__input {
+    @include input-default($topOffset);
+    @include fontMose(14px, 300, 24px);
+    @include input-standart;
+  }
 }

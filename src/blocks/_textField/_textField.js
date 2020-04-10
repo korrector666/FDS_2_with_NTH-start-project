@@ -7,9 +7,9 @@ const cl = function (obj) {
 
 window.addEventListener('DOMContentLoaded', function () {
 	
-	let arrows = document.querySelectorAll('._text_field__downArrow'),
-		arrowsOld = document.getElementsByClassName('_text_field__downArrow'),
-		dropInputs = document.querySelectorAll('._text_field__overlay');
+	let arrows = document.querySelectorAll('._textField__downArrow'),
+		arrowsOld = document.getElementsByClassName('_textField__downArrow'),
+		dropInputs = document.querySelectorAll('._textField__overlay');
 
 
 	// обработка значений при изменении кнопок
@@ -44,39 +44,39 @@ window.addEventListener('DOMContentLoaded', function () {
 			btnMinus = elem.querySelectorAll('[data-minus]'),
 			btnCancel = elem.querySelector('.btn--cancel'),
 			btnSubmit = elem.querySelectorAll('.btn')[1],
-			_input = elem.closest('._text_field').querySelector('input'),
-			_values = elem.closest('._text_field').querySelectorAll('._text_field__value'),
+			_input = elem.closest('._textField').querySelector('input'),
+			_values = elem.closest('._textField').querySelectorAll('._textField__value'),
 			_placeHolder = _input.placeholder, 
 			_spans = elem.querySelectorAll('span'),
 			summ = 0;
 			
-			
+			// если нет пласхолдера убираем ссылку на спан			
 			if (_placeHolder !== '' ) {
 				_spans = undefined;
 
 			} 
-			
-			cl(btnSubmit);
+			//  вызываем суммирование значений для инициализации
 			summ = _summ(_values, summ, _input, _spans) ;
 
 			//  itit of original state
+			//  проверяем наличие кнопки отмена
 			if (btnCancel) {
 				if (summ > 0) {
 					btnCancel.style.display = 'inline-block';
 				}
-
+//  если кнопка отмены есть  и сумма 0 делаем выравнивание по левому краю
 				if (summ == 0 && btnCancel) {
 					btnCancel.style.display = 'none';
-					(btnCancel.closest('._text_field__overlayItems').classList.add('_text_field__overlayItems--left'));
+					(btnCancel.closest('._textField__overlayItems').classList.add('_textField__overlayItems--left'));
 				}	
 			}	
-
+//  проверяем  значение  в поле, если 0 то блокируем кнопку -
 			btnMinus.forEach( (item)=>{
 					let _next = item.nextElementSibling,
 						value = _next.textContent;
 					
 					if (value == 0) {
-						item.classList.add('_text_field__Btn--disabled')
+						item.classList.add('_textField__Btn--disabled')
 						{_next.textContent = '0'}
 					}
 			});
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		elem.addEventListener('click', function (e) {
 			let _target = e.target;
 			
-				btnPlus.forEach((item,i) =>{
+				btnPlus.forEach((item) =>{
 					if (_target == item) {
 						let _prev = item.previousElementSibling,
 							value = +_prev.textContent,
@@ -92,14 +92,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
 						_prev.textContent = ++value;
 						if (value >0) {
-							_prev.previousElementSibling.classList.remove('_text_field__Btn--disabled')
+							_prev.previousElementSibling.classList.remove('_textField__Btn--disabled')
 						}
 
 						summ = _summ(_values, 0, _input, _spans);
 
 						if (summ > 0 && btnCancel ) {
 							btnCancel.style.display = 'inline-block';
-							((btnCancel.closest('._text_field__overlayItems').classList.remove('_text_field__overlayItems--left')));
+							((btnCancel.closest('._textField__overlayItems').classList.remove('_textField__overlayItems--left')));
 						}
 
 					}
@@ -116,14 +116,14 @@ window.addEventListener('DOMContentLoaded', function () {
 						}
 
 						if (value == 0) {
-							item.classList.add('_text_field__Btn--disabled')
+							item.classList.add('_textField__Btn--disabled')
 						}
 
 						summ = _summ(_values, 0, _input, _spans);
 
 						if (summ == 0 && btnCancel ) {
 							btnCancel.style.display = 'none';
-							(btnCancel.closest('._text_field__overlayItems').classList.add('_text_field__overlayItems--left'));
+							(btnCancel.closest('._textField__overlayItems').classList.add('_textField__overlayItems--left'));
 						}		
 					}
 				})
@@ -137,8 +137,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
 				if (_target == btnSubmit) {
 					cl(this.parentElement)
-					this.parentElement.classList.remove('_text_field--showDrop');
-					this.parentElement.querySelector('input').classList.remove('_text_field__input--cutBorderBottom')
+					this.parentElement.classList.remove('_textField--showDrop');
+					this.parentElement.querySelector('input').classList.remove('_textField__input--cutBorderBottom')
 				}
 
 
@@ -151,8 +151,8 @@ window.addEventListener('DOMContentLoaded', function () {
 		// cl(_parent.classList);
 		elem.addEventListener('click', function() {
 			_clear(i)
-			_parent.classList.toggle('_text_field--showDrop');
-			_nextSibling.classList.toggle('_text_field__input--cutBorderBottom');
+			_parent.classList.toggle('_textField--showDrop');
+			_nextSibling.classList.toggle('_textField__input--cutBorderBottom');
 		});
 	})
 
@@ -163,8 +163,8 @@ window.addEventListener('DOMContentLoaded', function () {
 				_nextSibling = elem.nextElementSibling;
 
 			if(elem !== arrows[i]) {
-				_parent.classList.remove('_text_field--showDrop');
-				_nextSibling.classList.remove('_text_field__input--cutBorderBottom');
+				_parent.classList.remove('_textField--showDrop');
+				_nextSibling.classList.remove('_textField__input--cutBorderBottom');
 			}
 		}
 	}

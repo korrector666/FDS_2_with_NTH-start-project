@@ -13,10 +13,11 @@ let config = {
     // 'object-fit-polyfill',
   ],
   'addStyleBefore': [
+    'src/scss/libs/pickmeup.scss',
     'src/scss/default.scss',
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
-    'src/scss/font.scss',
+    'src/scss/font.scss'
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addStyleAfter': [
@@ -24,6 +25,8 @@ let config = {
   ],
   'addJsBefore': [
     // 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
+    '../../node_modules/jquery/dist/jquery.min.js',
+    // './utils/pickmeup.js'
   ],
   'addJsAfter': [
     './script.js',

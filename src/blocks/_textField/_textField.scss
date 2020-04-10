@@ -1,15 +1,15 @@
-// В этом файле должны быть стили для БЭМ-блока _text_field, его элементов,
+// В этом файле должны быть стили для БЭМ-блока _textField, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-._text_field {
+._textField {
 
   $block-name:                &; // #{$block-name}__element
   $topOffset : 20px;
   $showDrop: false;
   $selectedBorder: $dark-shade-50;
 
-  @include input-default
+  @include text-field-default;
 
   &:hover, &:focus{
     #{$block-name}__input{
@@ -22,51 +22,15 @@
   }
   // конец Text field
   //  начало описания
-  &__info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include font1;
+  @include _info;
 
-    &--state{
-      right: 0;
-      top: 0;
-      text-align: right;
-      font-weight: normal;
-      color: $dark-shade-50;
-    }
-  }
   // конец
   //  начало описания
-  &__downArrow {
-    height: 44px;
-    width: 44px;
-    position: absolute;
-    top: $topOffset;
-    right: 0;
-    cursor: pointer;
-
-    &:before {
-      content: "";
-      position: absolute;
-      height: 7px;
-      width: 7px;
-      border-left: 2px solid $selectedBorder;
-      border-bottom: 2px solid $selectedBorder;
-      top: $topOffset; 
-      left: 50%;
-      transform: translate(-50%, -50%) rotate( -45deg);
-    }
-  }
+ @include arrow-button($topOffset); 
   // конец
   //  начало описания инпута
   &__input {
-    width: 320px;
-    height: 44px;
-    padding: 13px 15px;
-    margin-top: $topOffset;
-    color: $dark-shade-75;
-    box-sizing: border-box;
+    @include input-default($topOffset);
     @include fontMose(14px, 300, 24px);
     @include input-standart;    
 
@@ -140,7 +104,6 @@
     @include input-standart;
     border-radius: 100%;
     @include fontMose(18px, 300, 22px);
-    color: $dark-shade-75;
     cursor: pointer;
     
 
