@@ -1,4 +1,8 @@
 // // stylelint-disable plugin/selector-bem-pattern
+$topOffset : 20px;
+$normal : 320px;
+$midi : 266px;
+$small: 150px;
 
 // @mixin field-text {
 //   display: inline-block;
@@ -134,7 +138,7 @@
       width: 7px;
       border-left: 2px solid $selectedBorder;
       border-bottom: 2px solid $selectedBorder;
-      top: $topOffset; 
+      top: 50%; 
       left: 50%;
       transform: translate(-50%, -50%) rotate( -45deg);
     }

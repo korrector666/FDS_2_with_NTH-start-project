@@ -3,11 +3,10 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 ._dateDrop {
-  $topOffset : 20px;
   $showDrop: false;
 
   $block-name:                &; // #{$block-name}__element
-  @include text-field-default(150px);
+  @include text-field-default($small);
   @include _info;
 
   @include arrow-button($topOffset); 
@@ -18,7 +17,7 @@
   }
 
   &--mid-size{
-    width: 266px !important;
+    width: $midi !important;
   }
 
   &__input {

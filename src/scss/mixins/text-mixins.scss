@@ -1,3 +1,7 @@
+
+
+
+
 @mixin hide-text {
   position: absolute;
   width: 1px;
@@ -32,5 +36,7 @@
    @include fontMose(12px, 700, 15px);
    @if ($upper == true) {
     text-transform: uppercase;
-   }    
+   }  
+   
+   
 };
