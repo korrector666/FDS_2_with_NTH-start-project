@@ -7,9 +7,10 @@
   $block-name:                &; // #{$block-name}__element
   display: flex;
   position: relative;
-  @include fontMose(14px, 400 , 22px );
+  @include fontMose(14px, normal , 22px );
   color: $dark-shade-50;
   margin-bottom: 10px;
+  text-transform: none;
 
 
   span {

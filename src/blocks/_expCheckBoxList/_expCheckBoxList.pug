@@ -26,19 +26,13 @@ mixin _expCheckBoxList(text, list, mods)
       }
     }
 
-     if (typeof(list) !== 'undefined' && list){
-       _list = list;
-        for (let i = 0; i < _list.length; i++) {
-          if (typeof(_list[i].item) == 'undefined'){
-            _list[i].item = 'item-' +i;
-          }
+    if (typeof(list) !== 'undefined' && list){
+      _list = list;
+      for (let i = 0; i < _list.length; i++) {
+        if (typeof(_list[i].item) == 'undefined'){
+          _list[i].item = 'item-' +i;
         }
-
-      //-  each i in _list
-      //-   if (typeof(i.item) !== 'undefined'){
-          //- _list[i].item = 'item' + i;
-        //- }
-       
+      }
     }
 
   ._expCheckBoxList(class=allMods)&attributes(attributes) 
