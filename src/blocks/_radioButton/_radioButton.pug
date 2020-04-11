@@ -33,5 +33,6 @@ mixin _radioButton(text, _name, list, mods)
         each i in _list
           label
             input(type='radio' checked=i.status name= _name)
-            ._radioButton__text #{i.text}
+            ._radioButton__text 
+              span._radioButton__span #{i.text}
     block

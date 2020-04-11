@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_toggle)
+
+mixin _toggle(text, _status, _name, title, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_toggle('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _toggle--' + modsList[i].trim();
+      }
+    }
+
+  ._toggle(class=allMods)&attributes(attributes) #{title}
+    ._toggle__inner
+      label
+        input(type='checkbox' checked=_status name= _name)
+        ._toggle__text #{text}    
+    block

@@ -1,60 +1,54 @@
-// В этом файле должны быть стили для БЭМ-блока _radioButton, его элементов,
+// В этом файле должны быть стили для БЭМ-блока _toggle, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-._radioButton {
+._toggle {
+  $transTime: .3s;
 
   $block-name:                &; // #{$block-name}__element
-
   @include font1;
   color: $dark-shade-100;
   margin-bottom: 10px;
-  margin-top: 40px;
-
+  
   &__inner {
     display: flex;
     position: relative;
-    @include fontMose(14px, normal , 22px );
+    @include fontMose(14px, normal , 24px );
     text-transform: none;
-  }
-  &__span {
-    &--darkText{
-      color: $dark-shade-75;
-    }
+
   }
 
-  label {
-    margin-right: 20px;
+  span {
+    @include fontMose(14px, 700, 18px);
+    color: $dark-shade-75;
+    margin-bottom: 5px;
   }
+
   input {
     position: absolute;
     opacity: 0;
   }
   &__text {
     position: relative;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 60px;
     cursor: pointer;
-    color: $dark-shade-25;
 
     &--fz12{
       @include fontMose(12px, 300 , 14px );
     }
-
-
   
     &:before {
       content: '';
       position: absolute;
       top:0;
       left: 0;
-      width: 20px;
+      width: 40px;
       height: 20px;
-      border-radius: 100%;
+      border-radius: 20px;
       background: $white;
       border: 1px solid $dark-shade-25;
-      color: $dark-shade-25;
       // box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
-      transition: .2s;
+      transition: $transTime;
     }
 
     &:after {
@@ -65,22 +59,23 @@
       width: 12px;
       height: 12px;
       border-radius: 100%;
-      color: $dark-shade-50;
-      background-color: $purple;
-      opacity: 0;
+      background-color: $dark-shade-25;
+      transition:  $transTime;
+
     }
   }  
 
   input:checked + &__text:before {
     border-color: $purple;
-    color: $dark-shade-50;
   }
 
   input:checked + &__text:after {
     position: absolute;
-    color: $dark-shade-50;
+    transform: translateX(20px);
+    background-color: $purple;
     z-index: 10;
     opacity: 1;
+    transition:  $transTime;
       
     }
 }
