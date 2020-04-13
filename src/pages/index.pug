@@ -103,12 +103,19 @@ block content
           +_toggle('Получать спецпредложения', false, 'offer' )
 
           +_title('like buttons')
-          +_likeBtn('2')
-          +_likeBtn('12')
+          .section__flex
+            +_likeBtn('2')
+            +_likeBtn('12')
           +_separator()
 
           +_title('Rate buttons')
           +_stars(4, 'star')
+          +_stars(5, 'star2')
+          +_separator()
 
         div
+          +_rangeSlider('range slider', {state: "5000-1000"})
+          +_separator()
+          +btn()
+
 

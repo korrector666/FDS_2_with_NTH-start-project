@@ -1,9 +1,7 @@
-/* global document window console */
+/* global document window  */
 
 // const ready = require('../../js/utils/documentReady.js');
-const cl = function (obj) {
-	console.log(obj);
-}
+
 window.addEventListener('DOMContentLoaded', function () {
 
 	let radioButtons = document.querySelectorAll('._stars');

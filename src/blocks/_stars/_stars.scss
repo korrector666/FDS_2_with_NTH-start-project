@@ -6,15 +6,26 @@
 
   $block-name:                &; // #{$block-name}__element
   position: relative;
-  display: flex;
+  display: inline-block;
+  min-width: 120px;
+  margin-right: 20px;
+
   input {
     opacity: 0;
+    display: none;
   }
 
   &__label {
-    // display: block;
+    display: inline-block;
     background: url('../img/star_border.svg') center no-repeat;
     height: 24px;
+    width: 24px;
+    padding-left: 5px;
+    cursor: pointer;
+    &:first-child{
+      padding-left: 0;
+    }
+
 
     &--checked {
       background: url('../img/star.svg') center no-repeat;

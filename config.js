@@ -17,7 +17,9 @@ let config = {
     'src/scss/default.scss',
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
-    'src/scss/font.scss'
+    'src/scss/font.scss',
+    'node_modules/nouislider/distribute/nouislider.scss'
+    
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addStyleAfter': [

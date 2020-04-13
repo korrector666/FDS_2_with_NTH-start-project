@@ -18,6 +18,5 @@ mixin btn(text, mods)
       }
     }
 
-  .btn(class=allMods)&attributes(attributes)
-    .btn__inner
-      block
+  button.btn(class=allMods)&attributes(attributes) #{text}
+    block

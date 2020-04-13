@@ -73,8 +73,8 @@ mixin _textField(options)
                   ._textField__Btn(data-plus) +
             if options.dropBoxBtn
               ._textField__overlayItems
-                button.btn.btn--cancel Очистить
-                button.btn Применить
+                +btn('Очистить', 'cancel')
+                +btn('Применить')
 
       when 'maskDate'
         input._textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' max = '2050-12-31' )

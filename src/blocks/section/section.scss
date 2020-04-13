@@ -10,7 +10,6 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: $dark-shade-05;
   flex-wrap: wrap;
 
   &__logo{
@@ -32,7 +31,6 @@
   
   &__flex{
     display: flex;
-    justify-content: space-between;
   }
 
   

@@ -32,9 +32,8 @@ mixin _stars(_star, _name, mods)
 
 
   ._stars(class=allMods)&attributes(attributes)
-    ._stars__inner
-      if (_list.length !== 0)
-        each i in _list
-          label._stars__label
-            input(type='radio' checked=i.status  name=_name )
-      block
+    if (_list.length !== 0)
+      each i in _list
+        label._stars__label
+          input(type='radio' checked=i.status  name=_name )
+    block

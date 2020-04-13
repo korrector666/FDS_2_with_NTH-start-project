@@ -133,6 +133,12 @@ window.addEventListener('DOMContentLoaded', function () {
 						e.innerHTML="0";
 						summ = _summ(_values, 0, _input, _spans);
 					}) 
+					btnCancel.style.display = 'none';
+					(btnCancel.closest('._textField__overlayItems').classList.add('_textField__overlayItems--left'));
+
+					btnMinus.forEach( (item)=>{
+						item.classList.add('_textField__Btn--disabled')
+					});
 				}
 
 				if (_target == btnSubmit) {

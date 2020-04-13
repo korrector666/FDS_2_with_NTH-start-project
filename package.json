@@ -70,6 +70,7 @@
     "lint-staged": "^10.0.9",
     "merge-stream": "^2.0.0",
     "mkdirp": "^1.0.3",
+    "nouislider": "^14.2.0",
     "path": "^0.12.7",
     "postcss-import": "^12.0.1",
     "postcss-inline-svg": "^4.1.0",
@@ -84,11 +85,11 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "kind-of": ">=6.0.3",
     "autosize": "^4.0.2",
     "baron": "^3.0.3",
     "choices.js": "^9.0.1",
     "closest": "0.0.1",
+    "kind-of": ">=6.0.3",
     "object-fit-images": "^3.2.4",
     "svg4everybody": "^2.1.8"
   },
