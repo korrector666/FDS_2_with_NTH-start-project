@@ -1,0 +1,41 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_stars)
+
+mixin _stars(_star, _name, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_stars('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _stars--' + modsList[i].trim();
+      }
+    }
+
+    let _list = [{status, _name},{status, _name},{status, _name},{status, _name},{status, _name}];
+
+    for (let i = 0; i<5 ; i++) {
+      _list[+_star-1].status = true;
+
+      if (i < +_star) {
+        _list[i]._name = 'star' + i;
+      } else {
+        _list[i].status = false;
+      }
+    }
+
+
+  ._stars(class=allMods)&attributes(attributes)
+    ._stars__inner
+      if (_list.length !== 0)
+        each i in _list
+          label._stars__label
+            input(type='radio' checked=i.status  name=_name )
+            span._stars__text
+      block

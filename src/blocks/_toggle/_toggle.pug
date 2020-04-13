@@ -18,7 +18,7 @@ mixin _toggle(text, _status, _name, title, mods)
       }
     }
 
-  ._toggle(class=allMods)&attributes(attributes) #{title}
+  ._toggle(class=allMods)&attributes(attributes)
     ._toggle__inner
       label
         input(type='checkbox' checked=_status name= _name)

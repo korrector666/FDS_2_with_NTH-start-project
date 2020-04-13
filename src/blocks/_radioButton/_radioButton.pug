@@ -27,7 +27,8 @@ mixin _radioButton(text, _name, list, mods)
       _list = list;
     }
 
-  ._radioButton(class=allMods)&attributes(attributes) #{text}
+  ._radioButton(class=allMods)&attributes(attributes)
+    +_title(text)
     ._radioButton__inner 
       if (_list.length !== 0)
         each i in _list

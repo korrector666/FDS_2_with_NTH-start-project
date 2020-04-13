@@ -1,0 +1,49 @@
+/* global document window console */
+
+// const ready = require('../../js/utils/documentReady.js');
+const cl = function (obj) {
+	console.log(obj);
+}
+window.addEventListener('DOMContentLoaded', function () {
+
+	let radioButtons = document.querySelectorAll('._stars');
+
+	radioButtons.forEach(function( element) {
+		let starsIn = element.querySelectorAll('input'),
+			checkedStarNumber;
+
+		starsIn.forEach( (e,i) => {
+			if (e.checked == true) {
+				checkedStarNumber = i;
+			}
+		})
+		
+		element.addEventListener('click', function (tar) {
+			cl(tar);
+
+
+			starsIn.forEach( (e,i, _all) => {
+				if( tar.target == e) {
+					checkedStarNumber = i;
+					_all.forEach( function(e,i) {
+						if (i <=checkedStarNumber) {
+							e.parentElement.classList.add('_stars__label--checked')
+						} else {
+							e.parentElement.classList.remove('_stars__label--checked')
+					}
+						
+					}) 
+				}
+			})
+
+		})
+
+
+
+
+
+		
+	});
+		
+	
+});

@@ -6,11 +6,11 @@ const cl = function (obj) {
 }
 window.addEventListener('DOMContentLoaded', function () {
 
-	let radioButton = document.querySelectorAll('input[type=radio]');
+	let radioButton = document.querySelectorAll('._radioButton__inner input[type=radio]');
+		
 		
 	radioButton.forEach(function (elem,i,_all) {
 		let _span = elem.nextElementSibling.querySelector('._radioButton__span');
-	
 		_span.classList.remove('_radioButton__span--darkText')
 
 		if (elem.checked == true) {

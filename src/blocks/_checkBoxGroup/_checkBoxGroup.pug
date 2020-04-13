@@ -29,7 +29,7 @@ mixin _checkBoxGroup(text, list,  mods)
     }    
 
   ._checkBoxGroup(class=allMods)&attributes(attributes)
-    ._checkBoxGroup__inner #{text}
+    +_title(text)
     if (_list.length !== 0)
     each i in _list
       +_checkBox(i.item, i.text, i.status)

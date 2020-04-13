@@ -1,0 +1,10 @@
+// В этом файле должны быть стили для БЭМ-блока _title, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+._title {
+
+  $block-name:                &; // #{$block-name}__element
+  @include font1;
+  margin-bottom: 16px;
+}

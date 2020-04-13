@@ -1,9 +1,9 @@
 /* global document window console */
 
 // const ready = require('../../js/utils/documentReady.js');
-const cl = function (obj) {
-	console.log(obj);
-}
+// const cl = function (obj) {
+// 	console.log(obj);
+// }
 
 window.addEventListener('DOMContentLoaded', function () {
 	
@@ -136,7 +136,7 @@ window.addEventListener('DOMContentLoaded', function () {
 				}
 
 				if (_target == btnSubmit) {
-					cl(this.parentElement)
+					// cl(this.parentElement)
 					this.parentElement.classList.remove('_textField--showDrop');
 					this.parentElement.querySelector('input').classList.remove('_textField__input--cutBorderBottom')
 				}
