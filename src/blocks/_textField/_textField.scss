@@ -7,6 +7,7 @@
   $block-name:                &; // #{$block-name}__element
   $showDrop: false;
   $selectedBorder: $dark-shade-50;
+  position: relative;
 
   @include text-field-default;
 
@@ -19,14 +20,44 @@
     overflow: visible;
     $showDrop: true;
   }
+
+  &--autoHeght {
+    height: auto;
+    min-height: 44px;
+  }
+
+  &--mid-size{
+    width: $midi !important;
+  }
+
   // конец Text field
   //  начало описания
   @include _info;
-
   // конец
   //  начало описания
  @include arrow-button($topOffset); 
   // конец
+  &__rigthArrow{
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: $topOffset; 
+    right: 0;
+    cursor: pointer;
+
+    &:before{
+      content:'';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: url('../img/arrow_forward.svg') center no-repeat;
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+    }
+  }
+
   //  начало описания инпута
   &__input {
     @include input-default($topOffset);
@@ -36,7 +67,6 @@
     &:placeholder{ 
       color: $dark-shade-25; 
     }
-
     &--dark{
       &:placeholder{
         color: $dark-shade-75

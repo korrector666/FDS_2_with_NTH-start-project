@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_textField)
 
-mixin _textField(options)
+mixin _textField(options,mods)
   //- mixin _textField(text, name, placeholder, type='TF', state = '', value = '',  mods)
 
   //- Принимает:
@@ -30,8 +30,8 @@ mixin _textField(options)
   -
     // список модификаторов
     let allMods = ''
-    if(typeof(options.mods) !== 'undefined' && options.mods) {
-      var modsList = options.mods.split(',')
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',')
       for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' _textField--' + modsList[i].trim()
       }
@@ -41,6 +41,9 @@ mixin _textField(options)
       _placeHolder ='ДД.ММ.ГГГГ'
       _dropList = []
 
+    if (options.type !== undefined && options.type) 
+      _type = options.type
+
     if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
        _dropList = options.dropDown;
        _type = 'dropDown'
@@ -48,17 +51,16 @@ mixin _textField(options)
   
 
 
-    if (options.type !== undefined && options.type) 
-      _type = options.type
+
     
     
   ._textField(class=allMods)
-    
-
     label._textField__info #{options.text}
     label._textField__info._textField__info--state #{options.state}  
-    div
     case _type
+      when 'subscription'
+        ._textField__rigthArrow
+        input._textField__input(name = options.name, placeholder= 'Email' , value = options.value)
       when 'dropDown'
         ._textField__downArrow
         input._textField__input._textField__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)&attributes(attributes)
@@ -74,7 +76,7 @@ mixin _textField(options)
             if options.dropBoxBtn
               ._textField__overlayItems
                 +btn('Очистить', 'cancel')
-                +btn('Применить')
+                +btn('Применить','noMR')
 
       when 'maskDate'
         input._textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' max = '2050-12-31' )

@@ -56,8 +56,38 @@ block content
             state: 'Default',
             type: 'maskDate'
             })
+          +_separator('h20')
+          .section__flex
+            +_dateDrop({
+              text: 'date Dropdown'
+              })(readonly, data-startDate)  
+
+            +_dateDrop({
+              text: 'date Dropdown',
+              value: '10.04.2020'
+            }
+            )(readonly, data-endDate='10.04.2020')  
+          +_separator('h20')
+
+          +_dateDrop({
+            text: 'date Dropdown',
+            value: '10.04.2020',
+            start: '19 авг',
+            end: '23 авг'
+          }
+          )(readonly, data-startDate='19.08.2019', data-endDate='10.04.2020' ) 
+          +_separator('h20')
 
           +_textField({
+          name: 'id7',
+          text: 'subscription text field',
+          type: 'subscription'
+          },'mid-size')
+
+          +_separator()
+          +_separator()
+
+          +_textField({     
             text: 'Dropdown',
             name: 'id6',
             state: 'default',
@@ -70,38 +100,37 @@ block content
                 },{
                 name: 'ванные комнаты',
               }]
-            })('readonly')  
+            },'mid-size')('readonly')
 
-          .section__flex
-            +_dateDrop({
-              text: 'date Dropdown'
-              })(readonly, data-startDate)  
 
-            +_dateDrop({
-              text: 'date Dropdown',
-              value: '10.04.2020'
-            }
-            )(readonly, data-endDate='10.04.2020')  
+          +_textField({
+          text: 'Dropdown',
+          name: 'id8',
+          state: 'expanded',
+          dropDown:[{
+              name: 'спальни',
+              item: '2'
+              },{
+              name: 'кровати',
+              item: '2'
+              },{
+              name: 'ванные комнаты',
+            }]
+          },'showDrop , mid-size')('readonly')
 
-          +_dateDrop({
-            text: 'date Dropdown',
-            value: '10.04.2020',
-            start: '19 авг',
-            end: '23 авг'
-          }
-          )(readonly, data-startDate='19.08.2019', data-endDate='10.04.2020' ) 
 
           +_expCheckBoxList('expandable checkbox list',demoList)(data-expanded='false')
+          +_expCheckBoxList('expandable checkbox list',demoList, 'showDrop')(data-expanded='true')
 
         div
           +_checkBoxGroup('Checkbox Buttons' , demoCheckButtons)
 
           +_radioButton('Radios Buttons', 'gender', demoRadioButtons)
-
+          +_separator()
           +_title('Toggle')
           +_toggle('Получать спецпредложения', true, 'offer', 'Toggle')
           +_toggle('Получать спецпредложения', false, 'offer' )
-
+          +_separator()
           +_title('like buttons')
           .section__flex
             +_likeBtn('2')
@@ -116,9 +145,20 @@ block content
         div
           +_rangeSlider('range slider', {state: "5000-1000"})
           +_separator()
+
           +btn('CLICK ME', 'colored')
-          +btn('CLICK ME', 'coloredHover')
+          +btn('CLICK ME', 'coloredHovered')
+          +_separator('nextStr')
+
           +btn('CLICK ME', 'bordered')
-          +btn('CLICK ME', 'test')
+          +btn('CLICK ME', 'borderedHovered')
+          +_separator('nextStr')
+
+          +btn('CLICK ME')
+          +btn('CLICK ME', 'cancel')
+          +_separator('nextStr')
+
+          +btn('перейти к оплате', 'coloredBig')
+
 
 

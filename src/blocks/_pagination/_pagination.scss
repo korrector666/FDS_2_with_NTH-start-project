@@ -1,17 +1,8 @@
-// В этом файле должны быть стили для БЭМ-блока _separator, его элементов,
+// В этом файле должны быть стили для БЭМ-блока _pagination, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-._separator {
+._pagination {
 
   $block-name:                &; // #{$block-name}__element
-  height: 40px;
-  &--nextStr{
-    height: 10px;
-  }
-
-  &--h20{
-    height: 20px;
-  }
-  
 }

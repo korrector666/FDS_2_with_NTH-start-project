@@ -117,7 +117,7 @@ $small: 150px;
   align-items: flex-end;
   flex-wrap: wrap;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 
@@ -146,11 +146,39 @@ $small: 150px;
 
 }
 
-@mixin buttonSize($color: $white, $background:$second-grad ) {
-  width: 99px;
+@mixin arrowRight-button($color: $white) {
+  position: relative;
+
+  &:before{
+    content: '';
+    top: 50%;
+    position: absolute;
+    right: 17px;
+    width: 13px;
+    height: 2px;
+    transform: translateY(-50%);
+    background: $color;
+  }
+
+  &:after{
+    content: '';
+    top: 50%;
+    position: absolute;
+    right: 17px;
+    width: 9px;
+    height: 9px;
+    border-left: 2px solid $color;
+    border-top: 2px solid $color;
+    transform: translateY(-50%) rotate(-225deg);
+    
+  }
+}
+
+@mixin buttonSize($color: $white, $background:$second-grad, $width:99px ) {
+  width: $width;
   height: 44px;
   background: $background;
   color: $color;
   border-radius: 22px;
-  margin-right: 20px;
+ 
 }

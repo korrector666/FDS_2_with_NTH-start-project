@@ -10,10 +10,13 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
-  margin: 20px 0 8px;
+  margin: 20px 20px 8px 0;
   color: $purple;
 
   @include font1;
+  &--noMR{
+    margin-right: 0;
+  }
 
   &--cancel {
     color: $dark-shade-50;
@@ -25,10 +28,19 @@
     &:hover {
       opacity: 0.5;
     }
-    &Hover {
+    &Hovered {
       @include buttonSize;
         opacity: 0.5;
     }
+    
+    @at-root &Big{
+      @include buttonSize;
+      width: 320px;
+      position: relative;
+      @include arrowRight-button;
+
+    }
+  
   
   }
 
@@ -79,84 +91,49 @@
       }
     }
 
-    span {
-      opacity: 1;
-      &:hover{
-        opacity: 1;
-      }
-    }
-    // &:before{
-    //   content: '';
-    //   position: absolute;
-    //   width: 99px;
-    //   height: 44px;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   background: $second-grad;
-    //   border-radius: 21px;
-    //   z-index: -1;
-
-    // }
-    // &:hover {
-      
-    //   // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    //   border-radius: 20px;
-    //   &:before{
-    //     content: '';
-    //     position: absolute;
-    //     z-index: -1;
-    //     opacity: 0.5;
-    //     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    //                 0px 4px 4px rgba(254, 254, 254, 0.25);
-    //     border-radius: 22px;
-    //   }
-    //   &::after{
-    //     content: '';
-    //     position: absolute;
-    //     z-index: -1;
-    //     opacity: 0.5;
-    //     // box-shadow:inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    //     border-radius: 22px;
-
-    //   }
-
-    // }
-  }
-
-  &--test{
-      width: 300px;
-      height: 80px;
-      border: double 4px transparent;
-      position: relative;
-      border-radius: 80px;
+    &Hovered {
+      @include buttonSize($purple, $white);
+      border-radius: 20px;
       background-image: linear-gradient(white, white), linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
       background-origin: border-box;
       background-clip: content-box, border-box;
+      position: relative;
+      color: $purple;
+      width: 95px;
+      height: 40px;
+      border: solid 2px rgba(254, 254, 254, 0.5);
+
       &::before {
         content: '';
+        opacity: 0.5;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
         position: absolute;
-        border-radius: 80px;
+        border-radius: 20px;
         top: 0;
-        left: -4px;
-        width: 300px;
-        height: 80px;
+        left: -2px;
+        width: 95px;
+        height: 40px;
+        transform: translateY(5px);
 
       }
+
       &::after {
         content: '';
+        opacity: 0.5;
+
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
         position: absolute;
-        border-radius: 80px;
+        border-radius: 20px;
         top: 0;
-        left: -4px;
-        width: 300px;
-        height: 80px;
+        left: -2px;
+        width: 95px;
+        height: 40px;
         transform: rotate(180deg) translateY(-5px);
 
       }
-
+    }
   }
+
+  
 
 }

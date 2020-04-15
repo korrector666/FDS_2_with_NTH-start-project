@@ -1,26 +1,32 @@
 /* global document window console */
 
 // const ready = require('../../js/utils/documentReady.js');
-// const cl = function (obj) {
-// 	console.log(obj);
-// }
+const cl = function (obj) {
+	console.log(obj);
+}
 
 window.addEventListener('DOMContentLoaded', function () {
 	
 	let arrows = document.querySelectorAll('._textField__downArrow'),
 		arrowsOld = document.getElementsByClassName('_textField__downArrow'),
-		dropInputs = document.querySelectorAll('._textField__overlay');
+		dropInputs = document.querySelectorAll('._textField__overlay'),
+		droppedInputs = document.querySelectorAll('._textField--showDrop') ;
 
 
 	// обработка значений при изменении кнопок
-
+	
 	function _summ(_values, summ, _input, valueNames) {
 		_input.value=''; 
 		
 		_values.forEach(function (e,index) {
 			if (valueNames !== undefined ) {
 				if (+e.textContent !==0) {
-					_input.value += `${+e.textContent} ${valueNames[index].textContent} `
+					if (index == 0) {
+						_input.value += `${+e.textContent} ${valueNames[index].textContent}, `
+					} else if (index == 1) {
+						_input.value += `${+e.textContent} ${valueNames[index].textContent}... `
+
+					}
 				}
 			} else {
 				summ += +e.textContent;
@@ -37,6 +43,16 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 		return summ;
 	}
+	// init state for drop downs
+
+
+	droppedInputs.forEach(e => {
+		let _input = e.querySelector('._textField__input');
+		_input.classList.add('_textField__input--cutBorderBottom');
+		e.classList.add('_textField--autoHeght')
+	
+	})
+	
 
 	// навашиваем обработчик на дропы
 	dropInputs.forEach (function (elem) {
@@ -49,7 +65,6 @@ window.addEventListener('DOMContentLoaded', function () {
 			_placeHolder = _input.placeholder, 
 			_spans = elem.querySelectorAll('span'),
 			summ = 0;
-			
 			// если нет пласхолдера убираем ссылку на спан			
 			if (_placeHolder !== '' ) {
 				_spans = undefined;
@@ -140,9 +155,8 @@ window.addEventListener('DOMContentLoaded', function () {
 						item.classList.add('_textField__Btn--disabled')
 					});
 				}
-
 				if (_target == btnSubmit) {
-					// cl(this.parentElement)
+					
 					this.parentElement.classList.remove('_textField--showDrop');
 					this.parentElement.querySelector('input').classList.remove('_textField__input--cutBorderBottom')
 				}
@@ -166,9 +180,12 @@ window.addEventListener('DOMContentLoaded', function () {
 	function _clear(i) {
 		for (let elem of arrowsOld){
 			const _parent = elem.parentElement,
+				_state= _parent.querySelector('._textField__info--state'),
 				_nextSibling = elem.nextElementSibling;
+			
+				cl(_state.textContent);
 
-			if(elem !== arrows[i]) {
+			if(elem !== arrows[i] && _state.textContent !== 'expanded') {
 				_parent.classList.remove('_textField--showDrop');
 				_nextSibling.classList.remove('_textField__input--cutBorderBottom');
 			}

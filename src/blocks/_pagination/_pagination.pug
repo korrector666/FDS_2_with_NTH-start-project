@@ -1,12 +1,12 @@
-//- Все примеси в этом файле должны начинаться c имени блока (btn)
+//- Все примеси в этом файле должны начинаться c имени блока (_pagination)
 
-mixin btn(text, mods)
+mixin _pagination(text, mods)
 
   //- Принимает:
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +btn('Текст', 'some-mod')
+        +_pagination('Текст', 'some-mod')
 
   -
     // список модификаторов
@@ -14,9 +14,10 @@ mixin btn(text, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' btn--' + modsList[i].trim();
+        allMods = allMods + ' _pagination--' + modsList[i].trim();
       }
     }
 
-  button.btn(class=allMods)&attributes(attributes) #{text}
-    block
+  ._pagination(class=allMods)&attributes(attributes)
+    ._pagination__inner
+      block
