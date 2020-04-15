@@ -146,14 +146,14 @@ $small: 150px;
 
 }
 
-@mixin arrowRight-button($color: $white) {
+@mixin arrowRight-button($right: 17px, $color: $white) {
+  
   position: relative;
-
   &:before{
     content: '';
     top: 50%;
     position: absolute;
-    right: 17px;
+    right: $right;
     width: 13px;
     height: 2px;
     transform: translateY(-50%);
@@ -164,7 +164,7 @@ $small: 150px;
     content: '';
     top: 50%;
     position: absolute;
-    right: 17px;
+    right: $right;
     width: 9px;
     height: 9px;
     border-left: 2px solid $color;

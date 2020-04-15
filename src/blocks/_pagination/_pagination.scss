@@ -5,4 +5,59 @@
 ._pagination {
 
   $block-name:                &; // #{$block-name}__element
+// *******************************************  
+  &__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include fontMose(12px, 400, 15px);
+  }
+// *******************************************  
+// *******************************************  
+
+  &__infoItem{
+    color: $dark-shade-75;
+    margin-top: 10px;
+  }
+// *******************************************  
+  
+// *******************************************  
+  &__item {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    text-align: center;
+    color: $dark-shade-50;
+
+    &--active {
+      background: $second-grad;
+      color: $white;
+      font-weight: bold;
+      
+    }
+  }
+// *******************************************
+// *******************************************
+  &__next, &__prev{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: $main-grad;
+    @include arrowRight-button(15px);
+    cursor: pointer;
+  }
+// *******************************************
+// *******************************************  
+
+&__prev {
+  display: none;
+  cursor: pointer;
+  transform: rotate(180deg);
+
+}
+// *******************************************
 }

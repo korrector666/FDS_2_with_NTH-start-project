@@ -1,9 +1,12 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_pagination)
 
-mixin _pagination(text, mods)
+mixin _pagination(text,list, active,  mods)
 
   //- Принимает:
   //-   text    {string} - текст
+  //-   list    {number} - число страниц
+  //-   active    {number} - номер активной страницы
+
   //-   mods    {string} - список модификаторов
   //- Вызов:
         +_pagination('Текст', 'some-mod')
@@ -17,7 +20,24 @@ mixin _pagination(text, mods)
         allMods = allMods + ' _pagination--' + modsList[i].trim();
       }
     }
+    let n = 0 , 
+        m =5,
+        itemList = [];
+
+    
+
 
   ._pagination(class=allMods)&attributes(attributes)
     ._pagination__inner
-      block
+      ._pagination__prev
+      while n< m
+        if (n == 0) 
+          ._pagination__item._pagination__item--active
+            p= ++n
+        else
+          ._pagination__item
+            p= ++n
+      ._pagination__next
+    ._pagination__infoItem 
+      span #{text}
+    block

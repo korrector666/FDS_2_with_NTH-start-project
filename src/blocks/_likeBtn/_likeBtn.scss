@@ -13,6 +13,7 @@
   width: 40px;
   height: 20px;
   display: flex;
+  justify-content: flex-end;
   position: relative;
   margin-right: 10px;
   
@@ -70,8 +71,9 @@
     padding: 5px 0 0 20px;
     text-align: center;
     @include fontMose(10px, normal, 12px);
-    text-align: center;
+    text-align: right;
     color: $lowColor;
+    margin-right: 5px;
 
     &--purple{
       color: $highColor;
