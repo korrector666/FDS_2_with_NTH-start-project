@@ -18,13 +18,9 @@
   &__label {
     display: inline-block;
     background: url('../img/star_border.svg') center no-repeat;
-    height: 24px;
+    height: 20px;
     width: 24px;
-    padding-left: 5px;
     cursor: pointer;
-    &:first-child{
-      padding-left: 0;
-    }
 
 
     &--checked {

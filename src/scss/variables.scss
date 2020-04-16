@@ -32,6 +32,7 @@ $dark-shade-75 : rgba(31, 32, 65, 0.75);
 $dark-shade-50 : rgba(31, 32, 65, 0.50);
 $dark-shade-25 : rgba(31, 32, 65, 0.25);
 $dark-shade-05 : rgba(31, 32, 65, 0.05);
+$dark-shade-10 : rgba(31, 32, 65, 0.1);
 $main-grad: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 $second-grad: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 // $dark-shade-50 : adjust($dark-shade-100, alpha:0.5);
@@ -87,7 +88,7 @@ $screen-sm:                   480px;
 $screen-md:                   768px;
 $screen-lg:                   992px;
 $screen-xl:                   1200px;
-$screen-xxl:                  1800px;
+$screen-xxl:                  1470px;
 
 $container-sm:                100%;
 $container-md:                100%;
@@ -119,3 +120,9 @@ $toggler-part-height:         3px;
 $toggler-part-bg-color:       #000;
 
 $z-index-modal:               100;
+
+
+$topOffset : 18px;
+$normal : 320px;
+$midi : 266px;
+$small: 150px;

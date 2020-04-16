@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	_dateStart.forEach( (e) =>{
 		if (e.matches('[data-enddate]')) {
-			e.querySelector('input').value = `${findMonth(e.dataset.startdate)} - ${findMonth(e.dataset.enddate)}`;
+			e.querySelector('input').value = `${findMonth(e.dataset.startdate).toLowerCase()} - ${findMonth(e.dataset.enddate).toLowerCase()}`;
 		}
 
 	});

@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_infoBlock)
+
+mixin _infoBlock(link, title, text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_infoBlock('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _infoBlock--' + modsList[i].trim();
+      }
+    }
+
+  ._infoBlock(class=allMods)&attributes(attributes)
+    ._infoBlock__main
+      img._infoBlock__img(src = link , alt = text)
+      ._infoBlock__inner
+        ._infoBlock__title #{title}
+        ._infoBlock__text #{text}
+    hr._infoBlock__hr
+  block

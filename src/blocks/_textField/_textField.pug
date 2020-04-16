@@ -79,7 +79,7 @@ mixin _textField(options,mods)
                 +btn('Применить','noMR')
 
       when 'maskDate'
-        input._textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' type = 'date' max = '2050-12-31' )
+        input._textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' max = '2050-12-31' )
       default
         input._textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
 

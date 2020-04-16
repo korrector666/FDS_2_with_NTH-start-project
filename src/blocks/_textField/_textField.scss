@@ -7,6 +7,7 @@
   $block-name:                &; // #{$block-name}__element
   $showDrop: false;
   $selectedBorder: $dark-shade-50;
+  color: $dark-shade-75;
   position: relative;
 
   @include text-field-default;

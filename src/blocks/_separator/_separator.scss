@@ -5,13 +5,41 @@
 ._separator {
 
   $block-name:                &; // #{$block-name}__element
-  height: 40px;
+  height: 30px;
   &--nextStr{
-    height: 10px;
+    height: 20px;
+  }
+
+  &--h3{
+    height: 3px;
   }
 
   &--h20{
     height: 20px;
+  }
+
+  &--h22{
+    height: 22px;
+  }
+  &--h24{
+    height: 24px;
+  }
+  &--h8{
+    height: 8px;
+  }
+
+  &--h29{
+    height: 29px;
+  }
+  &--h32{
+    height: 33px;
+  }
+
+
+
+
+  &--h98{
+    height: 98px;
   }
   
 }

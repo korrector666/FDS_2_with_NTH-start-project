@@ -8,6 +8,7 @@
   @include text-field-default(222px);
   @include font1;
   height: auto;
+  margin-bottom: 30px;
 
   &__inner {
     margin-bottom: 16px;
