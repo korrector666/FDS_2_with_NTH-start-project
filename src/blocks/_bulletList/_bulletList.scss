@@ -10,6 +10,8 @@
     list-style: none;
     color: $dark-shade-75;
     padding-inline-start:0;
+    padding-left: 22px;
+    margin-top: -2px;
   }
   li{
     margin-bottom: 10px;
@@ -21,7 +23,7 @@
       height: 10px;
       background: $dark-shade-25;
       border-radius: 100%;
-      left: -17px;
+      left: -22px;
       top: 12px;
       transform: translateY(-50%);
     }

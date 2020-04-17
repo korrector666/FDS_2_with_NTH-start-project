@@ -9,7 +9,6 @@
   $selectedBorder: $dark-shade-50;
   color: $dark-shade-75;
   position: relative;
-
   @include text-field-default;
 
   &:hover, &:focus{
@@ -31,18 +30,20 @@
     width: $midi !important;
   }
 
-  // конец Text field
-  //  начало описания
-  @include _info;
-  // конец
+//******************************************************************
+//******************************************************************
+@include _info;
+//******************************************************************
+//******************************************************************
   //  начало описания
  @include arrow-button($topOffset); 
-  // конец
+ //******************************************************************
+//******************************************************************
   &__rigthArrow{
     width: 44px;
     height: 44px;
     position: absolute;
-    top: $topOffset; 
+    top: $topOffset+2; 
     right: 0;
     cursor: pointer;
 
@@ -59,8 +60,9 @@
     }
   }
 
-  //  начало описания инпута
-  &__input {
+//******************************************************************
+//******************************************************************
+&__input {
     @include input-default($topOffset);
     @include fontMose(14px, 300, 24px);
     @include input-standart;    
@@ -81,27 +83,28 @@
     }
 
   }
-  // конец описания инпута
-  // начало Overlay
-  &__overlay{
+//******************************************************************
+//******************************************************************
+&__overlay{
     z-index: 50;
     width: inherit;
     @include input-standart;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-top: 0;
-    padding: 7px;
-    padding-left: 15px;
+    padding: 4px;
+    padding-left: 13px;
     border-color: $selectedBorder;
-
+//******************************************************************
     @at-root &Items {
 
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
+
       &:last-child {
-        margin-bottom: 0;
+        margin-bottom: 3px;
       }
 
       &--left{
@@ -112,19 +115,21 @@
         @include font1;
       }
     }
-
+//******************************************************************
     @at-root &Item {
-      width: 90px;
+      width: 92px;
+      padding-top: 1px;
+      padding-right: 2px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
   }
-  // начало конец Overlay
-  // кнопка 
+//******************************************************************
+//******************************************************************
   &__Btn {
-    $btnSize : 30px;
+    $btnSize : 28px;
     width: $btnSize;
     height: $btnSize;
     display: flex;
@@ -143,10 +148,12 @@
     }
     
   }
-  //  конец кнопка
-  &__value{
+//******************************************************************
+//******************************************************************
+&__value{
     @include font1;
   }
+//******************************************************************
 
   
 }

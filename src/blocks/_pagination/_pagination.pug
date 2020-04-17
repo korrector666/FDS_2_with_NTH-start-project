@@ -22,7 +22,7 @@ mixin _pagination(text,list, active,  mods)
     }
     let n = 0 , 
         m =5,
-        itemList = [];
+        itemList = [1,2,3,'...',15];
         
 
     
@@ -31,13 +31,13 @@ mixin _pagination(text,list, active,  mods)
   ._pagination(class=allMods)&attributes(attributes)
     ._pagination__inner
       ._pagination__prev
-      while n< m
-        if (n == 0) 
+      each item, index in itemList
+        if (index == 0) 
           ._pagination__item._pagination__item--active
-            p= ++n
+            p= item
         else
           ._pagination__item
-            p= ++n
+            p= item
       ._pagination__next
     ._pagination__infoItem 
       span #{text}

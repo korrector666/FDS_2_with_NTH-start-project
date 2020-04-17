@@ -18,12 +18,18 @@
 
   @include font1;
   line-height: 14px;
+
   &--noMR{
     margin-right: 0;
   }
 
   &--cancel {
     color: $dark-shade-50;
+  }
+
+  &--mt16pr2{
+    margin-top: 16px;
+    padding-right: 2px;
   }
 
   &--colored {

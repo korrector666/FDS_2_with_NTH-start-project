@@ -21,6 +21,7 @@ mixin _bulletList(textList, mods)
     let ul_list = textList.split(';');
 
   ._bulletList(class=allMods)&attributes(attributes)
+    +_title('bullet list')
     ul
       each item in ul_list
         li= item

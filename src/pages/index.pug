@@ -84,8 +84,8 @@ block content
         type: 'subscription'
         },'mid-size')
 
-        +_separator()
-        +_separator()
+        +_separator('h71')
+
 
        
         
@@ -167,13 +167,13 @@ block content
           }]
         },'showDrop , mid-size')('readonly')
 
-        +_separator()
+        +_separator('h20')
         +_expCheckBoxList('expandable checkbox list',demoList)(data-expanded='false')
         +_expCheckBoxList('expandable checkbox list',demoList, 'showDrop')(data-expanded='true')
 
         
 
-      .section__col-4
+      .section__col-3
         +_textField({
           text: 'Dropdown',
           name: 'id5',
@@ -191,14 +191,13 @@ block content
           },
           'showDrop' )('readonly')
 
-        +_separator('h98')
+        +_separator('h75')
 
         +_title('rich Checkbox Buttons')
         +_checkBox('coridor', 'Ширина коридоров в номере не менее 91 см.', false, 'Широкий коридор')
         +_checkBox('helper', 'На 1 этаже вас встретит специалист  и проводит до номера.', false, 'Помощник для инвалидов')
 
-      .section__col-4
-       .section__col-4
+      .section__col-3.section__col-3--ml45
         +_textField({
           text: 'Dropdown',
           name: 'id5',
@@ -217,8 +216,8 @@ block content
             }]
           },
           'showDrop' )('readonly')
-        +_separator('h98')
-        +_title('bullet list')
+        +_separator('h75')
+        
         +_bulletList('Нельзя с питомцами ; Без вечеринок и мероприятий ; Время прибытия — после 13:00 , а выезд до 12:00')
     .section__row
       .section__col-4

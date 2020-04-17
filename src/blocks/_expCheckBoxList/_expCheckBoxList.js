@@ -7,12 +7,36 @@
 // });
 window.addEventListener('DOMContentLoaded', function () {
 
-	let arrows = document.querySelectorAll('._expCheckBoxList__downArrow');
+	let checkItem = document.querySelectorAll('._expCheckBoxList__inner');
 		
-	arrows.forEach(function (elem) {
-		let _parent = elem.parentElement.parentElement;
-		elem.addEventListener('click', function() {
-			_parent.classList.toggle('_expCheckBoxList--showDrop');
+	checkItem.forEach(function (elem) {
+		let _parent = elem.parentElement,
+			arrowsUp =  _parent.querySelector('._expCheckBoxList__upArrow'),
+			arrowsDown =  _parent.querySelector('._expCheckBoxList__downArrow');
+
+		if (_parent.dataset.expanded == 'true') {
+			arrowsDown.style.display='none';
+			arrowsUp.style.display='block';
+		} else if (_parent.dataset.expanded == 'false'){
+			arrowsDown.style.display='block';
+			arrowsUp.style.display='none';
+		}
+
+		elem.addEventListener('click', function(e) {
+
+			if (e.target == arrowsDown) {
+				_parent.classList.add('_expCheckBoxList--showDrop');
+				_parent.dataset.expanded=true;
+				arrowsDown.style.display='none';
+				arrowsUp.style.display='block';
+			}
+			if (e.target == arrowsUp) {
+				_parent.classList.remove('_expCheckBoxList--showDrop');
+				arrowsDown.style.display='block';
+				arrowsUp.style.display='none';
+				_parent.dataset.expanded=false;
+			}
+
 		});
 	})
 	

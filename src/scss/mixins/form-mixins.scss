@@ -71,6 +71,27 @@
       transform: translate(-50%, -50%) rotate( -45deg);
     }
   }
+  &__upArrow {
+    height: 44px;
+    width: 44px;
+    position: absolute;
+    top: $topOffset+6;
+    right: 0;
+    cursor: pointer;
+    display: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 7px;
+      width: 7px;
+      border-left: 2px solid $selectedBorder;
+      border-bottom: 2px solid $selectedBorder;
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%) rotate( -225deg);
+    }
+  }
 
 }
 
