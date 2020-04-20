@@ -8,7 +8,12 @@
   $block-name:                &; // #{$block-name}__element
   @include font1;
   color: $dark-shade-75;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+
+  &--pt10 {
+    padding-top: 10px;
+  }
   
   &__inner {
     display: flex;

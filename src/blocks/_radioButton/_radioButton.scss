@@ -8,8 +8,10 @@
 
   @include font1;
   color: $dark-shade-100;
-  margin-bottom: 10px;
-  margin-top: 31px;
+  margin-bottom: 20px;
+  &--pt10{
+    padding-top: 10px;
+  }
 
   &__inner {
     display: flex;

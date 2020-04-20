@@ -1,0 +1,52 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_registration)
+
+mixin _registration(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_registration('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _registration--' + modsList[i].trim();
+      }
+    }
+
+  ._registration(class=allMods)&attributes(attributes)
+    +_title('Регистрация аккаунта','main')
+    +_textField({
+          name:'name',
+          placeholder:'Имя',
+          },'noMargin, pt0')
+    +_textField({
+          name:'surname',
+          placeholder:'Фамилия',
+          },'pt10, noMargin')
+    +_radioButton('gender', demoRadioButtons, 'pt10')
+    +_textField({
+    text: 'Дата рождения',
+    name: 'birthdate',
+    type: 'maskDate'
+    })
+    +_textField({
+        text: 'данные для входа в сервис',
+        name:'email',
+          placeholder:'Email',
+          },'noMargin')
+    +_textField({
+          name:'pass',
+          placeholder:'Password',
+          },'noMargin, pt10')
+
+    +_toggle('Получать спецпредложения', false, 'offer' , '', 'pt10' )
+    +btn('перейти к оплате', 'coloredBig, mt12')
+    +_flexRow
+      div Уже есть аккаунт на Toxin
+      +btn('Войти', 'bordered ,mt12, noMR')
+      block

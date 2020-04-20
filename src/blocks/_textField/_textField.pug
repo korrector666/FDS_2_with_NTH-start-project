@@ -12,8 +12,8 @@ mixin _textField(options,mods)
   //-   type    {string} - тип инпута
   //-   value    {string} - дефолтное значение
         dropList {
-          {item : 'value 1', name: 'text of list 1' },
-          {'item' : 'value 2', name: 'text of list 2' }
+          {value : 'value 1', name: 'text of list 1' },
+          {value : 'value 2', name: 'text of list 2' }
           
         }
         dropBoxBtn {bool }
@@ -71,7 +71,7 @@ mixin _textField(options,mods)
                 span #{i.name} 
                 ._textField__overlayItem
                   ._textField__Btn(data-minus) -
-                  ._textField__value #{i.item}
+                  ._textField__value #{i.value}
                   ._textField__Btn(data-plus) +
             if options.dropBoxBtn
               ._textField__overlayItems

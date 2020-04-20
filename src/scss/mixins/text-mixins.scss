@@ -25,12 +25,20 @@
   line-height: 15px;
 }
 @mixin fontMose($fz : 14px, $fw: normal, $lh: $fz,  $fs : normal,  ){
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-style: $fs;
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
 }
+@mixin fontQuicksand($fz : 14px, $fw: normal, $lh: $fz,  $fs : normal,  ){
+  font-family: 'Quicksand', sans-serif;
+  font-style: $fs;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+}
+
 
 @mixin font1($upper: true){
    @include fontMose(12px, 700, 15px);

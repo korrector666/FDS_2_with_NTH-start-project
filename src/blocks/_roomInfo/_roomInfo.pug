@@ -1,0 +1,33 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_roomInfo)
+
+mixin _roomInfo(roomNumber, roomPrice, _type, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_roomInfo('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _roomInfo--' + modsList[i].trim();
+      }
+    }
+
+  ._roomInfo(class=allMods)&attributes(attributes)
+    +_flexRow()
+      ._roomInfo__numer
+        |№ 
+        span._roomInfo__value #{roomNumber}
+        span._roomInfo__luxe #{_type}
+      ._roomInfo__price 
+        span._roomInfo__priceValue #{roomPrice} 
+        | в сутки
+
+
+    ._roomInfo__inner
+      block

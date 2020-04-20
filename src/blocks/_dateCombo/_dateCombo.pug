@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_dateCombo)
+
+mixin _dateCombo(combo, combo2, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_dateCombo('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _dateCombo--' + modsList[i].trim();
+      }
+    }
+
+  ._dateCombo(class=allMods)&attributes(attributes)
+    ._dateCombo__text
+      +_dateDrop(combo)(readonly, data-startDate)  
+      +_dateDrop(combo2)(readonly, data-startDate)  
+    block

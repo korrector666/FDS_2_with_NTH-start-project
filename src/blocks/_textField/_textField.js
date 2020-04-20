@@ -10,8 +10,83 @@ window.addEventListener('DOMContentLoaded', function () {
 	let arrows = document.querySelectorAll('._textField__downArrow'),
 		arrowsOld = document.getElementsByClassName('_textField__downArrow'),
 		dropInputs = document.querySelectorAll('._textField__overlay'),
-		droppedInputs = document.querySelectorAll('._textField--showDrop') ;
+		droppedInputs = document.querySelectorAll('._textField--showDrop'),
+		maskFields = document.querySelectorAll('[data-date=maskDate]') ;
 
+	let cleanLetters = function(text) {
+		let tempStr = '' ,
+			dateTemp;
+
+		for (let char of text.toLowerCase()) {
+			if (isNaN(+char) == false) {
+				if (tempStr.length == 2 || tempStr.length == 5) {
+					tempStr += '.'
+				}
+				if(tempStr.length >9) {
+					break;
+				}
+
+				tempStr += char;
+			} 
+		}
+
+		dateTemp = tempStr.split('.');
+		if (+dateTemp[0] >32 ) {
+			dateTemp[0] = '31';
+		}
+		if (+dateTemp[1] >13 ) {
+			dateTemp[1] ='12';
+		}
+
+		cl(dateTemp);
+
+		let isLeap = year => new Date(year, 1, 29).getDate() === 29;
+
+		switch(dateTemp[1]) {
+			case '02':  // if (x === 'value1')
+				if (dateTemp[2] !== undefined) {
+					if (dateTemp[2].length ==4) {
+						if (isLeap(+dateTemp[2]) == false) {
+							if (+dateTemp[0] >29 ) {
+								dateTemp[0] = 28 ;
+							}
+
+						} else {
+							if (+dateTemp[0] >30 ) {
+								dateTemp[0] = 29 ;
+							}
+						}
+					}
+				}
+				break;
+			case '04':  // if (x === 'value2')
+			case '06':  // if (x === 'value2')
+			case '09':  // if (x === 'value2')
+			case '11':  // if (x === 'value2')
+				if (+dateTemp[0] >31 ) {
+					dateTemp[0] = 30;
+					cl('here');
+				}
+				cl(+dateTemp[0] >31);
+				cl(+dateTemp[0]);
+				break;
+			default:
+				break
+		}
+	
+		tempStr = dateTemp.join('.');
+
+		return tempStr;		
+
+	}
+
+	maskFields.forEach( (e) => {
+		e.addEventListener('input', function(event) {
+			let dateText =  e.value; 
+			e.value =  cleanLetters(dateText);
+
+		}) 
+	})	
 
 	// обработка значений при изменении кнопок
 	

@@ -7,4 +7,11 @@
   $block-name:                &; // #{$block-name}__element
   @include font1;
   margin-bottom: 16px;
+
+  &--main {
+    margin-bottom: 20px;
+    @include fontMose(25px, bold, 30px);
+    text-transform: none;
+    letter-spacing: -0.02em;
+  }
 }

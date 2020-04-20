@@ -1,0 +1,13 @@
+// В этом файле должны быть стили для БЭМ-блока _flexRow, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+._flexRow {
+
+  $block-name:                &; // #{$block-name}__element
+  &__inner {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}

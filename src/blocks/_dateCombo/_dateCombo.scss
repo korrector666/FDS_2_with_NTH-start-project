@@ -1,0 +1,13 @@
+// В этом файле должны быть стили для БЭМ-блока _dateCombo, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+._dateCombo {
+
+  $block-name:                &; // #{$block-name}__element
+  width: $normal;
+  &__text{
+    display: flex;
+    justify-content: space-between;
+  }
+}

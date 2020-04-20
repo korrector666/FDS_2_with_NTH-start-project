@@ -10,6 +10,7 @@
   color: $dark-shade-75;
   position: relative;
   @include text-field-default;
+  padding-top: 20px;
 
   &:hover, &:focus{
     #{$block-name}__input{
@@ -29,6 +30,18 @@
   &--mid-size{
     width: $midi !important;
   }
+
+  &--noMargin {
+    margin-bottom: 0px;
+  }
+
+  &--pt10 {
+    padding-top: 10px;
+  }
+  &--pt0 {
+    padding-top: 0px;
+  }
+  
 
 //******************************************************************
 //******************************************************************
@@ -63,7 +76,7 @@
 //******************************************************************
 //******************************************************************
 &__input {
-    @include input-default($topOffset);
+    @include input-default(0);
     @include fontMose(14px, 300, 24px);
     @include input-standart;    
 

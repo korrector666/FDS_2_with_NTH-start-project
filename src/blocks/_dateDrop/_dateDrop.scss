@@ -8,9 +8,9 @@
   $block-name:                &; // #{$block-name}__element
   @include text-field-default($small);
   @include _info;
-
+  padding-top: $topOffset;
   @include arrow-button($topOffset); 
-  margin-right: 20px;
+  // margin-right: 20px;
 
   &--showDrop {
     overflow: visible;
@@ -22,7 +22,7 @@
   }
 
   &__input {
-    @include input-default($topOffset);
+    @include input-default(0);
     @include fontMose(14px, 300, 24px);
     @include input-standart;
   }
