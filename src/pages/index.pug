@@ -75,7 +75,7 @@ block content
         text: 'subscription text field',
         type: 'subscription'
         },'mid-size')
-      .section__col-3
+      .section__col-3.section__col-3--pl57
 
         +_checkBoxGroup('Checkbox Buttons' , demoCheckButtons)
 
@@ -97,7 +97,7 @@ block content
         +_stars(5, 'star2')
         +_separator()
 
-      .section__col-3.section__col-3--ml45
+      .section__col-3.section__col-3--ml45.section__col-3--pl57
 
         +_rangeSlider('range slider', {state: "5000-1000"})
         +_separator('h24')
@@ -160,7 +160,7 @@ block content
 
         
 
-      .section__col-3
+      .section__col-3.section__col-3--pl57
         +_textField({
           text: 'Dropdown',
           name: 'id5',
@@ -184,7 +184,7 @@ block content
         +_checkBox('coridor', 'Ширина коридоров в номере не менее 91 см.', false, 'Широкий коридор')
         +_checkBox('helper', 'На 1 этаже вас встретит специалист  и проводит до номера.', false, 'Помощник для инвалидов')
 
-      .section__col-3.section__col-3--ml45
+      .section__col-3.section__col-3--ml45.section__col-3--pl57
         +_textField({
           text: 'Dropdown',
           name: 'id5',
@@ -219,10 +219,12 @@ block content
       .section__col-4    
         +_findRoom()
         +_registration()
-      +_separator('v20')
+      +_separator('v30')
       .section__col-4    
         +_booking()
-      .section__col-4    
-        +_roomInfo('888','9 990 ₽', 'люкс')
+        +_login()
+      +_separator('v30')
+      .section__col-3    
+        +_calendar()
 
 

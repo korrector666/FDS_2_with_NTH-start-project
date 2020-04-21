@@ -17,6 +17,9 @@
     align-items: baseline;
     margin-bottom: 10px;
     color: $dark-shade-75;
+  &--lh18{
+    line-height: 18px;
+  }
 // *********************************************************
 
     @at-root &Descr {
@@ -49,6 +52,8 @@
     overflow: hidden;
     display: flex;
     height: 24px;
+    padding-top: 20px;
+    margin-bottom: 9px;
     justify-content: space-between;
     align-items:baseline;
     position: relative;

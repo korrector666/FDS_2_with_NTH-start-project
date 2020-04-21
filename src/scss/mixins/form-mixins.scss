@@ -96,7 +96,8 @@
 
 }
 
-@mixin arrowRight-button($right: 17px, $color: $white) {
+
+@mixin arrowRight-button($right: 17px, $color: $white, $rotation: -225deg ) {
   
   position: relative;
   &:before{
@@ -119,7 +120,7 @@
     height: 9px;
     border-left: 2px solid $color;
     border-top: 2px solid $color;
-    transform: translateY(-50%) rotate(-225deg);
+    transform: translateY(-50%) rotate($rotation);
     
   }
 }
@@ -133,8 +134,8 @@
  
 }
 
-@mixin defaultWindow {
-  width: 380px;
+@mixin defaultWindow($width : 380px) {
+  width: $width;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -142,5 +143,6 @@
   border-radius: 4px;
   padding: 40px 30px 10px;
   margin-bottom: 40px;
+  min-height: 200px;
 
 }

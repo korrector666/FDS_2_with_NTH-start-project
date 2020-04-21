@@ -476,7 +476,10 @@
 					var day = (local_date.getDay() - options.first_day) % 7;
 					date_add_days(local_date, -(day + (day < 0 ? 7 : 0)));
 				})();
-				for (day = 0; day < 42; ++day) {
+				// for (day = 0; day < 42; ++day) {
+					
+
+				for (day = 0; day < 35; ++day) {
 					day_element                  = document.createElement('div');
 					day_element.textContent      = local_date.getDate();
 					day_element.__pickmeup_day   = local_date.getDate();
@@ -485,17 +488,21 @@
 					if (current_month !== local_date.getMonth()) {
 						dom_add_class(day_element, 'pmu-not-in-month');
 					}
+
 					if (local_date.getDay() === 0) {
 						dom_add_class(day_element, 'pmu-sunday');
 					} else if (local_date.getDay() === 6) {
 						dom_add_class(day_element, 'pmu-saturday');
 					}
+
 					from_user = options.render(new Date(local_date)) || {};
 					// We only reset time for this value in order to deal with Summer/Winter time, but changing `local_date` itself will break days incrementing
 					val       = reset_time(new Date(local_date)).valueOf();
+					
 					disabled  =
 						(options.min && options.min > local_date) ||
 						(options.max && options.max < local_date);
+
 					selected  =
 						options.date.valueOf() === val ||
 						(
@@ -507,10 +514,22 @@
 						(
 							options.mode === 'range' && val >= options.date[0] && val <= options.date[1]
 						);
+
 					if (from_user.disabled || (!('disabled' in from_user) && disabled)) {
 						dom_add_class(day_element, 'pmu-disabled');
 					} else if (from_user.selected || (!('selected' in from_user) && selected)) {
-						dom_add_class(day_element, 'pmu-selected');
+						
+
+						if (new Date(options.date[0]).getTime() == new Date(options.date[1]).getTime()){
+							dom_add_class(day_element, '_calendar__oneDay');
+						} else if (val == new Date(options.date[0]).getTime() && options.date[0] != options.date[1]) {
+							dom_add_class(day_element, '_calendar__startDay');
+						} else if (val == new Date(options.date[1]).getTime() && options.date[0] != options.date[1]) {
+							dom_add_class(day_element, '_calendar__endDay');
+						} else {
+							dom_add_class(day_element, 'pmu-selected');
+						}
+
 					}
 					if (val === today) {
 						dom_add_class(day_element, 'pmu-today');
@@ -524,6 +543,7 @@
 					// Move to the next day
 					date_add_days(local_date, 1);
 				}
+
 				instance.appendChild(options.instance_content_template(days_elements, 'pmu-days'));
 			})();
 		}
@@ -797,6 +817,7 @@
 		if (!dom_has_class(element, 'pmu-button') || dom_has_class(element, 'pmu-disabled')) {
 			return false;
 		}
+		
 		event.preventDefault();
 		event.stopPropagation();
 		var options        = target.__pickmeup.options,
@@ -1298,6 +1319,7 @@
 			}
 			options.bound.set_date(options.date, options.current);
 		}
+
 		options = target.__pickmeup.options;
 		return {
 			hide     : options.bound.hide,
@@ -1327,7 +1349,7 @@
 		view                      : 'days',
 		calendars                 : 1,
 		format                    : 'd-m-Y',
-		title_format              : 'B, Y',
+		title_format              : 'B Y',
 		position                  : 'bottom',
 		class_name                : '',
 		separator                 : ' - ',

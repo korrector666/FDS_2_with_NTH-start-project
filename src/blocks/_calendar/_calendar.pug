@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_calendar)
+
+mixin _calendar(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_calendar('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _calendar--' + modsList[i].trim();
+      }
+    }
+
+  ._calendar(class=allMods)&attributes(attributes)
+    ._calendar__inner
+    +_flexRow()
+      +btn('Очистить', 'cancel, mt16pr2mb5')
+      +btn('Применить','noMR , mt16pr2mb5')
+    block

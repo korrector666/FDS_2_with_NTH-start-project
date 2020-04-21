@@ -80,9 +80,11 @@
     $width: (100% / 12) * 3;
     flex: 0 0 $width;
     max-width: $width;
-    padding-left: 57px;
     &--ml45{
       margin-left: 45px;
+    }
+    &--pl57{
+      padding-left: 57px;
     }
   }
 
