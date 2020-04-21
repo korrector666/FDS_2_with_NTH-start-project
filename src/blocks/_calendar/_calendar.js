@@ -12,32 +12,34 @@ const cl = function (obj) {
 }
 
  window.addEventListener('DOMContentLoaded', function () {
+	
 	pickmeup('._calendar__inner', {
 		flat : true,
 		mode : 'range',
-		date: '19.08.2019 , 23.08.2019',
+		date: ['19.08.2019','23.08.2019'],
 		prev: '<div class="_calendar__prevBtn"></div>',
 		next: '<div class="_calendar__nextBtn"></div>'
 	});
 
-	let calendars = document.querySelectorAll('.pmu-days');
+	let calendars = document.querySelectorAll('._calendar');
 	
 	// cl(calendars);
-
 	calendars.forEach( function(elem) {
-		
-		// cl(elem);
+		let _clearBtn = elem.querySelectorAll('.btn')[0],
+			_submitBtn = elem.querySelectorAll('.btn')[1];
 	
-		elem.addEventListener('click' , function(e) {
 
-			let selectedDays = elem.querySelectorAll('.pmu-selected'); 
-			// cl(selectedDays);
-		
-	
-			if (typeof (selectedDays) != undefined) {
-				selectedDays[0].classList.add('_calendar__startDay')
-			}
+		_clearBtn.addEventListener('click', function () {
+			pickmeup('._calendar__inner').clear();
 		})
+
+		_submitBtn.addEventListener('click', function () {
+			let dates = pickmeup('._calendar__inner').get_date('d-m-Y');
+			elem.setAttribute('data-startDate', dates[0]); 
+			elem.setAttribute('data-endDate', dates[1]); 
+			return pickmeup('._calendar__inner').get_date();
+		})
+		
 
 	})
 		
