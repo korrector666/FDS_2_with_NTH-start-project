@@ -1,0 +1,38 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_room)
+
+mixin _room(image, roomNumber, rating, stars, price, _type,  mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_room('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _room--' + modsList[i].trim();
+      }
+    }
+
+    let qty = 4;
+
+  ._room(class=allMods)&attributes(attributes)
+    ._room__slider
+      ._room__dots  
+         while i < qty
+          ._room__dot
+      img._room__img(src=image) 
+    ._room__inner
+      +_roomInfo(roomNumber, price, _type,2)
+      hr._room__hr
+      ._room__rating
+        +_stars(stars, roomNumber,'readonly')
+        span._room__spanBold #{rating} 
+        span Отзывов
+      
+
+    block

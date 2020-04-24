@@ -7,24 +7,26 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 //   
 // });
 
-const cl = function (obj) {
-	console.log(obj);
-}
+
 
  window.addEventListener('DOMContentLoaded', function () {
 	
-	pickmeup('._calendar__inner', {
-		flat : true,
-		mode : 'range',
-		date: ['19.08.2019','23.08.2019'],
-		prev: '<div class="_calendar__prevBtn"></div>',
-		next: '<div class="_calendar__nextBtn"></div>'
-	});
+	
 
 	let calendars = document.querySelectorAll('._calendar');
 	
 	// cl(calendars);
 	calendars.forEach( function(elem) {
+
+		pickmeup('._calendar__inner', {
+			flat : true,
+			mode : 'range',
+			date: ['19.08.2019','23.08.2019'],
+			prev: '<div class="_calendar__prevBtn"></div>',
+			next: '<div class="_calendar__nextBtn"></div>'
+		});
+
+
 		let _clearBtn = elem.querySelectorAll('.btn')[0],
 			_submitBtn = elem.querySelectorAll('.btn')[1];
 	
@@ -35,8 +37,12 @@ const cl = function (obj) {
 
 		_submitBtn.addEventListener('click', function () {
 			let dates = pickmeup('._calendar__inner').get_date('d-m-Y');
+
 			elem.setAttribute('data-startDate', dates[0]); 
 			elem.setAttribute('data-endDate', dates[1]); 
+			
+			elem.classList.add('_calendar--hide');
+
 			return pickmeup('._calendar__inner').get_date();
 		})
 		

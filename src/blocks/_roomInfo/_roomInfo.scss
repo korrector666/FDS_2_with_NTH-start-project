@@ -11,6 +11,9 @@
 
   &__value {
     @include fontQuicksand(24px,bold, 30px);
+    &--size2{
+      @include fontQuicksand(19px,bold, 24px);
+    }
   }
 
 // *************************************************

@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_stars)
 
-mixin _stars(_star, _name, mods)
+mixin _stars(_star, _name, readOnly, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -35,5 +35,8 @@ mixin _stars(_star, _name, mods)
     if (_list.length !== 0)
       each i in _list
         label._stars__label
-          input(type='radio' checked=i.status  name=_name )
+          if (readOnly != undefined)
+            input(type='radio' checked=i.status  name=_name disabled)
+          else
+            input(type='radio' checked=i.status  name=_name )
     block
