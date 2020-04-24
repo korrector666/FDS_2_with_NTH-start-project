@@ -1,0 +1,78 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_header)
+
+mixin _header(menuList, buttons, loggedName, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +_header('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _header--' + modsList[i].trim();
+      }
+    }
+    
+    if (typeof(buttons) == 'undefined') {
+      var buttons = {login :'login', register :'register'};
+    }
+    let _menuList = [],
+        _active = '';
+
+    if (menuList == '') {
+      _menuList = [
+        {
+          item : 'Home',
+          selected : true
+        },
+        {
+          item : 'About Us'
+        },
+        {
+          item : 'Services',
+          submenu : [{item: 'temp'}] 
+        },
+        {
+          item : 'Careers'
+        },
+        {
+          item : 'News'
+        },
+        {
+          item : 'Documentation'
+        }
+        ];          
+    } else {
+      _menuList=menuList
+    }
+
+  header._header(class=allMods)&attributes(attributes)
+    +_toxin
+    nav._header__nav
+      ul._header__mainMenu
+        each menuItem in _menuList
+          - 
+            if (typeof(menuItem.selected) != 'undefined' && menuItem.selected == true) {
+              _active = ' _header__menuItem--active '
+            } else {
+              _active = ''
+            }
+          if (typeof(menuItem.submenu) != 'undefined')
+            li._header__menuItem._header__menuItem--submenu(class=_active) #{menuItem.item}
+              ._header__downArrow
+          else
+            li._header__menuItem(class=_active) 
+              a._header__link(href='#') #{menuItem.item}
+      ._header__left
+        if (typeof(loggedName) != 'undefined' )
+          ._header__logged #{loggedName} 
+          
+        else
+          +btn(buttons.login, 'bordered, midi,noMB')
+          +btn(buttons.register, 'colored, midi,noMargin, autoSize')
+    block

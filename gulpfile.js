@@ -278,7 +278,7 @@ function compileSass() {
       restructure: false,
     }))
     .pipe(autoprefixerGulp()) // added new K
-    .pipe(cleanCSS({compatibility: 'ie8'})) // added new K
+    // .pipe(cleanCSS({compatibility: 'ie8'})) // added new K
     .pipe(dest(`${dir.build}/css`, { sourcemaps: '.' }))
     .pipe(browserSync.stream());
 }
@@ -449,6 +449,7 @@ function serve() {
 
   // Картинки: все события
   watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
+  watch([`src/img/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
   
 
   // Спрайт SVG

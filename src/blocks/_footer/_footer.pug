@@ -1,12 +1,12 @@
-//- Все примеси в этом файле должны начинаться c имени блока (section)
+//- Все примеси в этом файле должны начинаться c имени блока (_footer)
 
-mixin section(logo, mods)
+mixin _footer(text, mods)
 
   //- Принимает:
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +section('Текст', 'some-mod')
+        +_footer('Текст', 'some-mod')
 
   -
     // список модификаторов
@@ -14,13 +14,10 @@ mixin section(logo, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' section--' + modsList[i].trim();
+        allMods = allMods + ' _footer--' + modsList[i].trim();
       }
     }
 
-  .section(class=allMods)&attributes(attributes)
-    .section__logo
-      img(src=logo alt="Logo")
-    block
-      
-
+  ._footer(class=allMods)&attributes(attributes)
+    ._footer__inner
+      block

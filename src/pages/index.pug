@@ -11,14 +11,14 @@ block meta
 //- block nav
 //-   +main-nav('10')
 block content
-  +section()
+  +section('img/logo.svg')
     .section__inner
       each i in colorBoxSetup 
         +colorBox(i._color,i.text)
     .section__inner.section__inner--flexEnd
       each i in demoTextSetup
         +textDemo(i.text, i.size)
-  +section()
+  +section('img/logo.svg')
     .section__row 
       .section__col-4
         +_textField({
@@ -213,7 +213,7 @@ block content
         +_infoBlock( 'img/location_city.svg','Удобство','Окно в каждой из спален')
       .section__col-8
         +_review('Мурад Сарафанов','5 дней назад', 12, 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 'img/users/user1.png')
-  +section('bg2')
+  +section('img/logo.svg','bg2')
     +_separator('h8')
     .section__row
       .section__col-4    
@@ -228,5 +228,8 @@ block content
         +_calendar()
         +_room('img/rooms/888.jpg', 888, 145, 5, '9 990₽', 'люкс', true)
         +_room('img/rooms/840.jpg', 840, 65, 4, '9 900₽')
+  +section('img/logo.svg','bg2')
+    +_header('',{login :'login', register :'register'})
+    +_header('',{login :'login', register :'register'}, 'Cosmin Negoita', 'top260')
 
 

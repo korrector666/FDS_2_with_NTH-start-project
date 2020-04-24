@@ -28,7 +28,7 @@ let config = {
   ],
   'addJsBefore': [
     // 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
-    '../../node_modules/jquery/dist/jquery.min.js',
+    // '../../node_modules/jquery/dist/jquery.min.js',
     // './utils/pickmeup.js'
   ],
   'addJsAfter': [
