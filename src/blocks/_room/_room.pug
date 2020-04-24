@@ -1,10 +1,16 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_room)
 
-mixin _room(image, roomNumber, rating, stars, price, _type,  mods)
+mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
 
   //- Принимает:
-  //-   text    {string} - текст
-  //-   mods    {string} - список модификаторов
+  //-  image,   - путь к картинке
+  //-  roomNumber, - номер комнаты
+  //-  rating, - число отзывов
+  //-  stars,  число о 1 до 5
+  //-  price, {string}- цена с денежной еденицой
+  //-  _type,  {string}- тип номера - ЛЮКС, или пусто (обычный)
+  //-  arrows, - наличие стрелок - true / false
+  //-  mods    {string} - список модификаторов
   //- Вызов:
         +_room('Текст', 'some-mod')
 
@@ -18,13 +24,17 @@ mixin _room(image, roomNumber, rating, stars, price, _type,  mods)
       }
     }
 
-    let qty = 4;
+    let qty = 4, 
+        j = 0;
 
   ._room(class=allMods)&attributes(attributes)
     ._room__slider
+      if arrows
+        ._room__leftArrow
+        ._room__rightArrow
       ._room__dots  
-         while i < qty
-          ._room__dot
+        while j++ < qty
+          ._room__dot 
       img._room__img(src=image) 
     ._room__inner
       +_roomInfo(roomNumber, price, _type,2)
@@ -33,6 +43,4 @@ mixin _room(image, roomNumber, rating, stars, price, _type,  mods)
         +_stars(stars, roomNumber,'readonly')
         span._room__spanBold #{rating} 
         span Отзывов
-      
-
     block

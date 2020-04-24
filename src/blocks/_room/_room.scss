@@ -23,6 +23,59 @@
     height: 151px;
     overflow: hidden;
     margin-bottom: 20px;
+    position: relative;
+  }
+// ******************************************************** 
+// ******************************************************** 
+  &__dots{
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+  }
+// ******************************************************** 
+// ******************************************************** 
+  &__leftArrow, &__rightArrow {
+    position: absolute;
+    height: 100%;
+    width: 42px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    
+    &:before{
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid $white;
+      border-left: 2px solid $white;
+      transform: rotate(-45deg) translateY(-50%);
+      top: 49%;
+      left: 56%;
+
+    }
+    
+  }
+// ******************************************************** 
+// ******************************************************** 
+  &__rightArrow{
+    transform: rotate(180deg);
+    right: 0;
+  }
+// ******************************************************** 
+// ******************************************************** 
+  &__dot{
+    width: 5px;
+    height: 5px;
+    border: 1px solid $white;
+    border-radius: 100%;
+    margin-left: 4px;
+    
+
+    &--active{
+      background: $white;
+    }
+
   }
 // ******************************************************** 
 // ******************************************************** 
