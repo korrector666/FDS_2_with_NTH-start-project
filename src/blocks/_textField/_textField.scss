@@ -26,6 +26,9 @@
     height: auto;
     min-height: 44px;
   }
+  &--parentWide {
+    width: inherit;
+  }
 
   &--mid-size{
     width: $midi !important;

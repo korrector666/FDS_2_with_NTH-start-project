@@ -11,14 +11,20 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 140px;
-
+  z-index: 999;
   background: $white;
-  position: absolute;
-  top: 150px;
+  position: fixed;
+  top: 0;
   left: 0;
 // **********************************************************
   &--top260 {
     top: 260px;
+    position: absolute;
+  }
+  &--top150{
+    top: 150px;
+    position: absolute;
+
   }
 
 // **********************************************************

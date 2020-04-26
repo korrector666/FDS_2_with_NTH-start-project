@@ -1,10 +1,11 @@
 //- Все примеси в этом файле должны начинаться c имени блока (_footer)
 
-mixin _footer(text, mods)
+mixin _footer(text, menu_lists, subscribe, mods)
 
   //- Принимает:
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
+        menu_lists - [{} , {} , {}] отдельный объек со списком меню
   //- Вызов:
         +_footer('Текст', 'some-mod')
 
@@ -20,4 +21,30 @@ mixin _footer(text, mods)
 
   ._footer(class=allMods)&attributes(attributes)
     ._footer__inner
-      block
+      ._footer__descr
+        +_toxin
+        p #{text}
+   
+
+      for menus,index in menu_lists
+        ._footer__items
+          - console.log(index + '  ' + menus.title);          
+          h3 #{menus.title}
+          ul._footer__list
+            for item in menus.list
+              li._footer__item 
+                a(href=item.href) #{item.text}
+      ._footer__subscr 
+        - console.log('text ' + subscribe.header )
+        h3 #{subscribe.header}
+        p #{subscribe.text}
+        +_textField({
+                name: 'footer_subscr',
+                type: 'subscription',
+                placeholder : subscribe.placeholder
+                },' parentWide')
+    hr._footer__hr
+    ._footer__sub Copyright © 2018 Toxin UI Kit. All rights reserved.
+
+    block
+  

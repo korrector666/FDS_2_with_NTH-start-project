@@ -69,7 +69,7 @@ mixin _header(menuList, buttons, loggedName, mods)
             li._header__menuItem(class=_active) 
               a._header__link(href='#') #{menuItem.item}
       ._header__left
-        if (typeof(loggedName) != 'undefined' )
+        if (typeof(loggedName) != 'undefined' && loggedName !='')
           ._header__logged #{loggedName} 
           
         else

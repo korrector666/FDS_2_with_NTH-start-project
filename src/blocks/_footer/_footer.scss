@@ -5,4 +5,101 @@
 ._footer {
 
   $block-name:                &; // #{$block-name}__element
+  width: calc(100% - 140px - 140px);
+
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  padding: 0 140px;
+  background: $white;
+  top: 0;
+  left: 0;
+
+  z-index: 999;
+  color:$dark-shade-75;
+
+
+// *****************************************************
+  &--top370 {
+    top: 473px;
+    position: absolute;
+  }
+// *****************************************************
+// *****************************************************
+  &__inner {
+    display: flex;
+    min-height: 372px;
+    padding: 100px 0;
+
+
+  }
+// *****************************************************
+// *****************************************************
+  &__descr {
+    width: 260px;
+    padding-right: 40px;
+    margin-top: -3px;
+  }
+// *****************************************************
+// *****************************************************
+  &__items {
+    width: 200px;
+    
+    h3 {
+      margin-bottom: 21px;
+      color:$dark-shade-100;
+    }
+  }
+// *****************************************************
+// *****************************************************
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+// *****************************************************
+// *****************************************************
+  &__item{
+      margin-bottom: 20px;
+      @include fontMose(14px, normal, 18px);
+      color: $dark-shade-50;
+  
+    a {
+      text-decoration: none;
+      color:inherit;
+    }
+  }
+
+// *****************************************************
+// *****************************************************
+  &__subscr {
+    width: 260px;
+    color:$dark-shade-100;
+
+
+    p{
+      padding-top: 4px;
+      margin-bottom: 2px;
+    }
+  }
+// *****************************************************
+// *****************************************************
+  &__sub{
+    min-height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+// *****************************************************
+// *****************************************************
+  &__hr{
+    border: none;
+    background: $dark-shade-10;
+    height: 1px;
+    width: 100vw;
+    margin: 0;
+    margin-left: -140px;
+  }
 }
