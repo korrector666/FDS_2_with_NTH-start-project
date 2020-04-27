@@ -32,7 +32,7 @@ mixin _footer(text, menu_lists, subscribe, mods)
           h3 #{menus.title}
           ul._footer__list
             for item in menus.list
-              li._footer__item 
+              li._footer__item
                 a(href=item.href) #{item.text}
       ._footer__subscr 
         - console.log('text ' + subscribe.header )
