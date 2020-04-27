@@ -27,7 +27,6 @@
   &--top370 {
     position: absolute;
     top: 473px;
-    
   }
 //*****************************************************
 //*****************************************************
@@ -64,7 +63,7 @@
   &__item{
       margin-bottom: 20px;
       @include fontMose(14px, normal, 18px);
-            color: $dark-shade-50;
+      color: $dark-shade-50;
 
     a {
       text-decoration: none;

@@ -29,20 +29,20 @@
     "*.js": "eslint"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
     "@htmlacademy/editorconfig-cli": "^1.0.0",
-    "autoprefixer": "^9.7.6",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "cpy": "^8.1.0",
     "cross-env": "^7.0.2",
     "css-mqpacker": "^7.0.0",
     "del": "^5.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^6.5.0",
     "get-classes-from-html": "^1.0.1",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^2.1.1",
     "glob-exec": "^0.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -58,30 +58,30 @@
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgmin": "^2.2.0",
     "gulp-svgstore": "^7.0.1",
     "gulp.spritesmith": "^6.11.0",
-    "husky": "^4.2.5",
+    "husky": "^4.2.3",
     "jquery": "^3.5.0",
     "jstransformer-markdown-it": "^2.0.0",
     "kind-of": ">=6.0.3",
-    "lint-staged": "^10.1.7",
+    "lint-staged": "^10.0.9",
     "merge-stream": "^2.0.0",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^1.0.3",
     "nouislider": "^14.2.0",
     "path": "^0.12.7",
     "postcss-import": "^12.0.1",
     "postcss-inline-svg": "^4.1.0",
     "postcss-object-fit-images": "^1.1.2",
     "pug-lint": "^2.6.0",
-    "stylelint": "^13.3.3",
+    "stylelint": "^13.2.1",
     "stylelint-order": "^4.0.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "through2": "^3.0.1",
     "vinyl-buffer": "^1.0.1",
-    "webpack": "^4.43.0",
+    "webpack": "^4.41.0",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
@@ -94,8 +94,5 @@
     "svg4everybody": "^2.1.8"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
