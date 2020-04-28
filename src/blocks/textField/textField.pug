@@ -1,0 +1,94 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_textField)
+
+mixin _textField(options,mods)
+  //- mixin _textField(text, name, placeholder, type='TF', state = '', value = '',  mods)
+
+  //- Принимает:
+        {
+  //-   text    {string} - текст
+  //-   name    {string} - значение тега name
+  //-   placeholder  {string}
+  //-   state  {string} - текс второй метки справа
+  //-   type    {string} - тип инпута
+  //-   value    {string} - дефолтное значение
+        dropList {
+          {value : 'value 1', name: 'text of list 1' },
+          {value : 'value 2', name: 'text of list 2' }
+          
+        }
+        dropBoxBtn {bool }
+
+        mask : '99.99.9999'
+  //-   mods    {string} - список модификаторов
+        }
+  //- Вызов:
+        +textField({
+          text: 'Текст',
+          name: 'name'
+          })
+
+  -
+    // список модификаторов
+    let allMods = ''
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',')
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _textField--' + modsList[i].trim()
+      }
+    }
+
+    let _type = 'TF'
+      _placeHolder ='ДД.ММ.ГГГГ'
+      _dropList = []
+
+    if (options.type !== undefined && options.type) {
+        _type = options.type
+      }
+
+    if (typeof(options.placeholder) == 'undefined') {
+      options.placeholder = 'Email'
+    }
+
+    if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
+       _dropList = options.dropDown;
+       _type = 'dropDown'
+    }
+  
+
+
+
+    
+    
+  .textField(class=allMods)
+    if (typeof(options.text) != 'undefined')
+      label.textField__info #{options.text}
+    if (typeof(options.state) != 'undefined')
+      label.textField__info.textField__info--state #{options.state}  
+    case _type
+      when 'subscription'
+        .textField__rigthArrow
+        input.textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
+      when 'dropDown'
+        .textField__downArrow
+        input.textField__input.textField__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)&attributes(attributes)
+        .textField__overlay
+          if (_dropList.length !== 0)
+            for i in _dropList
+              .textField__overlayItems
+                span #{i.name} 
+                .textField__overlayItem
+                  .textField__Btn(data-minus) -
+                  .textField__value #{i.value}
+                  .textField__Btn(data-plus) +
+            if options.dropBoxBtn
+              .textField__overlayItems
+                +btn('Очистить', 'cancel, mt16pr2mb5')
+                +btn('Применить','noMR , mt16pr2mb5')
+
+      when 'maskDate'
+        input.textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' max = '2050-12-31' )
+      default
+        input.textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
+
+    block
+

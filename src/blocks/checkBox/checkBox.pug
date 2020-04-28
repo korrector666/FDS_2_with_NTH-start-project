@@ -1,0 +1,31 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_checkBox)
+
+mixin _checkBox(_name, text, _status, _title, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +checkBox('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _checkBox--' + modsList[i].trim();
+      }
+    }
+
+  .checkBox(class=allMods)&attributes(attributes)
+    label
+      input(type='checkbox' checked=_status name= _name)
+      if (typeof(_title) !== 'undefined') 
+        .checkBox__text.checkBox__text--fz12 
+          span #{_title} 
+          |#{text}
+      else
+        .checkBox__text #{text}
+      
+    block

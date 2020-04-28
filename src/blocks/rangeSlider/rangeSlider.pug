@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_rangeSlider)
+
+mixin _rangeSlider(text, options, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +rangeSlider('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _rangeSlider--' + modsList[i].trim();
+      }
+    }
+
+  .rangeSlider(class=allMods)&attributes(attributes)
+    label.rangeSlider__info #{text}
+    label.rangeSlider__info.rangeSlider__info--state #{options.state}  
+    .rangeSlider__inner
+      block

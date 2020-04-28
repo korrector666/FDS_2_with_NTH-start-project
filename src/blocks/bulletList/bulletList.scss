@@ -1,0 +1,31 @@
+// В этом файле должны быть стили для БЭМ-блока _bulletList, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.bulletList {
+
+  $block-name:                &; // #{$block-name}__element
+  width: 292px;
+  ul{
+    list-style: none;
+    color: $dark-shade-75;
+    padding-inline-start:0;
+    padding-left: 22px;
+    margin-top: -2px;
+  }
+  li{
+    margin-bottom: 10px;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: $dark-shade-25;
+      border-radius: 100%;
+      left: -22px;
+      top: 12px;
+      transform: translateY(-50%);
+    }
+  }
+}

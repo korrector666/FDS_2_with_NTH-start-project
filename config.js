@@ -17,7 +17,7 @@ let config = {
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
     'src/scss/font.scss',
-    'node_modules/nouislider/distribute/nouislider.css'
+    'node_modules/nouislider/distribute/nouislider.scss'
     
 
     

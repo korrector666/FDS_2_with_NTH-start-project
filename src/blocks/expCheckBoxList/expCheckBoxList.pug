@@ -1,0 +1,48 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_expCheckBoxList)
+
+mixin _expCheckBoxList(text, list, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   list    { 
+            item : 'name',
+            text: 'text'
+            status: true / false
+          } - набор с названиеями  списка
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +expCheckBoxList('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    let allMods = '',
+        _list = [];
+
+
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _expCheckBoxList--' + modsList[i].trim();
+      }
+    }
+
+    if (typeof(list) !== 'undefined' && list){
+      _list = list;
+      for (let i = 0; i < _list.length; i++) {
+        if (typeof(_list[i].item) == 'undefined'){
+          _list[i].item = 'item-' +i;
+        }
+      }
+    }
+
+  .expCheckBoxList(class=allMods)&attributes(attributes) 
+    .expCheckBoxList__inner
+      div #{text}
+      .expCheckBoxList__downArrow
+      .expCheckBoxList__upArrow
+    .expCheckBoxList__overlay
+      if (_list.length !== 0)
+        each i in _list
+          +checkBox(i.item, i.text, i.status)
+    
+    block

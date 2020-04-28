@@ -1,0 +1,43 @@
+// В этом файле должны быть стили для БЭМ-блока _infoBlock, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.infoBlock {
+
+  $block-name:                &; // #{$block-name}__element
+  width: 280px;
+  color: $dark-shade-75;
+
+  &__main {
+    display: flex;
+    justify-content: flex-start;
+  
+  }
+  &__inner{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 10px;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  &__img{
+    display: block;
+    width: 38px;
+    height: 38px;
+    padding: 5px;
+
+  }
+  &__hr{
+    height: 1px;
+    border: none;
+    background: $dark-shade-10;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+
+  }
+}

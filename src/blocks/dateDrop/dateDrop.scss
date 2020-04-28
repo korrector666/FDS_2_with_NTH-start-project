@@ -1,0 +1,29 @@
+// В этом файле должны быть стили для БЭМ-блока _dateDrop, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.dateDrop {
+  $showDrop: false;
+
+  $block-name:                &; // #{$block-name}__element
+  @include text-field-default($small);
+  @include _info;
+  padding-top: $topOffset;
+  @include arrow-button($topOffset); 
+  // margin-right: 20px;
+
+  &--showDrop {
+    overflow: visible;
+    $showDrop: true;
+  }
+
+  &--mid-size{
+    width: $midi !important;
+  }
+
+  &__input {
+    @include input-default(0);
+    @include fontMose(14px, 300, 24px);
+    @include input-standart;
+  }
+}

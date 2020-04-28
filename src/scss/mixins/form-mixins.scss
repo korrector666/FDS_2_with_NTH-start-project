@@ -121,6 +121,7 @@
     border-left: 2px solid $color;
     border-top: 2px solid $color;
     transform: translateY(-50%) rotate($rotation);
+    cursor: pointer;
     
   }
 }

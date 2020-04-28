@@ -1,0 +1,16 @@
+// В этом файле должны быть стили для БЭМ-блока _checkBoxGroup, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.checkBoxGroup {
+
+  $block-name:                &; // #{$block-name}__element
+  @include text-field-default(222px);
+  @include font1;
+  height: auto;
+  margin-bottom: 30px;
+
+  &__inner {
+    margin-bottom: 16px;
+  }
+}

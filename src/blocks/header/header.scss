@@ -1,0 +1,95 @@
+// В этом файле должны быть стили для БЭМ-блока _header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.header {
+
+  $block-name:                &; // #{$block-name}__element
+  min-height: 70px;
+  width: calc(100% - 140px - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 140px;
+  z-index: 999;
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+// **********************************************************
+  &--top260 {
+    top: 260px;
+    position: absolute;
+  }
+  &--top150{
+    top: 150px;
+    position: absolute;
+
+  }
+
+// **********************************************************
+// **********************************************************
+  &__nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    @include fontMose(14px, normal, 17px);
+    color: $dark-shade-50;
+  }
+// **********************************************************
+// **********************************************************
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+// **********************************************************
+// **********************************************************
+  &__mainMenu{
+    list-style: none;
+    display: flex;
+    position: relative;
+  }
+// **********************************************************
+// **********************************************************
+  &__menuItem{
+    padding-right: 28px;
+    position: relative;
+    cursor: pointer;
+// **********************************************************
+    &--submenu{
+      padding-right: 45px;
+    }
+    &--active {
+      font-weight: bold;
+      color: $dark-shade-75;
+    }
+  }
+// **********************************************************
+// **********************************************************
+  @include arrow-button(-15px,11px);
+// **********************************************************
+// **********************************************************
+  &__logged{
+    padding-left: 35px;
+    position: relative;
+    &::before{
+      content: '';
+      border-left: 1px solid $dark-shade-10;
+      position: absolute;
+      top: -7px;
+      left: 3px;
+      width: 1px;
+      height: 30px;
+
+    }
+  }
+// **********************************************************
+// **********************************************************
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+// **********************************************************
+// **********************************************************
+
+}

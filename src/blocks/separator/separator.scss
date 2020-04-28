@@ -1,0 +1,67 @@
+// В этом файле должны быть стили для БЭМ-блока _separator, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.separator {
+
+  $block-name:                &; // #{$block-name}__element
+  height: 30px;
+  width: 100%;
+  &--nextStr{
+    height: 8px;
+  }
+  &--v30{
+    width: 30px;
+    height: 100%;
+  }
+  &--h3{
+    height: 3px;
+  }
+  &--h8{
+    height: 7px;
+  }
+  &--h10{
+    height: 10px;
+  }
+
+  &--h20{
+    height: 20px;
+  }
+
+  &--h22{
+    height: 22px;
+  }
+  &--h23{
+    height: 23px;
+  }
+  &--h24{
+    height: 24px;
+  }
+  &--h25{
+    height: 25px;
+  }
+
+  &--h29{
+    height: 29px;
+  }
+  &--h32{
+    height: 33px;
+  }
+  &--h71{
+    height: 71px;
+  }
+  &--h75{
+    height: 75px;
+  }
+  &--h76{
+    height: 76px;
+  }
+
+
+
+
+  &--h98{
+    height: 98px;
+  }
+  
+}

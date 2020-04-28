@@ -14,21 +14,21 @@ block content
   +section('img/logo.svg')
     .section__inner
       each i in colorBoxSetup 
-        +colorBox(i._color,i.text)
+        +colorBox(i.color,i.text)
     .section__inner.section__inner--flexEnd
       each i in demoTextSetup
         +textDemo(i.text, i.size)
   +section('img/logo.svg')
     .section__row 
       .section__col-4
-        +_textField({
+        +textField({
           text: 'Text Field',
           name:'id1',
           placeholder:'Email',
           state:'default'
           })
 
-        +_textField({
+        +textField({
           text: 'Text Field',
           name:'id2',
           placeholder:'Email',
@@ -36,7 +36,7 @@ block content
           value:'This is pretty awesome'
           })
 
-        +_textField({
+        +textField({
           text: 'Dropdown',
           name: 'id5',
           placeholder:'Сколько гостей',
@@ -50,80 +50,80 @@ block content
               name: 'младенцы',
             }]
           })('readonly')
-        +_separator('h3')
-        +_textField({
+        +separator('h3')
+        +textField({
           text: 'masked text field',
           name: 'id5',
           state: 'Default',
           type: 'maskDate'
           })
-        +_separator('h20')
-        +_dateCombo({ text:'date Dropdown'},{ text: 'date Dropdown', value: '19.08.2019'})
+        +separator('h20')
+        +dateCombo({ text:'date Dropdown'},{ text: 'date Dropdown', value: '19.08.2019'})
 
-        +_separator('h8')
+        +separator('h8')
 
-        +_dateDrop({
+        +dateDrop({
           text: 'filter date dropdown',
           start: '19 авг',
           end: '23 авг'
         }
         )(readonly, data-startDate='19.08.2019', data-endDate='23.08.2020' ) 
-        +_separator('h22')
+        +separator('h22')
 
-        +_textField({
+        +textField({
         name: 'id7',
         text: 'subscription text field',
         type: 'subscription'
         },'mid-size')
       .section__col-3.section__col-3--pl57
 
-        +_checkBoxGroup('Checkbox Buttons' , demoCheckButtons)
+        +checkBoxGroup('Checkbox Buttons' , demoCheckButtons)
 
-        +_title('Radio Buttons')
-        +_radioButton( 'gender_demo', demoRadioButtons)
-        +_separator('h20')
-        +_title('Toggle')
-        +_toggle('Получать спецпредложения', true, 'offer', 'Toggle')
-        +_toggle('Получать спецпредложения', false, 'offer' )
-        +_separator()
-        +_title('like button')
+        +title('Radio Buttons')
+        +radioButton( 'gender_demo', demoRadioButtons)
+        +separator('h20')
+        +title('Toggle')
+        +toggle('Получать спецпредложения', true, 'offer', 'Toggle')
+        +toggle('Получать спецпредложения', false, 'offer' )
+        +separator()
+        +title('like button')
         .section__flex
-          +_likeBtn('2')
-          +_likeBtn('12')
-        +_separator()
+          +likeBtn('2')
+          +likeBtn('12')
+        +separator()
 
-        +_title('Rate button')
-        +_stars(4, 'star')
-        +_stars(5, 'star2')
-        +_separator()
+        +title('Rate button')
+        +stars(4, 'star')
+        +stars(5, 'star2')
+        +separator()
 
       .section__col-3.section__col-3--ml45.section__col-3--pl57
 
-        +_rangeSlider('range slider', {state: "5000-1000"})
-        +_separator('h24')
-        +_title('buttons')
+        +rangeSlider('range slider', {state: "5000-1000"})
+        +separator('h24')
+        +title('buttons')
         +btn('CLICK ME', 'colored')
         +btn('CLICK ME', 'coloredHovered')
-        +_separator('nextStr')
+        +separator('nextStr')
 
         +btn('CLICK ME', 'bordered')
         +btn('CLICK ME', 'borderedHovered')
-        +_separator('nextStr')
+        +separator('nextStr')
 
         +btn('CLICK ME')
         +btn('CLICK ME', 'cancel')
-        +_separator('nextStr')
+        +separator('nextStr')
 
         +btn('перейти к оплате', 'coloredBig')
-        +_separator('h32')
+        +separator('h32')
 
-        +_title('pagination')
-        +_pagination('1 – 12 из 100+ вариантов аренды', 15)
-    +_separator('h76')
+        +title('pagination')
+        +pagination('1 – 12 из 100+ вариантов аренды', 15)
+    +separator('h76')
     .section__row
       .section__col-4
 
-        +_textField({     
+        +textField({     
               text: 'Dropdown',
               name: 'id6',
               state: 'default',
@@ -139,7 +139,7 @@ block content
               },'mid-size')('readonly')
 
 
-        +_textField({
+        +textField({
           text: 'Dropdown',
           name: 'id8',
           state: 'expanded',
@@ -154,14 +154,14 @@ block content
           }]
         },'showDrop , mid-size')('readonly')
 
-        +_separator('h20')
-        +_expCheckBoxList('expandable checkbox list',demoList)(data-expanded='false')
-        +_expCheckBoxList('expandable checkbox list',demoList, 'showDrop')(data-expanded='true')
+        +separator('h20')
+        +expCheckBoxList('expandable checkbox list',demoList)(data-expanded='false')
+        +expCheckBoxList('expandable checkbox list',demoList, 'showDrop')(data-expanded='true')
 
         
 
       .section__col-3.section__col-3--pl57
-        +_textField({
+        +textField({
           text: 'Dropdown',
           name: 'id5',
           placeholder:'Сколько гостей',
@@ -178,14 +178,14 @@ block content
           },
           'showDrop' )('readonly')
 
-        +_separator('h75')
+        +separator('h75')
 
-        +_title('rich Checkbox Buttons')
-        +_checkBox('coridor', 'Ширина коридоров в номере не менее 91 см.', false, 'Широкий коридор')
-        +_checkBox('helper', 'На 1 этаже вас встретит специалист  и проводит до номера.', false, 'Помощник для инвалидов')
+        +title('rich Checkbox Buttons')
+        +checkBox('coridor', 'Ширина коридоров в номере не менее 91 см.', false, 'Широкий коридор')
+        +checkBox('helper', 'На 1 этаже вас встретит специалист  и проводит до номера.', false, 'Помощник для инвалидов')
 
       .section__col-3.section__col-3--ml45.section__col-3--pl57
-        +_textField({
+        +textField({
           text: 'Dropdown',
           name: 'id5',
           placeholder:'Сколько гостей',
@@ -203,35 +203,35 @@ block content
             }]
           },
           'showDrop' )('readonly')
-        +_separator('h75')
+        +separator('h75')
         
-        +_bulletList('Нельзя с питомцами ; Без вечеринок и мероприятий ; Время прибытия — после 13:00 , а выезд до 12:00')
-    +_separator('h8')
+        +bulletList('Нельзя с питомцами ; Без вечеринок и мероприятий ; Время прибытия — после 13:00 , а выезд до 12:00')
+    +separator('h8')
     .section__row
       .section__col-4
-        +_infoBlock( 'img/insert_emoticon.svg','Комфорт','Шумопоглощающие стены')
-        +_infoBlock( 'img/location_city.svg','Удобство','Окно в каждой из спален')
+        +infoBlock( 'img/insert_emoticon.svg','Комфорт','Шумопоглощающие стены')
+        +infoBlock( 'img/location_city.svg','Удобство','Окно в каждой из спален')
       .section__col-8
-        +_review('Мурад Сарафанов','5 дней назад', 12, 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 'img/users/user1.png')
+        +review('Мурад Сарафанов','5 дней назад', 12, 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 'img/users/user1.png')
   +section('img/logo.svg','bg2')
-    +_separator('h8')
+    +separator('h8')
     .section__row
       .section__col-4    
-        +_findRoom()
-        +_registration()
-      +_separator('v30')
+        +findRoom()
+        +registration()
+      +separator('v30')
       .section__col-4    
-        +_booking()
-        +_login()
-      +_separator('v30')
+        +booking()
+        +login()
+      +separator('v30')
       .section__col-3    
-        +_calendar()
-        +_room('img/rooms/888.jpg', 888, 145, 5, '9 990₽', 'люкс', true)
-        +_room('img/rooms/840.jpg', 840, 65, 4, '9 900₽')
+        +calendar()
+        +room('img/rooms/888.jpg', 888, 145, 5, '9 990₽', 'люкс', true)
+        +room('img/rooms/840.jpg', 840, 65, 4, '9 900₽')
   +section('img/logo.svg','bg2')
-    +_header('',{login :'login', register :'register'},'','top150')
-    +_header('',{login :'login', register :'register'}, 'Cosmin Negoita', 'top260')
-    +_footer('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',[
+    +header('',{login :'login', register :'register'},'','top150')
+    +header('',{login :'login', register :'register'}, 'Cosmin Negoita', 'top260')
+    +footer('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',[
         {
           title: 'Navigation',
           list:[

@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_bulletList)
+
+mixin _bulletList(textList, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +bulletList('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _bulletList--' + modsList[i].trim();
+      }
+    }
+
+    let ul_list = textList.split(';');
+
+  .bulletList(class=allMods)&attributes(attributes)
+    +title('bullet list')
+    ul
+      each item in ul_list
+        li= item
+      block

@@ -1,0 +1,89 @@
+// В этом файле должны быть стили для БЭМ-блока _likeBtn, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.likeBtn {
+
+  $lowColor: $dark-shade-25;
+  $highColor: $purple;
+  $size1 : 38px;
+  $size2 : 18px;
+
+  $block-name:                &; // #{$block-name}__element
+  
+  width: $size1;
+  height: $size2;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  margin-right: 12px;
+  text-align: right;
+
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $size1;
+    height: $size2;
+    border-radius: $size2;
+    border: 1px solid $lowColor;
+  
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left:2px;
+    width: $size2;
+    height: $size2;
+    background: url('../img/heart1.svg') center no-repeat;
+
+  }
+
+  &--purple {
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $size1;
+      height: $size2;
+      border-radius: $size2;
+      border: double 1px transparent;
+      background-image: linear-gradient(white, white), linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      z-index: -1;
+    
+    }
+  
+    &:after{
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      width: $size2;
+      height: $size2;
+      background: url('../img/heart2.svg') center no-repeat;
+    }
+  }
+
+  
+  &__span {
+    padding: 5px 0 0 20px;
+    text-align: center;
+    @include fontMose(9px, normal, 12px);
+    text-align: center;
+    color: $lowColor;
+    margin-right: 5px;
+
+    &--purple{
+      color: $highColor;
+    }
+  }
+}

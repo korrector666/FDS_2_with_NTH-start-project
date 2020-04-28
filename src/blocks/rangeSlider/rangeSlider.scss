@@ -1,0 +1,66 @@
+// В этом файле должны быть стили для БЭМ-блока _rangeSlider, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+// ------------- переопределение цветов  бегунка 
+
+
+
+.noUi-target {
+  border: 1px solid $dark-shade-25;
+  border-radius: 3px;
+  background: transparent;
+  box-shadow: none;
+
+}
+
+.noUi-handle {
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%) !important;
+  border: 2px solid $white !important;
+  box-shadow:none !important;
+  right: 0 !important;
+  top: 2px !important;
+  transform: translate(50%, -50%);
+
+  &::before, &::after {
+    display: none !important;
+  }
+}
+
+.noUi-connects {
+  overflow: visible;
+}
+
+.noUi-connect {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%); 
+  // border: 2px solid $white;
+  height: 6px;
+  top: -1px;
+}
+
+// ----------- конец  переопределение цветов  бегунка 
+.rangeSlider {
+
+  $block-name:                &; // #{$block-name}__element
+
+
+  @include text-field-default($midi);
+  height: 44px;
+  width: 266px;
+  overflow: visible;
+
+  &__connect {
+    background: $main-grad!important;
+  }
+  
+
+  @include _info;
+
+  &__inner {
+    width: 100%;
+    height: 6px;
+  }
+}

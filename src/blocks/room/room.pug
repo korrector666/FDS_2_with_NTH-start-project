@@ -1,0 +1,46 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_room)
+
+mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
+
+  //- Принимает:
+  //-  image,   - путь к картинке
+  //-  roomNumber, - номер комнаты
+  //-  rating, - число отзывов
+  //-  stars,  число о 1 до 5
+  //-  price, {string}- цена с денежной еденицой
+  //-  _type,  {string}- тип номера - ЛЮКС, или пусто (обычный)
+  //-  arrows, - наличие стрелок - true / false
+  //-  mods    {string} - список модификаторов
+  //- Вызов:
+        +room('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _room--' + modsList[i].trim();
+      }
+    }
+
+    let qty = 4, 
+        j = 0;
+
+  .room(class=allMods)&attributes(attributes)
+    .room__slider
+      if arrows
+        .room__leftArrow
+        .room__rightArrow
+      .room__dots  
+        while j++ < qty
+          .room__dot 
+      img.room__img(src=image) 
+    .room__inner
+      +roomInfo(roomNumber, price, _type,2)
+      hr.room__hr
+      .room__rating
+        +stars(stars, roomNumber,'readonly')
+        span.room__spanBold #{rating} 
+        span Отзывов
+    block

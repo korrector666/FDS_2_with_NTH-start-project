@@ -134,7 +134,7 @@
 				dom_on(target, element, events[i], callback);
 			}
 		} else {
-			target.__pickmeup.events.push([element, event, callback]);
+			target._pickmeup.events.push([element, event, callback]);
 			element.addEventListener(event, callback);
 		}
 	}
@@ -156,7 +156,7 @@
 				dom_off(target, element, events[i], callback);
 			}
 		} else {
-			events        = target.__pickmeup.events;
+			events        = target._pickmeup.events;
 			events_number = events.length;
 			for (i = 0; i < events_number; ++i) {
 				if (
@@ -266,8 +266,8 @@
 	 * @param {Element} target
 	 */
 	function fill (target) {
-		var root_element = target.__pickmeup.element,
-			options      = target.__pickmeup.options,
+		var root_element = target._pickmeup.element,
+			options      = target._pickmeup.options,
 			current_cal  = Math.floor(options.calendars / 2),
 			actual_date  = options.date,
 			current_date = options.current,
@@ -405,7 +405,7 @@
 					year                         = start_from_year + j;
 					year_element                 = document.createElement('div');
 					year_element.textContent     = year;
-					year_element.__pickmeup_year = year;
+					year_element._pickmeup_year = year;
 					if (
 						(options.min && year < min_year) ||
 						(options.max && year > max_year)
@@ -430,8 +430,8 @@
 				for (month = 0; month < 12; ++month) {
 					month_element                  = document.createElement('div');
 					month_element.textContent      = options.locales[options.locale].monthsShort[month];
-					month_element.__pickmeup_month = month;
-					month_element.__pickmeup_year  = current_year;
+					month_element._pickmeup_month = month;
+					month_element._pickmeup_year  = current_year;
 					if (
 						(
 							options.min &&
@@ -482,9 +482,9 @@
 				for (day = 0; day < 35; ++day) {
 					day_element                  = document.createElement('div');
 					day_element.textContent      = local_date.getDate();
-					day_element.__pickmeup_day   = local_date.getDate();
-					day_element.__pickmeup_month = local_date.getMonth();
-					day_element.__pickmeup_year  = local_date.getFullYear();
+					day_element._pickmeup_day   = local_date.getDate();
+					day_element._pickmeup_month = local_date.getMonth();
+					day_element._pickmeup_year  = local_date.getFullYear();
 					if (current_month !== local_date.getMonth()) {
 						dom_add_class(day_element, 'pmu-not-in-month');
 					}
@@ -749,7 +749,7 @@
 	 * @param {Date}    new_date
 	 */
 	function update_date (target, new_date) {
-		var options = target.__pickmeup.options,
+		var options = target._pickmeup.options,
 			i;
 		reset_time(new_date);
 		(function () {
@@ -820,7 +820,7 @@
 		
 		event.preventDefault();
 		event.stopPropagation();
-		var options        = target.__pickmeup.options,
+		var options        = target._pickmeup.options,
 			instance       = dom_closest_parent(element, '.pmu-instance'),
 			root           = instance.parentElement,
 			instance_index = dom_query_all(root, '.pmu-instance').indexOf(instance);
@@ -867,7 +867,7 @@
 			}
 		} else {
 			if (dom_has_class(root, 'pmu-view-years')) {
-				options.current.setFullYear(element.__pickmeup_year);
+				options.current.setFullYear(element._pickmeup_year);
 				if (options.select_month) {
 					dom_remove_class(root, 'pmu-view-years');
 					dom_add_class(root, 'pmu-view-months');
@@ -878,8 +878,8 @@
 					options.bound.update_date(options.current);
 				}
 			} else if (dom_has_class(root, 'pmu-view-months')) {
-				options.current.setMonth(element.__pickmeup_month);
-				options.current.setFullYear(element.__pickmeup_year);
+				options.current.setMonth(element._pickmeup_month);
+				options.current.setFullYear(element._pickmeup_year);
 				if (options.select_day) {
 					dom_remove_class(root, 'pmu-view-months');
 					dom_add_class(root, 'pmu-view-days');
@@ -890,9 +890,9 @@
 				date_add_months(options.current, Math.floor(options.calendars / 2) - instance_index);
 			} else {
 				var new_date = new Date(options.current);
-				new_date.setYear(element.__pickmeup_year);
-				new_date.setMonth(element.__pickmeup_month);
-				new_date.setDate(element.__pickmeup_day);
+				new_date.setYear(element._pickmeup_year);
+				new_date.setMonth(element._pickmeup_month);
+				new_date.setDate(element._pickmeup_day);
 				options.bound.update_date(new_date);
 			}
 		}
@@ -927,10 +927,10 @@
 	 * @param {boolean} [force=false]
 	 */
 	function show (target, force) {
-		var root_element = target.__pickmeup.element,
+		var root_element = target._pickmeup.element,
 			value;
 		if (force || dom_has_class(root_element, 'pmu-hidden')) {
-			var options  = target.__pickmeup.options,
+			var options  = target._pickmeup.options,
 				position = dom_offset(target),
 				viewport = {
 					l : window.pageXOffset,
@@ -1012,8 +1012,8 @@
 	 * @param {Event}   event
 	 */
 	function hide (target, event) {
-		var root_element = target.__pickmeup.element,
-			options      = target.__pickmeup.options;
+		var root_element = target._pickmeup.element,
+			options      = target._pickmeup.options;
 		//noinspection JSBitwiseOperatorUsage,JSCheckFunctionSignatures
 		if (
 			!event || !event.target ||										//Called directly
@@ -1035,7 +1035,7 @@
 	 * @param {Element} target
 	 */
 	function update (target) {
-		var options = target.__pickmeup.options;
+		var options = target._pickmeup.options;
 		dom_off(target, document.documentElement, 'click', options.bound.hide);
 		dom_off(target, window, 'resize', options.bound.forced_show);
 		options.bound.forced_show();
@@ -1045,7 +1045,7 @@
 	 * @param {Element} target
 	 */
 	function clear (target) {
-		var options = target.__pickmeup.options;
+		var options = target._pickmeup.options;
 		if (options.mode !== 'single') {
 			options.date    = [];
 			options.lastSel = false;
@@ -1061,8 +1061,8 @@
 		if (typeof fill == 'undefined') {
 			fill = true;
 		}
-		var root_element = target.__pickmeup.element;
-		var options      = target.__pickmeup.options;
+		var root_element = target._pickmeup.element;
+		var options      = target._pickmeup.options;
 		if (dom_has_class(root_element, 'pmu-view-years')) {
 			date_add_years(options.current, -12);
 		} else if (dom_has_class(root_element, 'pmu-view-months')) {
@@ -1083,8 +1083,8 @@
 		if (typeof fill == 'undefined') {
 			fill = true;
 		}
-		var root_element = target.__pickmeup.element;
-		var options      = target.__pickmeup.options;
+		var root_element = target._pickmeup.element;
+		var options      = target._pickmeup.options;
 		if (dom_has_class(root_element, 'pmu-view-years')) {
 			date_add_years(options.current, 12);
 		} else if (dom_has_class(root_element, 'pmu-view-months')) {
@@ -1102,7 +1102,7 @@
 	 * @param {boolean} [formatted=true]
 	 */
 	function get_date (target, formatted) {
-		var options       = target.__pickmeup.options,
+		var options       = target._pickmeup.options,
 			prepared_date = prepare_date(options);
 		if (typeof formatted === 'string') {
 			var date = prepared_date.date;
@@ -1124,7 +1124,7 @@
 	 * @param {Date}                                          [current=undefined]
 	 */
 	function set_date (target, date, current) {
-		var options = target.__pickmeup.options,
+		var options = target._pickmeup.options,
 			i;
 		if (!(date instanceof Array) || date.length > 0) {
 			options.date = parse_date(date, options);
@@ -1196,10 +1196,10 @@
 	 * @param {Element} target
 	 */
 	function destroy (target) {
-		var root_element = target.__pickmeup.element;
+		var root_element = target._pickmeup.element;
 		dom_off(target);
 		dom_remove(root_element);
-		delete target.__pickmeup;
+		delete target._pickmeup;
 	}
 
 	function correct_date_outside_of_limit (date, min, max) {
@@ -1224,7 +1224,7 @@
 		if (!target) {
 			return null;
 		}
-		if (!target.__pickmeup) {
+		if (!target._pickmeup) {
 			var i,
 				option,
 				options     = {};
@@ -1267,12 +1267,12 @@
 			}
 			var element               = document.createElement('div');
 			//noinspection JSUndefinedPropertyAssignment
-			target.__pickmeup         = {
+			target._pickmeup         = {
 				options : options,
 				events  : [],
 				element : element
 			};
-			element.__pickmeup_target = target;
+			element._pickmeup_target = target;
 			dom_add_class(element, 'pickmeup');
 			if (options.class_name) {
 				dom_add_class(element, options.class_name);
@@ -1320,7 +1320,7 @@
 			options.bound.set_date(options.date, options.current);
 		}
 
-		options = target.__pickmeup.options;
+		options = target._pickmeup.options;
 		return {
 			hide     : options.bound.hide,
 			show     : options.bound.show,

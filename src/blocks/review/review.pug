@@ -1,0 +1,32 @@
+//- Все примеси в этом файле должны начинаться c имени блока (_review)
+
+mixin _review(name, date, likes, text, link, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +review('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' _review--' + modsList[i].trim();
+      }
+    }
+
+  .review(class=allMods)&attributes(attributes)
+    .review__main
+      img.review__img(src = link , alt = text)
+      .review__inner
+        .review__user #{name}
+        .review__date #{date}
+    .review__content
+      .review__like
+        +likeBtn(likes)
+      .review__text #{text}
+
+      block

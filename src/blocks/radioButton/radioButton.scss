@@ -1,0 +1,88 @@
+// В этом файле должны быть стили для БЭМ-блока _radioButton, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.radioButton {
+
+  $block-name:                &; // #{$block-name}__element
+
+  @include font1;
+  color: $dark-shade-100;
+  margin-bottom: 20px;
+  &--pt10{
+    padding-top: 10px;
+  }
+
+  &__inner {
+    display: flex;
+    position: relative;
+    @include fontMose(14px, normal , 22px );
+    text-transform: none;
+  }
+  &__span {
+    &--darkText{
+      color: $dark-shade-75;
+    }
+  }
+
+  label {
+    margin-right: 20px;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+  &__text {
+    position: relative;
+    padding: 0 0 0 30px;
+    cursor: pointer;
+    color: $dark-shade-25;
+
+    &--fz12{
+      @include fontMose(12px, 300 , 14px );
+    }
+
+
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background: $white;
+      border: 1px solid $dark-shade-25;
+      color: $dark-shade-25;
+      // box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+      transition: .2s;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      color: $dark-shade-50;
+      background-color: $purple;
+      opacity: 0;
+    }
+  }  
+
+  input:checked + &__text:before {
+    border-color: $purple;
+    color: $dark-shade-50;
+  }
+
+  input:checked + &__text:after {
+    position: absolute;
+    color: $dark-shade-50;
+    z-index: 10;
+    opacity: 1;
+      
+    }
+}
