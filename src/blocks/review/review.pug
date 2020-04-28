@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_review)
+//- Все примеси в этом файле должны начинаться c имени блока (review)
 
-mixin _review(name, date, likes, text, link, mods)
+mixin review(name, date, likes, text, link, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,7 +14,7 @@ mixin _review(name, date, likes, text, link, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _review--' + modsList[i].trim();
+        allMods = allMods + ' review--' + modsList[i].trim();
       }
     }
 

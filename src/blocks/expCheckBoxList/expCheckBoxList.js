@@ -1,4 +1,4 @@
-/* global document window console */
+/* global document window  */
 
 // const ready = require('../../js/utils/documentReady.js');
 
@@ -10,14 +10,14 @@ window.addEventListener('DOMContentLoaded', function () {
 	let checkItem = document.querySelectorAll('.expCheckBoxList__inner');
 		
 	checkItem.forEach(function (elem) {
-		let _parent = elem.parentElement,
-			arrowsUp =  _parent.querySelector('.expCheckBoxList__upArrow'),
-			arrowsDown =  _parent.querySelector('.expCheckBoxList__downArrow');
+		let parent = elem.parentElement,
+			arrowsUp =  parent.querySelector('.expCheckBoxList__upArrow'),
+			arrowsDown =  parent.querySelector('.expCheckBoxList__downArrow');
 
-		if (_parent.dataset.expanded == 'true') {
+		if (parent.dataset.expanded == 'true') {
 			arrowsDown.style.display='none';
 			arrowsUp.style.display='block';
-		} else if (_parent.dataset.expanded == 'false'){
+		} else if (parent.dataset.expanded == 'false'){
 			arrowsDown.style.display='block';
 			arrowsUp.style.display='none';
 		}
@@ -25,16 +25,16 @@ window.addEventListener('DOMContentLoaded', function () {
 		elem.addEventListener('click', function(e) {
 
 			if (e.target == arrowsDown) {
-				_parent.classList.add('_expCheckBoxList--showDrop');
-				_parent.dataset.expanded=true;
+				parent.classList.add('expCheckBoxList--showDrop');
+				parent.dataset.expanded=true;
 				arrowsDown.style.display='none';
 				arrowsUp.style.display='block';
 			}
 			if (e.target == arrowsUp) {
-				_parent.classList.remove('_expCheckBoxList--showDrop');
+				parent.classList.remove('expCheckBoxList--showDrop');
 				arrowsDown.style.display='block';
 				arrowsUp.style.display='none';
-				_parent.dataset.expanded=false;
+				parent.dataset.expanded=false;
 			}
 
 		});

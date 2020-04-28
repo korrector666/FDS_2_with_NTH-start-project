@@ -18,36 +18,30 @@ window.addEventListener('DOMContentLoaded', function () {
 
 		starsIn.forEach( function(e,i) {
 			if (i <=checkedStarNumber) {
-				e.parentElement.classList.add('_stars__label--checked')
+				e.parentElement.classList.add('stars__label--checked');
 			} else {
-				e.parentElement.classList.remove('_stars__label--checked')
+				e.parentElement.classList.remove('stars__label--checked');
 			}
-		})
+		});
 
 		element.addEventListener('click', function (tar) {
 
-			starsIn.forEach( (e,i, _all) => {
+			starsIn.forEach( (e,i, all) => {
 				if( tar.target == e) {
 					checkedStarNumber = i;
-					_all.forEach( function(e,i) {
+					all.forEach( function(e,i) {
 						if (i <=checkedStarNumber) {
-							e.parentElement.classList.add('_stars__label--checked')
+							e.parentElement.classList.add('stars__label--checked');
 						} else {
-							e.parentElement.classList.remove('_stars__label--checked')
-					}
-						
-					}) 
+							e.parentElement.classList.remove('stars__label--checked');
+						}
+					}); 
 				}
-			})
+			});
 
-		})
-
-
-
-
-
+		});
 		
 	});
-		
+	
 	
 });

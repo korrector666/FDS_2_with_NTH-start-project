@@ -1,12 +1,7 @@
-/* global document window console */
+/* global document window  */
 
-// const ready = require('../../js/utils/documentReady.js');
+
 const noUiSlider = require('nouislider');
-
-
-// ready(function(){
-//   
-// });
 
 window.addEventListener('DOMContentLoaded', function () {
 	let slidersBar = document.querySelectorAll('.rangeSlider__inner'); 
@@ -23,21 +18,19 @@ window.addEventListener('DOMContentLoaded', function () {
 		});
 
 		e.noUiSlider.on('update', function (values) {
-			let _value = e.parentElement.querySelector('.rangeSlider__info--state'),
+			let value = e.parentElement.querySelector('.rangeSlider__info--state'),
 				formatter = new Intl.NumberFormat("ru", {
 					style: "currency",
 					currency: "RUB",
 					minimumFractionDigits:0
 
-				  });
+				});
 
-			_value.innerHTML = ` ${formatter.format(Math.round(values[0]))} - ${formatter.format(Math.round(values[1]))}`;
+			value.innerHTML = ` ${formatter.format(Math.round(values[0]))} - ${formatter.format(Math.round(values[1]))}`;
 			
-		})
+		});
 
 	});
-
-
 
 });
 

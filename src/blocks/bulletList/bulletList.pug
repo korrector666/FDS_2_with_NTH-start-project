@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_bulletList)
+//- Все примеси в этом файле должны начинаться c имени блока (bulletList)
 
-mixin _bulletList(textList, mods)
+mixin bulletList(textList, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,7 +14,7 @@ mixin _bulletList(textList, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _bulletList--' + modsList[i].trim();
+        allMods = allMods + ' bulletList--' + modsList[i].trim();
       }
     }
 

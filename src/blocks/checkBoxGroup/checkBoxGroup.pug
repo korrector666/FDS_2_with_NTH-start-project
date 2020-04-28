@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_checkBoxGroup)
+//- Все примеси в этом файле должны начинаться c имени блока (checkBoxGroup)
 
-mixin _checkBoxGroup(text, list,  mods)
+mixin checkBoxGroup(text, list,  mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,23 +14,23 @@ mixin _checkBoxGroup(text, list,  mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _checkBoxGroup--' + modsList[i].trim();
+        allMods = allMods + ' checkBoxGroup--' + modsList[i].trim();
       }
     }
 
 
     if (typeof(list) !== 'undefined' && list){
-      _list = list;
-      for (let i = 0; i < _list.length; i++) {
-        if (typeof(_list[i].item) == 'undefined'){
-          _list[i].item = 'item-' +i;
+      listOfChecks = list;
+      for (let i = 0; i < listOfChecks.length; i++) {
+        if (typeof(listOfChecks[i].item) == 'undefined'){
+          listOfChecks[i].item = 'item-' +i;
         }
       }
     }    
 
   .checkBoxGroup(class=allMods)&attributes(attributes)
     +title(text)
-    if (_list.length !== 0)
-    each i in _list
+    if (listOfChecks.length !== 0)
+    each i in listOfChecks
       +checkBox(i.item, i.text, i.status)
     block

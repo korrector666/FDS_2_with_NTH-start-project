@@ -1,4 +1,5 @@
-/* global document window console */
+"use strict";
+/* global document window */
 
 // const ready = require('../../js/utils/documentReady.js');
 const pickmeup = require('../../js/utils/pickmeup.js');
@@ -22,32 +23,32 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 			flat : true,
 			mode : 'range',
 			date: ['19.08.2019','23.08.2019'],
-			prev: '<div class="_calendar__prevBtn"></div>',
-			next: '<div class="_calendar__nextBtn"></div>'
+			prev: '<div class="calendar__prevBtn"></div>',
+			next: '<div class="calendar__nextBtn"></div>'
 		});
 
 
-		let _clearBtn = elem.querySelectorAll('.btn')[0],
-			_submitBtn = elem.querySelectorAll('.btn')[1];
+		let clearBtn = elem.querySelectorAll('.btn')[0],
+			submitBtn = elem.querySelectorAll('.btn')[1];
 	
 
-		_clearBtn.addEventListener('click', function () {
+		clearBtn.addEventListener('click', function () {
 			pickmeup('.calendar__inner').clear();
-		})
+		});
 
-		_submitBtn.addEventListener('click', function () {
+		submitBtn.addEventListener('click', function () {
 			let dates = pickmeup('.calendar__inner').get_date('d-m-Y');
 
 			elem.setAttribute('data-startDate', dates[0]); 
 			elem.setAttribute('data-endDate', dates[1]); 
 			
-			elem.classList.add('_calendar--hide');
+			elem.classList.add('calendar--hide');
 
 			return pickmeup('.calendar__inner').get_date();
-		})
+		});
 		
 
-	})
+	});
 		
 
  }); 

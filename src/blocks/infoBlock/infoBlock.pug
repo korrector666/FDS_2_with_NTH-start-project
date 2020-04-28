@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_infoBlock)
+//- Все примеси в этом файле должны начинаться c имени блока (infoBlock)
 
-mixin _infoBlock(link, title, text, mods)
+mixin infoBlock(link, title, text, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,7 +14,7 @@ mixin _infoBlock(link, title, text, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _infoBlock--' + modsList[i].trim();
+        allMods = allMods + ' infoBlock--' + modsList[i].trim();
       }
     }
 

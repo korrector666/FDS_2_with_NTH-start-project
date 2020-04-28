@@ -3,12 +3,12 @@
 // const ready = require('../../js/utils/documentReady.js');
 const cl = function (obj) {
 	console.log(obj);
-}
+};
 
 window.addEventListener('DOMContentLoaded', function () {
 	
 	let arrows = document.querySelectorAll('.textField__downArrow'),
-		arrowsOld = document.getElementsByClassName('_textField__downArrow'),
+		arrowsOld = document.getElementsByClassName('textField__downArrow'),
 		dropInputs = document.querySelectorAll('.textField__overlay'),
 		droppedInputs = document.querySelectorAll('.textField--showDrop'),
 		maskFields = document.querySelectorAll('[data-date=maskDate]') ;
@@ -71,62 +71,64 @@ window.addEventListener('DOMContentLoaded', function () {
 				cl(+dateTemp[0]);
 				break;
 			default:
-				break
+				break;
 		}
 	
 		tempStr = dateTemp.join('.');
 
 		return tempStr;		
 
-	}
+	};
 
 	maskFields.forEach( (e) => {
-		e.addEventListener('input', function(event) {
+		e.addEventListener('input', function() {
 			let dateText =  e.value; 
 			e.value =  cleanLetters(dateText);
 
-		}) 
-	})	
+		}); 
+	});	
 
 	// обработка значений при изменении кнопок
 	
-	function _summ(_values, summ, _input, valueNames) {
-		_input.value=''; 
+	function summOfInputs(values, summ, input, valueNames) {
+		let localSumm = summ;
+
+		input.value=''; 
 		
-		_values.forEach(function (e,index) {
+		values.forEach(function (e,index) {
 			if (valueNames !== undefined ) {
 				if (+e.textContent !==0) {
 					if (index == 0) {
-						_input.value += `${+e.textContent} ${valueNames[index].textContent}, `
+						input.value += `${+e.textContent} ${valueNames[index].textContent}, `;
 					} else if (index == 1) {
-						_input.value += `${+e.textContent} ${valueNames[index].textContent}... `
-
+						input.value += `${+e.textContent} ${valueNames[index].textContent}... `;
 					}
 				}
 			} else {
-				summ += +e.textContent;
-				if (summ !== 0) {
-					_input.value = summ + ' гостей';
+				localSumm += +e.textContent;
+
+				if (localSumm !== 0) {
+					input.value = localSumm + ' гостей';
 				}
 				else {
-					_input.value = '';
+					input.value = '';
 				}
 			}
 		});
-		if (_input.value =='' && valueNames !== undefined) {
-			_input.value = 'ничего не выбрано'
+		if (input.value =='' && valueNames !== undefined) {
+			input.value = 'ничего не выбрано';
 		}
-		return summ;
+		return localSumm;
 	}
 	// init state for drop downs
 
 
 	droppedInputs.forEach(e => {
-		let _input = e.querySelector('.textField__input');
-		_input.classList.add('_textField__input--cutBorderBottom');
-		e.classList.add('_textField--autoHeght')
+		let input = e.querySelector('.textField__input');
+		input.classList.add('textField__input--cutBorderBottom');
+		e.classList.add('textField--autoHeght');
 	
-	})
+	});
 	
 
 	// навашиваем обработчик на дропы
@@ -135,18 +137,17 @@ window.addEventListener('DOMContentLoaded', function () {
 			btnMinus = elem.querySelectorAll('[data-minus]'),
 			btnCancel = elem.querySelector('.btn--cancel'),
 			btnSubmit = elem.querySelectorAll('.btn')[1],
-			_input = elem.closest('.textField').querySelector('input'),
-			_values = elem.closest('.textField').querySelectorAll('.textField__value'),
-			_placeHolder = _input.placeholder, 
-			_spans = elem.querySelectorAll('span'),
+			input = elem.closest('.textField').querySelector('input'),
+			values = elem.closest('.textField').querySelectorAll('.textField__value'),
+			placeHolder = input.placeholder, 
+			spans = elem.querySelectorAll('span'),
 			summ = 0;
 			// если нет пласхолдера убираем ссылку на спан			
-			if (_placeHolder !== '' ) {
-				_spans = undefined;
-
+			if (placeHolder !== '' ) {
+				spans = undefined;
 			} 
 			//  вызываем суммирование значений для инициализации
-			summ = _summ(_values, summ, _input, _spans) ;
+			summ = summOfInputs(values, summ, input, spans) ;
 
 			//  itit of original state
 			//  проверяем наличие кнопки отмена
@@ -157,112 +158,111 @@ window.addEventListener('DOMContentLoaded', function () {
 //  если кнопка отмены есть  и сумма 0 делаем выравнивание по левому краю
 				if (summ == 0 && btnCancel) {
 					btnCancel.style.display = 'none';
-					(btnCancel.closest('.textField__overlayItems').classList.add('_textField__overlayItems--left'));
+					(btnCancel.closest('.textField__overlayItems').classList.add('textField__overlayItems--left'));
 				}	
 			}	
 //  проверяем  значение  в поле, если 0 то блокируем кнопку -
-			btnMinus.forEach( (item)=>{
-					let _next = item.nextElementSibling,
-						value = _next.textContent;
+			btnMinus.forEach( (item) => {
+					let next = item.nextElementSibling,
+						value = next.textContent;
 					
 					if (value == 0) {
-						item.classList.add('_textField__Btn--disabled')
-						{_next.textContent = '0'}
+						item.classList.add('textField__Btn--disabled');
+						next.textContent = '0';
 					}
 			});
 			// следим за всеми дропами, если на них кликаю проверяем на какую кнопку
 		elem.addEventListener('click', function (e) {
-			let _target = e.target;
+			let target = e.target;
 			
-				btnPlus.forEach((item) =>{
-					if (_target == item) {
-						let _prev = item.previousElementSibling,
+				btnPlus.forEach((item) => {
+					if (target == item) {
+						let prev = item.previousElementSibling,
 							value = +prev.textContent,
 							summ = 0;
 
-						_prev.textContent = ++value;
+						prev.textContent = ++value;
 						if (value >0) {
-							_prev.previousElementSibling.classList.remove('_textField__Btn--disabled')
+							prev.previousElementSibling.classList.remove('textField__Btn--disabled');
 						}
 
-						summ = _summ(_values, 0, _input, _spans);
+						summ = summOfInputs(values, 0, input, spans);
 
 						if (summ > 0 && btnCancel ) {
 							btnCancel.style.display = 'inline-block';
-							((btnCancel.closest('.textField__overlayItems').classList.remove('_textField__overlayItems--left')));
+							((btnCancel.closest('.textField__overlayItems').classList.remove('textField__overlayItems--left')));
 						}
 
 					}
-				})
+				});
 
-				btnMinus.forEach( (item)=>{
-					if (_target == item) {
-						let _next = item.nextElementSibling,
+				btnMinus.forEach( (item) => {
+					if (target == item) {
+						let next = item.nextElementSibling,
 							value = +next.textContent,
-							summ = _summ(_values, 0, _input);
+							summ = summOfInputs(values, 0, input);
 		
 						if (value >0 ) {
-							_next.textContent = +--value;
+							next.textContent = +--value;
 						}
 
 						if (value == 0) {
-							item.classList.add('_textField__Btn--disabled')
+							item.classList.add('textField__Btn--disabled');
 						}
 
-						summ = _summ(_values, 0, _input, _spans);
+						summ = summOfInputs(values, 0, input, spans);
 
 						if (summ == 0 && btnCancel ) {
 							btnCancel.style.display = 'none';
-							(btnCancel.closest('.textField__overlayItems').classList.add('_textField__overlayItems--left'));
+							(btnCancel.closest('.textField__overlayItems').classList.add('textField__overlayItems--left'));
 						}		
 					}
-				})
+				});
 
-				if (_target == btnCancel) {
-					_values.forEach( (e) => {
+				if (target == btnCancel) {
+					values.forEach( (e) => {
 						e.innerHTML="0";
-						summ = _summ(_values, 0, _input, _spans);
-					}) 
-					btnCancel.style.display = 'none';
-					(btnCancel.closest('.textField__overlayItems').classList.add('_textField__overlayItems--left'));
+						summ = summOfInputs(values, 0, input, spans);
+					}); 
 
-					btnMinus.forEach( (item)=>{
-						item.classList.add('_textField__Btn--disabled')
+					btnCancel.style.display = 'none';
+					(btnCancel.closest('.textField__overlayItems').classList.add('textField__overlayItems--left'));
+
+					btnMinus.forEach( (item) => {
+						item.classList.add('textField__Btn--disabled');
 					});
 				}
-				if (_target == btnSubmit) {
-					
-					this.parentElement.classList.remove('_textField--showDrop');
-					this.parentElement.querySelector('input').classList.remove('_textField__input--cutBorderBottom')
+
+				if (target == btnSubmit) {
+					this.parentElement.classList.remove('textField--showDrop');
+					this.parentElement.querySelector('input').classList.remove('textField__input--cutBorderBottom');
 				}
 
 
-		})
-	})
+		});
+	});
 
 	arrows.forEach(function (elem,i) {
-		let _parent = elem.parentElement,
-			_nextSibling = elem.nextElementSibling;
-		// cl(_parent.classList);
+		let parent = elem.parentElement,
+			nextSibling = elem.nextElementSibling;
+		// cl(parent.classList);
 		elem.addEventListener('click', function() {
-			_clear(i)
-			_parent.classList.toggle('_textField--showDrop');
-			_nextSibling.classList.toggle('_textField__input--cutBorderBottom');
+			closeOpenedDrops(i);
+			parent.classList.toggle('textField--showDrop');
+			nextSibling.classList.toggle('textField__input--cutBorderBottom');
 		});
-	})
+	});
 
 	//  скрытие всех открытых вкладок
-	function _clear(i) {
+	function closeOpenedDrops(i) {
 		for (let elem of arrowsOld){
-			const _parent = elem.parentElement,
-				_state= _parent.querySelector('.textField__info--state'),
-				_nextSibling = elem.nextElementSibling;
-			
-				cl(_state.textContent);
+			const parent = elem.parentElement,
+				state= parent.querySelector('.textField__info--state'),
+				nextSibling = elem.nextElementSibling;
 
-			if(elem !== arrows[i] && _state.textContent !== 'expanded') {
-				_parent.classList.remove('_textField--showDrop');
-				_nextSibling.classList.remove('_textField__input--cutBorderBottom');
+			if(elem !== arrows[i] && state.textContent !== 'expanded') {
+				parent.classList.remove('textField--showDrop');
+				nextSibling.classList.remove('textField__input--cutBorderBottom');
 			}
 		}
 	}

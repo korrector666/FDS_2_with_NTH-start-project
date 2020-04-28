@@ -1,21 +1,21 @@
-/* global document window console */
+/* global document window */
 
 // const pickmeup = require('../../js/utils/pickmeup.js');
 
 
 
-const _months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
-let findMonth = function (_date){
-		return `${_date.slice(0, _date.indexOf('.'))}  ${_months[+date.slice(_date.indexOf('.')+1, _date.indexOf('.', _date.indexOf('.')+1))-1]}`;
-}
+let findMonth = function (date){
+		return `${date.slice(0, date.indexOf('.'))}  ${months[+date.slice(date.indexOf('.')+1, date.indexOf('.', date.indexOf('.')+1))-1]}`;
+};
 
 window.addEventListener('DOMContentLoaded', function () {
 
-	let _dateStart = document.querySelectorAll('[data-startdate]');
+	let dateStart = document.querySelectorAll('[data-startdate]');
 		// arrows = document.querySelectorAll('.dateDrop__downArrow')
 
-	_dateStart.forEach( (e) =>{
+	dateStart.forEach( (e) => {
 		if (e.matches('[data-enddate]')) {
 			e.querySelector('input').value = `${findMonth(e.dataset.startdate).toLowerCase()} - ${findMonth(e.dataset.enddate).toLowerCase()}`;
 		}

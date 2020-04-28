@@ -1,9 +1,9 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_radioButton)
+//- Все примеси в этом файле должны начинаться c имени блока (radioButton)
 
-mixin _radioButton(_name, list, mods)
+mixin radioButton(name, list, mods)
 
   //- Принимает:
-        //- _name  - название группы
+        //- name  - название группы
         //- list  : {
         //-     text: 'text'
         //-     status: true/ false (only for one of all)
@@ -17,20 +17,20 @@ mixin _radioButton(_name, list, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _radioButton--' + modsList[i].trim();
+        allMods = allMods + ' radioButton--' + modsList[i].trim();
       }
     }
 
     if (typeof(list) !== 'undefined' && list){
-      _list = list;
+      listOfRadio = list;
     }
 
   .radioButton(class=allMods)&attributes(attributes)
     .radioButton__inner 
-      if (_list.length !== 0)
-        each i in _list
+      if (listOfRadio.length !== 0)
+        each i in listOfRadio
           label
-            input(type='radio' checked=i.status name= _name)
+            input(type='radio' checked=i.status name= name)
             .radioButton__text 
               span.radioButton__span #{i.text}
     block

@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_likeBtn)
+//- Все примеси в этом файле должны начинаться c имени блока (likeBtn)
 
-mixin _likeBtn(text, mods)
+mixin likeBtn(text, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,7 +14,7 @@ mixin _likeBtn(text, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _likeBtn--' + modsList[i].trim();
+        allMods = allMods + ' likeBtn--' + modsList[i].trim();
       }
     }
 

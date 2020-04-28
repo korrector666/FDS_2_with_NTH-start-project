@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (colorBox)
 
-mixin colorBox(_color, text, mods)
+mixin colorBox(color, text, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -19,8 +19,8 @@ mixin colorBox(_color, text, mods)
     }
 
   .colorBox(class=allMods)&attributes(attributes)
-    if (_color != '') 
-      .colorBox__inner(class=' colorBox__inner--' + _color)
+    if (color != '') 
+      .colorBox__inner(class=' colorBox__inner--' + color)
     else
       .colorBox__inner
     

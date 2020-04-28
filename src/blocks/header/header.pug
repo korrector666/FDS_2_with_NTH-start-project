@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_header)
+//- Все примеси в этом файле должны начинаться c имени блока (header)
 
-mixin _header(menuList, buttons, loggedName, mods)
+mixin header(menuList, buttons, loggedName, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -14,18 +14,18 @@ mixin _header(menuList, buttons, loggedName, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _header--' + modsList[i].trim();
+        allMods = allMods + ' header--' + modsList[i].trim();
       }
     }
     
     if (typeof(buttons) == 'undefined') {
       var buttons = {login :'login', register :'register'};
     }
-    let _menuList = [],
-        _active = '';
+    let workListofHeaderMenu = [],
+        active = '';
 
     if (menuList == '') {
-      _menuList = [
+      workListofHeaderMenu = [
         {
           item : 'Home',
           selected : true
@@ -48,19 +48,19 @@ mixin _header(menuList, buttons, loggedName, mods)
         }
         ];          
     } else {
-      _menuList=menuList
+      workListofHeaderMenu = menuList
     }
 
   header.header(class=allMods)&attributes(attributes)
     +toxin
     nav.header__nav
       ul.header__mainMenu
-        each menuItem in _menuList
+        each menuItem in workListofHeaderMenu
           - 
             if (typeof(menuItem.selected) != 'undefined' && menuItem.selected == true) {
-              _active = ' _header__menuItem--active '
+              active = ' header__menuItem--active '
             } else {
-              _active = ''
+              active = ''
             }
           if (typeof(menuItem.submenu) != 'undefined')
             li.header__menuItem.header__menuItem--submenu(class=_active) #{menuItem.item}

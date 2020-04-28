@@ -1,7 +1,7 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_textField)
+//- Все примеси в этом файле должны начинаться c имени блока (textField)
 
-mixin _textField(options,mods)
-  //- mixin _textField(text, name, placeholder, type='TF', state = '', value = '',  mods)
+mixin textField(options,mods)
+  //- mixin textField(text, name, placeholder, type='TF', state = '', value = '',  mods)
 
   //- Принимает:
         {
@@ -33,16 +33,16 @@ mixin _textField(options,mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',')
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _textField--' + modsList[i].trim()
+        allMods = allMods + ' textField--' + modsList[i].trim()
       }
     }
 
-    let _type = 'TF'
-      _placeHolder ='ДД.ММ.ГГГГ'
-      _dropList = []
+    let type = 'TF'
+      placeHolder ='ДД.ММ.ГГГГ'
+      dropList = []
 
     if (options.type !== undefined && options.type) {
-        _type = options.type
+        type = options.type
       }
 
     if (typeof(options.placeholder) == 'undefined') {
@@ -50,8 +50,8 @@ mixin _textField(options,mods)
     }
 
     if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
-       _dropList = options.dropDown;
-       _type = 'dropDown'
+       dropList = options.dropDown;
+       type = 'dropDown'
     }
   
 
@@ -64,7 +64,7 @@ mixin _textField(options,mods)
       label.textField__info #{options.text}
     if (typeof(options.state) != 'undefined')
       label.textField__info.textField__info--state #{options.state}  
-    case _type
+    case type
       when 'subscription'
         .textField__rigthArrow
         input.textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
@@ -72,8 +72,8 @@ mixin _textField(options,mods)
         .textField__downArrow
         input.textField__input.textField__input--dark75(name = options.name, placeholder= options.placeholder , value =options.value)&attributes(attributes)
         .textField__overlay
-          if (_dropList.length !== 0)
-            for i in _dropList
+          if (dropList.length !== 0)
+            for i in dropList
               .textField__overlayItems
                 span #{i.name} 
                 .textField__overlayItem
@@ -86,7 +86,7 @@ mixin _textField(options,mods)
                 +btn('Применить','noMR , mt16pr2mb5')
 
       when 'maskDate'
-        input.textField__input(name = options.name, placeholder= _placeHolder , value = options.value, data-date='maskDate' max = '2050-12-31' )
+        input.textField__input(name = options.name, placeholder= placeHolder , value = options.value, data-date='maskDate' max = '2050-12-31' )
       default
         input.textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
 

@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_dateDrop)
+//- Все примеси в этом файле должны начинаться c имени блока (dateDrop)
 
-mixin _dateDrop(options)
+mixin dateDrop(options)
 
   //- Принимает:
   //-       text:'date Dropdown', - название сверху
@@ -13,22 +13,22 @@ mixin _dateDrop(options)
   -
     // список модификаторов
     let allMods = '',
-        _type= 'default',
-        _value = options.value,
+        type= 'default',
+        value = options.value,
         placeholder = 'ДД.ММ.ГГГГ';
 
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _dateDrop--' + modsList[i].trim();
+        allMods = allMods + ' dateDrop--' + modsList[i].trim();
       }
     }
 
     if (options.start !== undefined) {
-      _type = 'filtered';
-      _startDate = options.start;
-      _endDate = options.end;
-      allMods = allMods + '_dateDrop--mid-size';
+      type = 'filtered';
+      startDate = options.start;
+      endDate = options.end;
+      allMods = allMods + 'dateDrop--mid-size';
       
     }
 

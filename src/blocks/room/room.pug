@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_room)
+//- Все примеси в этом файле должны начинаться c имени блока (room)
 
-mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
+mixin room(image, roomNumber, rating, stars, price, type, arrows,  mods)
 
   //- Принимает:
   //-  image,   - путь к картинке
@@ -8,7 +8,7 @@ mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
   //-  rating, - число отзывов
   //-  stars,  число о 1 до 5
   //-  price, {string}- цена с денежной еденицой
-  //-  _type,  {string}- тип номера - ЛЮКС, или пусто (обычный)
+  //-  type,  {string}- тип номера - ЛЮКС, или пусто (обычный)
   //-  arrows, - наличие стрелок - true / false
   //-  mods    {string} - список модификаторов
   //- Вызов:
@@ -20,7 +20,7 @@ mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _room--' + modsList[i].trim();
+        allMods = allMods + ' room--' + modsList[i].trim();
       }
     }
 
@@ -37,7 +37,7 @@ mixin _room(image, roomNumber, rating, stars, price, _type, arrows,  mods)
           .room__dot 
       img.room__img(src=image) 
     .room__inner
-      +roomInfo(roomNumber, price, _type,2)
+      +roomInfo(roomNumber, price, type,2)
       hr.room__hr
       .room__rating
         +stars(stars, roomNumber,'readonly')

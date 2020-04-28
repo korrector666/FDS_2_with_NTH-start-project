@@ -1,6 +1,6 @@
-//- Все примеси в этом файле должны начинаться c имени блока (_pagination)
+//- Все примеси в этом файле должны начинаться c имени блока (pagination)
 
-mixin _pagination(text,list, active,  mods)
+mixin pagination(text,list, active,  mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -17,7 +17,7 @@ mixin _pagination(text,list, active,  mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' _pagination--' + modsList[i].trim();
+        allMods = allMods + ' pagination--' + modsList[i].trim();
       }
     }
     let n = 0 , 
