@@ -521,11 +521,11 @@
 						
 
 						if (new Date(options.date[0]).getTime() == new Date(options.date[1]).getTime()){
-							dom_add_class(day_element, '_calendar__oneDay');
+							dom_add_class(day_element, 'calendar__oneDay');
 						} else if (val == new Date(options.date[0]).getTime() && options.date[0] != options.date[1]) {
-							dom_add_class(day_element, '_calendar__startDay');
+							dom_add_class(day_element, 'calendar__startDay');
 						} else if (val == new Date(options.date[1]).getTime() && options.date[0] != options.date[1]) {
-							dom_add_class(day_element, '_calendar__endDay');
+							dom_add_class(day_element, 'calendar__endDay');
 						} else {
 							dom_add_class(day_element, 'pmu-selected');
 						}

@@ -36,7 +36,7 @@ mixin stars(star, name, readOnly, mods)
       each i in list
         label.stars__label
           if (readOnly != undefined)
-            input(type='radio' checked=i.status  name=_name disabled)
+            input(type='radio' checked=i.status  name=name disabled)
           else
-            input(type='radio' checked=i.status  name=_name )
+            input(type='radio' checked=i.status  name=name )
     block

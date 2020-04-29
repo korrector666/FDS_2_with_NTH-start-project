@@ -63,10 +63,10 @@ mixin header(menuList, buttons, loggedName, mods)
               active = ''
             }
           if (typeof(menuItem.submenu) != 'undefined')
-            li.header__menuItem.header__menuItem--submenu(class=_active) #{menuItem.item}
+            li.header__menuItem.header__menuItem--submenu(class=active) #{menuItem.item}
               .header__downArrow
           else
-            li.header__menuItem(class=_active) 
+            li.header__menuItem(class=active) 
               a.header__link(href='#') #{menuItem.item}
       .header__left
         if (typeof(loggedName) != 'undefined' && loggedName !='')

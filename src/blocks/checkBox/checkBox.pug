@@ -20,10 +20,10 @@ mixin checkBox(name, text, status, title, mods)
 
   .checkBox(class=allMods)&attributes(attributes)
     label
-      input(type='checkbox' checked=_status name= name)
+      input(type='checkbox' checked=status name= name)
       if (typeof(title) !== 'undefined') 
         .checkBox__text.checkBox__text--fz12 
-          span #{_title} 
+          span #{title} 
           |#{text}
       else
         .checkBox__text #{text}

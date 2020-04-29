@@ -7,29 +7,19 @@
   $block-name:                &; // #{$block-name}__element
   min-height: 70px;
   width: calc(100% - 140px - 140px);
+  padding: 0 140px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 140px;
+  
   z-index: 999;
   background: $white;
-  position: fixed;
-  top: 0;
-  left: 0;
-// **********************************************************
-  &--top260 {
-    top: 260px;
-    position: absolute;
-  }
-  &--top150{
-    top: 150px;
-    position: absolute;
 
-  }
-
+  
 // **********************************************************
 // **********************************************************
-  &__nav{
+  &__nav {
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
@@ -44,19 +34,19 @@
   }
 // **********************************************************
 // **********************************************************
-  &__mainMenu{
+  &__mainMenu {
     list-style: none;
     display: flex;
     position: relative;
   }
 // **********************************************************
 // **********************************************************
-  &__menuItem{
+  &__menuItem {
     padding-right: 28px;
     position: relative;
     cursor: pointer;
 // **********************************************************
-    &--submenu{
+    &--submenu {
       padding-right: 45px;
     }
     &--active {
@@ -69,7 +59,7 @@
   @include arrow-button(-15px,11px);
 // **********************************************************
 // **********************************************************
-  &__logged{
+  &__logged {
     padding-left: 35px;
     position: relative;
     &::before{

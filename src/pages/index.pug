@@ -228,9 +228,9 @@ block content
         +calendar()
         +room('img/rooms/888.jpg', 888, 145, 5, '9 990₽', 'люкс', true)
         +room('img/rooms/840.jpg', 840, 65, 4, '9 900₽')
-  +section('img/logo.svg','bg2')
-    +header('',{login :'login', register :'register'},'','top150')
-    +header('',{login :'login', register :'register'}, 'Cosmin Negoita', 'top260')
+  +section('img/logo.svg','bg2, noLRPadding')
+    +header('',{login :'login', register :'register'})(class = 'section__header')
+    +header('',{login :'login', register :'register'}, 'Cosmin Negoita')(class = 'section__header')
     +footer('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',[
         {
           title: 'Navigation',
@@ -295,7 +295,8 @@ block content
       text: 'Receive our latest news and promotions in your inbox!',
       placeholder : 'Your email address'
     }
-    ,
-     'top370')
+    )(class = 'section__footer')
+
+    +footer('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')(class = 'section__footer')
 
 

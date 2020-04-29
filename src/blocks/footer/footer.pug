@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (footer)
 
-mixin footer(text, menu_lists, subscribe, mods)
+mixin footer(text, menuLists, subscribe, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -20,27 +20,44 @@ mixin footer(text, menu_lists, subscribe, mods)
     }
 
   .footer(class=allMods)&attributes(attributes)
-    .footer__inner
-      .footer__descr
-        +toxin
-        p #{text}
-   
+    if (typeof(menuLists) != 'undefined' && menuLists != '' )
+      .footer__inner
+        .footer__descr
+          +toxin(class = 'footer__toxin')
+          |#{text}
 
-      for menus,index in menu_lists
-        .footer__items
-          h3 #{menus.title}
-          ul.footer__list
-            for item in menus.list
-              li.footer__item
-                a(href=item.href) #{item.text}
-      .footer__subscr
-        h3 #{subscribe.header}
-        p #{subscribe.text}
-        +textField({
-                name: 'footer_subscr',
-                type: 'subscription',
-                placeholder : subscribe.placeholder
-                },' parentWide')
-    hr.footer__hr
-    .footer__sub Copyright © 2018 Toxin UI Kit. All rights reserved.
+        for menus,index in menuLists
+          .footer__items
+            h3 #{menus.title}
+            ul.footer__list
+              for item in menus.list
+                li.footer__item
+                  a(href=item.href) #{item.text}
+
+        if (typeof(subscribe) != 'undefined' && subscribe != '' )
+          .footer__subscr
+            h3 #{subscribe.header}
+            p #{subscribe.text}
+            +textField({
+                    name: 'footer_subscr',
+                    type: 'subscription',
+                    placeholder : subscribe.placeholder
+                    },' parentWide')
+
+      hr.footer__hr
+      .footer__sub Copyright © 2018 Toxin UI Kit. All rights reserved.
+        .footer__icons
+          +icon('img/icons/twitter.svg')(class = 'footer__icon')
+          +icon('img/icons/facebook.svg')(class = 'footer__icon')
+          +icon('img/icons/instagram.svg')(class = 'footer__icon')
+    else
+      .footer__inner.footer__inner--minimal
+        .footer__descr.footer__descr--minimal
+          +toxin(class = 'footer__toxin footer__toxin--center')
+          |#{text}
+        .footer__icons
+          +icon('img/icons/twitter.svg')(class = 'footer__icon footer__icon--noMargin')
+          +icon('img/icons/facebook.svg')(class = 'footer__icon')
+          +icon('img/icons/instagram.svg')(class = 'footer__icon')
+
     block

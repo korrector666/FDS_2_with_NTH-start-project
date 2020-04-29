@@ -16,7 +16,7 @@ $not-in-month-hover               : #999 !default;
 $disabled                         : #333 !default;
 $selected                         : $color !default;
 $selected-background              : $second-grad !default;
-$not-in-month-selected-background : #17384d !default;
+$not-in-month-selected-background : $selected-background   !default;
 // $day-of-week                      : $not-in-month-hover !default;
 $day-of-week                      : $purple;
 $today-background                 : $main-grad !default;

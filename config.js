@@ -37,6 +37,7 @@ let config = {
   'addAssets': {
     'src/img/*.*': 'img/',
     'src/img/users/*.*': 'img/users/',
+    'src/img/icons/*.*': 'img/icons/',
     'src/img/rooms/*.*': 'img/rooms/',
     'src/fonts/*.*': 'fonts/',
     // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',

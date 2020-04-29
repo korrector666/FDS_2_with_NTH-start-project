@@ -28,7 +28,7 @@ mixin roomInfo(roomNumber, roomPrice, type, size, mods)
       .roomInfo__numer
         |№ 
         if (size != 1) 
-          span.roomInfo__value(class=_size) #{roomNumber}
+          span.roomInfo__value(class=size) #{roomNumber}
         else
           span.roomInfo__value #{roomNumber}
         
