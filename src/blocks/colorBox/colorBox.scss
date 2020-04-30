@@ -13,8 +13,7 @@
   font-size: 19px;
   padding: 10px 0;
   line-height: 29px;
-  // line-height: 29px;
-  margin-left: 22px;
+  margin-left: 10px;
   
   &__inner{
     width: 70px;
@@ -28,32 +27,30 @@
     }
   
     
-    &--darkShade75{
+    &--darkShade75 {
       background-color: $dark-shade-75;
     }
-    &--darkShade50{
+    &--darkShade50 {
       background-color: $dark-shade-50;
     }
-    &--darkShade25{
+    &--darkShade25 {
       background-color: $dark-shade-25;
     }
-    &--darkShade05{
+    &--darkShade05 {
       background-color: $dark-shade-05;
     }
-    &--purple{
+    &--purple {
       background-color: $purple;
     }
-    &--green{
+    &--green {
       background-color: $green;
     }
   }
-  &__text{
+  &__text {
     font-family: 'Quicksand';
-    span{
+    span {
       font-weight: bold;
     }
-    
-    
 
   }
 

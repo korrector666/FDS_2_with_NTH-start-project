@@ -8,36 +8,37 @@
   margin-bottom: 25px;
   display: flex;
   padding: 12px 0;
-  padding-right: 56px;
+  padding-right: 51px;
   justify-content: flex-start;
   font-family: 'Montserrat';
-  
 
-  
-
-  &__left{
+  &__left {
     font-family: 'Montserrat';
     width: 37px;
     text-align: right;
     color: $dark-shade-25;
 
-    &--sizeH1{
+    &--sizeH1 {
       @include sizeH1;
     }
-    &--sizeH2{
+
+    &--sizeH2 {
       @include sizeH2;
     }
-    &--sizeH3{
+
+    &--sizeH3 {
       @include sizeH3;
     }
       
   }
 
-  &__right{
+  &__right {
     width: 336px;
     margin-left: 30px;
+
     &--w310 {
       width: 310px;
+      margin-right: 26px;
     }
     
   }

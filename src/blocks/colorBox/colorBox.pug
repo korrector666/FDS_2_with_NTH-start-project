@@ -20,11 +20,9 @@ mixin colorBox(color, text, mods)
 
   .colorBox(class=allMods)&attributes(attributes)
     if (color != '') 
-      .colorBox__inner(class=' colorBox__inner--' + color)
+      .colorBox__inner(class='colorBox__inner--' + color)
     else
       .colorBox__inner
-    
     .colorBox__text
-        span #{text} <br>
-        |#1F2041
+        span #{text} <br>        
         
