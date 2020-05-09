@@ -5,16 +5,16 @@ h1, h2 , h3 {
 
 }
 h1 {
-	font-family: 'Quicksand' !important;
+	font-family: 'Quicksand', sans-serif;
 	@include sizeH1;
 	}
 h2 {
-	font-family: 'Quicksand' !important;
+	font-family: 'Quicksand' , sans-serif;
 	@include sizeH2;
 }
 
 h3, body {
-	font-family: 'Montserrat' !important;
+	font-family: 'Montserrat', sans-serif;
 }
 
 h3 {

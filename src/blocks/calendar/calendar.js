@@ -14,37 +14,63 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 	
 	
 
-	let calendars = document.querySelectorAll('.calendar');
-	
-	// cl(calendars);
-	calendars.forEach( function(elem) {
+	let calendars = document.querySelectorAll('.calendar'),
+		numberOfCalendars = 1;
 
-		pickmeup('.calendar__inner', {
+	
+	
+
+	calendars.forEach( function(elem, index) {
+		let calendarNumber = 'calendar__inner' + index;
+
+		elem.querySelector('.calendar__inner').classList.add(calendarNumber);
+
+		pickmeup('.' + calendarNumber, {
 			flat : true,
 			mode : 'range',
 			date: ['19.08.2019','23.08.2019'],
 			prev: '<div class="calendar__prevBtn"></div>',
-			next: '<div class="calendar__nextBtn"></div>'
+			next: '<div class="calendar__nextBtn"></div>',
+			calendars : numberOfCalendars
 		});
-
-
+		
 		let clearBtn = elem.querySelectorAll('.btn')[0],
-			submitBtn = elem.querySelectorAll('.btn')[1];
+			submitBtn = elem.querySelectorAll('.btn')[1],
+			startDate = elem.getAttribute('data-startDate'), 
+			endDate = elem.getAttribute('data-endDate'),
+			initiDate = []; 
+
+
+		if (startDate != null) {
+			initiDate.push(startDate);
+		}
+
+		if (endDate != null) {
+			initiDate.push(endDate);
+		}
+
+		if (initiDate.length >= 1) {
+			pickmeup('.' + calendarNumber).set_date(initiDate);
+	
+		}
+
+
+
 	
 
 		clearBtn.addEventListener('click', function () {
-			pickmeup('.calendar__inner').clear();
+			pickmeup('.' + calendarNumber).clear();
 		});
 
-		submitBtn.addEventListener('click', function () {
-			let dates = pickmeup('.calendar__inner').get_date('d-m-Y');
-
+		submitBtn.addEventListener('click', function (e) {
+			let dates = pickmeup('.' + calendarNumber).get_date('d-m-Y');
+			e.preventDefault();
 			elem.setAttribute('data-startDate', dates[0]); 
 			elem.setAttribute('data-endDate', dates[1]); 
 			
 			elem.classList.add('calendar--hide');
 
-			return pickmeup('.calendar__inner').get_date();
+			return pickmeup('.' + calendarNumber).get_date();
 		});
 		
 

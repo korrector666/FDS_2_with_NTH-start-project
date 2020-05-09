@@ -5,8 +5,32 @@
 .searchPage {
 
   $block-name:                &; // #{$block-name}__element
-  min-height: 900px;
+  height: 742px;
+  padding: 70px 134px 18px 140px;
+
   &--backgroundSofa {
     background: url('/img/background1.jpg') center no-repeat; 
+    background-position: 0 -70px;
   }
+  //*****************************************************************
+  //*****************************************************************
+  &__container {
+    display: flex;
+    height: 325px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+  }
+  //*****************************************************************
+  //*****************************************************************
+  &__phrase {
+    width: 297px;
+    text-align: right;
+    @include fontMose(14px, normal, 24px);
+    color: $dark-shade-75;
+  }
+  //*****************************************************************
+  //*****************************************************************
+
 }

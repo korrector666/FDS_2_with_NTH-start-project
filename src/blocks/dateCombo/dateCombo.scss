@@ -6,8 +6,19 @@
 
   $block-name:                &; // #{$block-name}__element
   width: $normal;
-  &__text{
+
+  // ******************************************************
+  // ******************************************************
+  &__text {
+    position: relative;
     display: flex;
     justify-content: space-between;
+  }
+  // ******************************************************
+  // ******************************************************
+  &__calendar {
+    position: absolute;
+    top: 65px;
+    z-index: 999;
   }
 }

@@ -11,15 +11,15 @@ let findMonth = function (date){
 };
 
 window.addEventListener('DOMContentLoaded', function () {
-
-	let dateStart = document.querySelectorAll('[data-startdate]');
+{
+	let dateDropFiltered = document.querySelectorAll('.dateDrop--mid-size');
 		// arrows = document.querySelectorAll('.dateDrop__downArrow')
 
-	dateStart.forEach( (e) => {
-		if (e.matches('[data-enddate]')) {
+		dateDropFiltered.forEach( (e) => {
+
 			e.querySelector('input').value = `${findMonth(e.dataset.startdate).toLowerCase()} - ${findMonth(e.dataset.enddate).toLowerCase()}`;
-		}
 
 	});
+}
 
 });

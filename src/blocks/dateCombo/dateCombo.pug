@@ -21,5 +21,7 @@ mixin dateCombo(combo, combo2, mods)
   .dateCombo(class=allMods)&attributes(attributes)
     .dateCombo__text
       +dateDrop(combo)(readonly, data-startDate)  
-      +dateDrop(combo2)(readonly, data-startDate)  
+      +dateDrop(combo2)(readonly, data-endDate) 
+      +calendar()(class = 'dateCombo__calendar' )
+
     block
