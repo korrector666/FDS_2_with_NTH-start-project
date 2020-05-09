@@ -1,12 +1,12 @@
-//- Все примеси в этом файле должны начинаться c имени блока (title)
+//- Все примеси в этом файле должны начинаться c имени блока (searchPage)
 
-mixin title(text, mods)
+mixin searchPage(mods)
 
   //- Принимает:
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +title('Текст', 'some-mod')
+        +searchPage('Текст', 'some-mod')
 
   -
     // список модификаторов
@@ -14,10 +14,9 @@ mixin title(text, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' title--' + modsList[i].trim();
+        allMods = allMods + ' searchPage--' + modsList[i].trim();
       }
     }
 
-  h2.title(class=allMods)&attributes(attributes)
-    |#{text}
+  .searchPage(class=allMods)&attributes(attributes)
     block

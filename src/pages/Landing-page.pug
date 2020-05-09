@@ -5,5 +5,91 @@ block meta
   meta(name='description', content='')
 
 block content
-  +header('',{login :'войти', register :'зарегистрироваться'})
+  +header([
+    {
+      item : 'О нас',
+    },
+    {
+      item : 'Услуги',
+      submenu : [{item: 'услуга 1'},{item: 'услуга 2'}] 
+    },
+    {
+      item : 'Вакансии',
+    },
+    {
+      item : 'Новости'
+    },
+    {
+      item : 'Соглашения',
+      submenu : [{item: 'соглашение 1'},{item: 'соглашение 2'}] 
+    }
+    ]
+    ,{login :'войти', register :'зарегистрироваться'} )
+  +searchPage('backgroundSofa')
+  +footer('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',[
+    {
+      title: 'Navigation',
+      list:[
+            {
+              text: 'About Us',
+              href : '#'
+            },
+            {
+              text: 'News',
+              href : '#'
+            },
+            {
+              text: 'Support',
+              href : '#'
+            },
+            {
+              text: 'Products',
+              href : '#'
+            }]
+    },
+    {
+      title: 'ABOUT US',
+      list:[
+            {
+              text: 'Who we are',
+              href : '#'
+            },
+            {
+              text: 'Our team',
+              href : '#'
+            },
+            {
+              text: 'Careers',
+              href : '#'
+            },
+            {
+              text: 'Investors',
+              href : '#'
+            }]
+    },
+    {
+      title: 'Support',
+      list:[
+          {
+            text: 'Documentation',
+            href : '#'
+          },
+          {
+            text: 'Community',
+            href : '#'
+          },
+          {
+            text: 'Get in Touch',
+            href : '#'
+          }]
+    }
+    ],
+
+{
+  header: 'Subscribe to our newsletter',
+  text: 'Receive our latest news and promotions in your inbox!',
+  placeholder : 'Your email address'
+}
+)
+    
 

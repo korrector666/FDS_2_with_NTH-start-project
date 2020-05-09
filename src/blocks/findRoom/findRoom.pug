@@ -20,20 +20,21 @@ mixin findRoom(mods)
 
   .findRoom(class=allMods)&attributes(attributes)
     +title('Найдём номера под ваши пожелания','main')
-    +dateCombo({ text:'Прибытие'},{ text: 'Выезд'})
-    +textField({
-          text: 'Гости',
-          placeholder:'Сколько гостей',
-          state:'default',
-          dropBoxBtn:'true',
-          dropDown:[{
-              name: 'взрослые',
-              },{
-              name: 'дети',
-              },{
-              name: 'младенцы',
-            }]
-          })('readonly')
-    +btn('подобрать номер', 'coloredBig , mt12')          
+    form
+      +dateCombo({ text:'Прибытие'},{ text: 'Выезд'})
+      +textField({
+            text: 'Гости',
+            placeholder:'Сколько гостей',
+            state:'default',
+            dropBoxBtn:'true',
+            dropDown:[{
+                name: 'взрослые',
+                },{
+                name: 'дети',
+                },{
+                name: 'младенцы',
+              }]
+            })('readonly')
+      +btn('подобрать номер', 'coloredBig , mt12')          
     .findRoom__inner
       block

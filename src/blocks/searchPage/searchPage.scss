@@ -1,0 +1,12 @@
+// В этом файле должны быть стили для БЭМ-блока searchPage, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.searchPage {
+
+  $block-name:                &; // #{$block-name}__element
+  min-height: 900px;
+  &--backgroundSofa {
+    background: url('/img/background1.jpg') center no-repeat; 
+  }
+}
