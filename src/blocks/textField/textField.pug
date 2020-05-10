@@ -46,7 +46,7 @@ mixin textField(options,mods)
       }
 
     if (typeof(options.placeholder) == 'undefined') {
-      options.placeholder = 'Email'
+      options.placeholder = ''
     }
 
     if (typeof(options.dropDown) !== 'undefined' && options.dropDown){
@@ -86,7 +86,7 @@ mixin textField(options,mods)
                 +btn('Применить','noMR , mt16pr2mb5')
 
       when 'maskDate'
-        input.textField__input(name = options.name, placeholder= placeHolder , value = options.value, data-date='maskDate' max = '2050-12-31' )
+        input.textField__input(name = options.name, placeholder= placeHolder , value = options.value)
       default
         input.textField__input(name = options.name, placeholder= options.placeholder , value = options.value)
 

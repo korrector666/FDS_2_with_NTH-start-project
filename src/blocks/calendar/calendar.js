@@ -23,15 +23,16 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 	calendars.forEach( function(elem, index) {
 		let calendarNumber = 'calendar__inner' + index;
 
+
 		elem.querySelector('.calendar__inner').classList.add(calendarNumber);
 
 		pickmeup('.' + calendarNumber, {
 			flat : true,
 			mode : 'range',
-			date: ['19.08.2019','23.08.2019'],
 			prev: '<div class="calendar__prevBtn"></div>',
 			next: '<div class="calendar__nextBtn"></div>',
-			calendars : numberOfCalendars
+			format : 'd.m.Y',
+			calendars : numberOfCalendars,
 		});
 		
 		let clearBtn = elem.querySelectorAll('.btn')[0],
@@ -58,19 +59,20 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 
 	
 
-		clearBtn.addEventListener('click', function () {
+		clearBtn.addEventListener('click', function (e) {
+			
+			e.preventDefault();
 			pickmeup('.' + calendarNumber).clear();
 		});
 
 		submitBtn.addEventListener('click', function (e) {
-			let dates = pickmeup('.' + calendarNumber).get_date('d-m-Y');
+			let dates = pickmeup('.' + calendarNumber).get_date('d.m.Y');
+
 			e.preventDefault();
+
 			elem.setAttribute('data-startDate', dates[0]); 
 			elem.setAttribute('data-endDate', dates[1]); 
-			
 			elem.classList.add('calendar--hide');
-
-			return pickmeup('.' + calendarNumber).get_date();
 		});
 		
 

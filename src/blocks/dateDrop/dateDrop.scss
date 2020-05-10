@@ -8,8 +8,10 @@
   $block-name:                &; // #{$block-name}__element
   @include text-field-default($small);
   @include info;
-  padding-top: $topOffset;
+  // padding-top: $topOffset;
   @include arrow-button($topOffset); 
+
+  height: 65px;
   // margin-right: 20px;
 
   &--showDrop {
@@ -17,7 +19,7 @@
     $showDrop: true;
   }
 
-  &--mid-size{
+  &--mid-size {
     width: $midi !important;
   }
 

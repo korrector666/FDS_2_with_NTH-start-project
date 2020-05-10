@@ -24,6 +24,11 @@ mixin dateDrop(options)
       }
     }
 
+    if (typeof(options.value) == 'undefined') {
+      options.value = '';
+    }
+
+
     if (options.start !== undefined) {
       type = 'filtered';
       startDate = options.start;
@@ -33,9 +38,11 @@ mixin dateDrop(options)
     }
 
   .dateDrop(class=allMods)&attributes(attributes)
-    label.dateDrop__info #{options.text}
+    +textField({
+        text: ` ${options.text}`,
+        type: 'maskDate',
+        value : `${options.value}`,
+        })
     .dateDrop__downArrow
-    input.dateDrop__input(placeholder=placeholder value=value)
-    .dateDrop__overlay
-    .dateDrop__inner
-      block
+
+    block

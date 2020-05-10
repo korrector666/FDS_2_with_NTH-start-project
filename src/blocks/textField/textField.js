@@ -1,9 +1,9 @@
 /* global document window console */
 
 // const ready = require('../../js/utils/documentReady.js');
-const cl = function (obj) {
-	console.log(obj);
-};
+// const cl = function (obj) {
+// 	console.log(obj);
+// };
 
 window.addEventListener('DOMContentLoaded', function () {
 	
@@ -38,7 +38,6 @@ window.addEventListener('DOMContentLoaded', function () {
 			dateTemp[1] ='12';
 		}
 
-		cl(dateTemp);
 
 		let isLeap = year => new Date(year, 1, 29).getDate() === 29;
 
@@ -65,10 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			case '11':  // if (x === 'value2')
 				if (+dateTemp[0] >31 ) {
 					dateTemp[0] = 30;
-					cl('here');
 				}
-				cl(+dateTemp[0] >31);
-				cl(+dateTemp[0]);
 				break;
 			default:
 				break;
@@ -91,30 +87,52 @@ window.addEventListener('DOMContentLoaded', function () {
 	// обработка значений при изменении кнопок
 	
 	function summOfInputs(values, summ, input, valueNames) {
-		let localSumm = summ;
+		let localSumm = summ ,
+			babyNumber = ' младенцев';
 
 		input.value=''; 
 		
 		values.forEach(function (e,index) {
+			let inputValue = +e.textContent;
+
 			if (valueNames !== undefined ) {
-				if (+e.textContent !==0) {
+				if (inputValue !==0) {
 					if (index == 0) {
-						input.value += `${+e.textContent} ${valueNames[index].textContent}, `;
+						input.value += `${inputValue} ${valueNames[index].textContent}, `;
 					} else if (index == 1) {
-						input.value += `${+e.textContent} ${valueNames[index].textContent}... `;
+						input.value += `${inputValue} ${valueNames[index].textContent}... `;
 					}
 				}
 			} else {
-				localSumm += +e.textContent;
+				if (index == 2 && inputValue > 0) {
+					if (inputValue == 1) {
+						babyNumber = ' младенец'
+					} else if (inputValue >=2 && inputValue <= 4) {
+						babyNumber = ' младенца';
+					} 
+					input.value +=` ${inputValue} ${babyNumber}`;
+				} else {
+					localSumm += inputValue;
 
-				if (localSumm !== 0) {
-					input.value = localSumm + ' гостей';
-				}
-				else {
-					input.value = '';
+					if (localSumm !== 0) {
+						let guest = ' гостя';
+	
+						if (+localSumm == 1) {
+							guest = ' гость'; 
+						} else if (+localSumm >= 5) {
+							guest = ' гостей';
+						} 
+	
+						input.value = localSumm + guest;
+					}
+					else {
+						input.value = '';
+					}
+	
 				}
 			}
 		});
+
 		if (input.value =='' && valueNames !== undefined) {
 			input.value = 'ничего не выбрано';
 		}
@@ -125,6 +143,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	droppedInputs.forEach(e => {
 		let input = e.querySelector('.textField__input');
+
 		input.classList.add('textField__input--cutBorderBottom');
 		e.classList.add('textField--autoHeght');
 	
@@ -149,8 +168,8 @@ window.addEventListener('DOMContentLoaded', function () {
 			//  вызываем суммирование значений для инициализации
 			summ = summOfInputs(values, summ, input, spans) ;
 
-			//  itit of original state
-			//  проверяем наличие кнопки отмена
+//  itit of original state
+//  проверяем наличие кнопки отмена
 			if (btnCancel) {
 				if (summ > 0) {
 					btnCancel.style.display = 'inline-block';
@@ -171,10 +190,12 @@ window.addEventListener('DOMContentLoaded', function () {
 						next.textContent = '0';
 					}
 			});
-			// следим за всеми дропами, если на них кликаю проверяем на какую кнопку
+// следим за всеми дропами, если на них кликаю проверяем на какую кнопку
 		elem.addEventListener('click', function (e) {
 			let target = e.target;
-			
+
+				e.preventDefault();
+
 				btnPlus.forEach((item) => {
 					if (target == item) {
 						let prev = item.previousElementSibling,
@@ -245,7 +266,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	arrows.forEach(function (elem,i) {
 		let parent = elem.parentElement,
 			nextSibling = elem.nextElementSibling;
-		// cl(parent.classList);
+
 		elem.addEventListener('click', function() {
 			closeOpenedDrops(i);
 			parent.classList.toggle('textField--showDrop');
@@ -253,14 +274,13 @@ window.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	//  скрытие всех открытых вкладок
+//  скрытие всех открытых вкладок
 	function closeOpenedDrops(i) {
 		for (let elem of arrowsOld){
-			const parent = elem.parentElement,
-				state= parent.querySelector('.textField__info--state'),
+			let parent = elem.parentElement,
 				nextSibling = elem.nextElementSibling;
 
-			if(elem !== arrows[i] && state.textContent !== 'expanded') {
+			if (elem !== arrows[i] && !parent.classList.contains('textField--dontHide') ) {
 				parent.classList.remove('textField--showDrop');
 				nextSibling.classList.remove('textField__input--cutBorderBottom');
 			}
@@ -269,7 +289,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	
 	
 
-})
+});
 
 
 

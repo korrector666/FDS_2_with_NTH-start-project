@@ -25,8 +25,8 @@ mixin findRoom(mods)
       +textField({
             text: 'Гости',
             placeholder:'Сколько гостей',
-            state:'default',
             dropBoxBtn:'true',
+            name: 'guestNumber',
             dropDown:[{
                 name: 'взрослые',
                 },{
@@ -35,6 +35,6 @@ mixin findRoom(mods)
                 name: 'младенцы',
               }]
             })('readonly')
-      +btn('подобрать номер', 'coloredBig , mt12')          
+      +btn('подобрать номер', 'coloredBig , mt12')(class = 'findRoom__btn')          
     .findRoom__inner
       block
