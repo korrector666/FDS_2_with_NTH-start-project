@@ -11,7 +11,7 @@
   // padding-top: $topOffset;
   @include arrow-button($topOffset); 
 
-  height: 65px;
+  min-height: 65px;
   // margin-right: 20px;
 
   &--showDrop {

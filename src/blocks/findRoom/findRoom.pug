@@ -20,7 +20,7 @@ mixin findRoom(mods)
 
   .findRoom(class=allMods)&attributes(attributes)
     +title('Найдём номера под ваши пожелания','main')
-    form
+    form.findRoom__form
       +dateCombo({ text:'Прибытие'},{ text: 'Выезд'})
       +textField({
             text: 'Гости',

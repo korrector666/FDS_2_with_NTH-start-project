@@ -16,6 +16,8 @@
   z-index: 999;
   background: $white;
 
+  box-shadow: 0px 10px 20px $dark-shade-05;
+
   &--topFixed {
     position: fixed;
     top: 0;

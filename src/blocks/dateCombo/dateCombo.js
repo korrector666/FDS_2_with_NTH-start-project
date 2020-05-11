@@ -9,7 +9,7 @@
 	{
 		let dateCombos = document.querySelectorAll('.dateCombo__text') ;
 
-			dateCombos.forEach( dateCombo => {
+			dateCombos.forEach( (dateCombo) => {
 				let calendar = dateCombo.querySelector('.calendar'), 
 					dropDowns = dateCombo.querySelectorAll('.dateDrop__downArrow'); 
 
@@ -23,7 +23,7 @@
 					});
 				});
 
-				dateCombo.addEventListener('click', event => {
+				dateCombo.addEventListener('click', (event) => {
 					let calendatSubmitBtn = dateCombo.querySelectorAll('button')[1];
 
 					if (event.target == calendatSubmitBtn ) {

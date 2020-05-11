@@ -1,19 +1,10 @@
-// В этом файле должны быть стили для БЭМ-блока findRoom, его элементов,
+// В этом файле должны быть стили для БЭМ-блока searchResult, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-.findRoom {
+.searchResult {
 
   $block-name:                &; // #{$block-name}__element
-  min-height: 374px;
 
-  @include defaultWindow;
-
-  &__error {
-    position: absolute;
-    top: 10px;
-
-    color: red;
-  }
-  
+  min-height: 1356px;
 }
