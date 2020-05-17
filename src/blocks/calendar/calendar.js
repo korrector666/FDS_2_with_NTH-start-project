@@ -67,6 +67,7 @@ const pickmeup = require('../../js/utils/pickmeup.js');
 
 		submitBtn.addEventListener('click', function (e) {
 			let dates = pickmeup('.' + calendarNumber).get_date('d.m.Y');
+				
 
 			e.preventDefault();
 

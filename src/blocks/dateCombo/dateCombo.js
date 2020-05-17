@@ -30,11 +30,13 @@
 						let startDate = calendar.getAttribute('data-startDate'),
 							endDate = calendar.getAttribute('data-endDate'), 
 							enterDropBox = dateCombo.querySelector('[data-startDate]').querySelector('input') ,
-							outDropBox = dateCombo.querySelector('[data-endDate]').querySelector('input') ; 
+							outDropBox = dateCombo.querySelector('[data-endDate]').querySelector('input');
 
 						
 						enterDropBox.value = startDate;
 						outDropBox.value = endDate;
+
+
 
 					}
 

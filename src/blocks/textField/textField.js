@@ -257,6 +257,7 @@ window.addEventListener('DOMContentLoaded', function () {
 				if (target == btnSubmit) {
 					this.parentElement.classList.remove('textField--showDrop');
 					this.parentElement.querySelector('input').classList.remove('textField__input--cutBorderBottom');
+
 				}
 
 

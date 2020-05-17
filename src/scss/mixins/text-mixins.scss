@@ -32,7 +32,7 @@
   line-height: $lh;
 }
 @mixin fontQuicksand($fz : 14px, $fw: normal, $lh: $fz,  $fs : normal,  ){
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Quicksand','Montserrat', sans-serif;
   font-style: $fs;
   font-weight: $fw;
   font-size: $fz;

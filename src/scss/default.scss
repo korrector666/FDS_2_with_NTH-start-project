@@ -5,11 +5,11 @@ h1, h2 , h3 {
 
 }
 h1 {
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', 'Montserrat', sans-serif;
 	@include sizeH1;
 	}
 h2 {
-	font-family: 'Quicksand' , sans-serif;
+	font-family: 'Quicksand' , 'Montserrat', sans-serif;
 	@include sizeH2;
 }
 
