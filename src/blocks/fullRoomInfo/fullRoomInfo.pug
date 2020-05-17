@@ -1,0 +1,36 @@
+//- Все примеси в этом файле должны начинаться c имени блока (fullRoomInfo)
+
+mixin fullRoomInfo(options, mods)
+
+  //- Принимает:
+  //-   options    {string} - объект
+  //-   mods       {string} - список модификаторов
+  //- Вызов:
+        +fullRoomInfo('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' fullRoomInfo--' + modsList[i].trim();
+      }
+    }
+
+    let images = [];
+    if (typeof(options) == 'undefined' || typeof(options.images) == 'undefined') {
+        images[0] = 'img/rooms/888-1.jpg'; 
+        images[1] = 'img/rooms/888-2.jpg';
+        images[2] = 'img/rooms/888-3.jpg';
+    }
+
+  .fullRoomInfo(class=allMods)&attributes(attributes)
+    .fullRoomInfo__images
+      .fullRoomInfo__leftPart
+        img.fullRoomInfo__image(src = images[0])
+      .fullRoomInfo__rightPart
+        img.fullRoomInfo__image(src = images[1] height = '243px')
+        img.fullRoomInfo__image(src = images[2] height = '242px')
+
+      block
