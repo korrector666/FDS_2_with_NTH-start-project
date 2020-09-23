@@ -1,6 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (infoBlock)
 
-mixin infoBlock(link, title, text, mods)
+mixin infoBlock(link, title, text, hasHr = true, mods)
 
   //- Принимает:
   //-   text    {string} - текст
@@ -24,5 +24,6 @@ mixin infoBlock(link, title, text, mods)
       .infoBlock__inner
         .infoBlock__title #{title}
         .infoBlock__text #{text}
-    hr.infoBlock__hr
+    if (hasHr) 
+      hr.infoBlock__hr
   block

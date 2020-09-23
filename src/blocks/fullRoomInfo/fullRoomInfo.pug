@@ -32,5 +32,32 @@ mixin fullRoomInfo(options, mods)
       .fullRoomInfo__rightPart
         img.fullRoomInfo__image(src = images[1] height = '243px')
         img.fullRoomInfo__image(src = images[2] height = '242px')
-
-      block
+    section.fullRoomInfo__content
+      .fullRoomInfo__subsection
+        .fullRoomInfo__additionalInfo
+          .fullRoomInfo__roomInfo
+            +subTitle('Сведения о номере')
+            +infoBlock( 'img/insert_emoticon.svg','Комфорт','Шумопоглощающие стены')
+            +infoBlock( 'img/location_city.svg','Удобство','Окно в каждой из спален')
+            +infoBlock( 'img/whatshot.svg','Уют','Номер оснащён камином',false)
+          .fullRoomInfo__impressions
+            +subTitle('Впечатления от номера')
+        .fullRoomInfo__reviews
+          .fullRoomInfo__title
+            .fullRoomInfo__titleName
+              +subTitle('Отзывы посетителей номера')
+            .fullRoomInfo__titleName
+              p 2 отзыва
+          .fullRoomInfo__reviewsItem
+            +review('Мурад Сарафанов','5 дней назад', 12, 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 'img/users/user1.png')
+          .fullRoomInfo__reviewsItem
+            +review('Патрисия Стёклышкова','Неделю назад', 2, 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент', 'img/users/user2.png')
+        .fullRoomInfo__order
+          .fullRoomInfo__rules
+            +subTitle('Правила')
+            +bulletList('Нельзя с питомцами ; Без вечеринок и мероприятий ; Время прибытия — после 13:00 , а выезд до 12:00')
+          .fullRoomInfo__cancel
+            +subTitle( 'Отмена')
+            p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+      +booking()
+    block

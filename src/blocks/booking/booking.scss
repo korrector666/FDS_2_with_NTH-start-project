@@ -5,9 +5,9 @@
 .booking {
 
   $block-name:                &; // #{$block-name}__element
-  min-height: 374px;
 
   @include defaultWindow;
+  height: fit-content;
 // *********************************************************
   &__item {
     display: flex;

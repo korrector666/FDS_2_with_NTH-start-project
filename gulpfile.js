@@ -43,8 +43,8 @@ const ghpages = require('gh-pages');
 const path = require('path');
 // добавленый к оригинальной сборке KorRector
 const htmlmin = require('gulp-htmlmin');
-const cleanCSS = require('gulp-clean-css');
- const autoprefixerGulp = require('gulp-autoprefixer');
+// const cleanCSS = require('gulp-clean-css');
+const autoprefixerGulp = require('gulp-autoprefixer');
 
 // Глобальные настройки этого запуска
 const buildLibrary = process.env.BUILD_LIBRARY == 'yes' ? true : false;
@@ -449,23 +449,23 @@ function serve() {
 
   // Картинки: все события
   watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
-  watch([`src/img/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
+  watch([`src/img/**/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
   
 
   // Спрайт SVG
-  watch([`${dir.blocks}sprite-svg/svg/*.svg`], { events: ['all'], delay: 100 }, series(
-    generateSvgSprite,
-    copyImg,
-    reload,
-  ));
+  // watch([`${dir.blocks}sprite-svg/svg/*.svg`], { events: ['all'], delay: 100 }, series(
+  //   generateSvgSprite,
+  //   copyImg,
+  //   reload,
+  // ));
 
-  // Спрайт PNG
-  watch([`${dir.blocks}sprite-png/png/*.png`], { events: ['all'], delay: 100 }, series(
-    generatePngSprite,
-    copyImg,
-    compileSass,
-    reload,
-  ));
+  // // Спрайт PNG
+  // watch([`${dir.blocks}sprite-png/png/*.png`], { events: ['all'], delay: 100 }, series(
+  //   generatePngSprite,
+  //   copyImg,
+  //   compileSass,
+  //   reload,
+  // ));
 }
 
 
